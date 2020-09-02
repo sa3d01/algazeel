@@ -12,15 +12,7 @@ class MasterController extends Controller
 {
     protected $model;
     protected $auth_key;
-    private $auth;
 
-//    public function __construct()
-//    {
-//        $this->middleware(function($request, $next){
-//            $this->auth = Auth::guard('api')->user();
-//            return $next($request);
-//        });
-//    }
     public function sendResponse($result)
     {
         $response = [

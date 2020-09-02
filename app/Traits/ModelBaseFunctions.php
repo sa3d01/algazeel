@@ -33,9 +33,13 @@ trait ModelBaseFunctions
     protected function getImageAttribute()
     {
         $dest=$this->images_link;
-        if ($this->attributes['image'])
-            return asset($dest). '/' . $this->attributes['image'];
-        return asset($dest) . '/default.jpeg';
+        try {
+            if ($this->attributes['image'])
+                return asset($dest). '/' . $this->attributes['image'];
+            return asset($dest) . '/default.jpeg';
+        }catch (\Exception $e){
+            return asset($dest) . '/default.jpeg';
+        }
     }
 
     protected function setPasswordAttribute($password)

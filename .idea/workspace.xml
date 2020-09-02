@@ -198,7 +198,7 @@
       <workItem from="1596759489329" duration="633000" />
       <workItem from="1597632103491" duration="634000" />
       <workItem from="1598971076147" duration="5872000" />
-      <workItem from="1599040123061" duration="3751000" />
+      <workItem from="1599040123061" duration="7696000" />
     </task>
     <servers />
   </component>
@@ -210,18 +210,26 @@
     <option name="LAST_COMMIT_MESSAGE" value="init" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="697" y="377" width="582" height="350" key="#Notifications" timestamp="1599048955279">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="697" y="377" width="582" height="350" key="#Notifications/67.27.1853.1053@67.27.1853.1053" timestamp="1599048955279" />
     <state x="726" y="310" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1598975975606">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="726" y="310" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1598975975606" />
-    <state x="771" y="296" width="424" height="513" key="FileChooserDialogImpl" timestamp="1599044919169">
+    <state x="771" y="296" width="424" height="513" key="FileChooserDialogImpl" timestamp="1599048780115">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="771" y="296" width="424" height="513" key="FileChooserDialogImpl/67.27.1853.1053@67.27.1853.1053" timestamp="1599044919169" />
+    <state x="771" y="296" width="424" height="513" key="FileChooserDialogImpl/67.27.1853.1053@67.27.1853.1053" timestamp="1599048780115" />
     <state x="785" y="473" key="Github.CreateGistDialog" timestamp="1599044963788">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="785" y="473" key="Github.CreateGistDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1599044963788" />
+    <state x="167" y="125" width="1653" height="855" maximized="true" key="git4idea.log.GitShowExternalLogAction" timestamp="1599048955674">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="167" y="125" width="1653" height="855" maximized="true" key="git4idea.log.GitShowExternalLogAction/67.27.1853.1053@67.27.1853.1053" timestamp="1599048955674" />
     <state x="826" y="346" width="324" height="412" key="svn.repositoryBrowser" timestamp="1599044941793">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
