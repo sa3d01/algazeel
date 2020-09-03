@@ -70,7 +70,7 @@ class UserController extends MasterController
         $user = User::create($all);
         $token = auth()->login($user);
         $data= new UserResource($user);
-        return $this->sendResponse($data)->withHeaders(['apiToken'=>$token,'tokenType'=>'bearer']);;
+        return $this->sendResponse($data)->withHeaders(['apiToken'=>$token,'tokenType'=>'bearer']);
     }
     public function login(Request $request){
         $cred=$request->only(['mobile','password']);
