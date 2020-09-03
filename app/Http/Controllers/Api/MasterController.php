@@ -12,7 +12,10 @@ class MasterController extends Controller
 {
     protected $model;
     protected $auth_key;
-
+    public function __construct()
+    {
+        parent::__construct();
+    }
     public function sendResponse($result)
     {
         $response = [
@@ -24,7 +27,7 @@ class MasterController extends Controller
     public function sendError($error, $code = 400)
     {
         $response = [
-            'status' => 400,
+            'status' => $code,
             'message' => $error,
         ];
         return response()->json($response, $code);

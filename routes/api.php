@@ -22,13 +22,13 @@ Route::group(['prefix' => 'v1','namespace'=>'Api'], function () {
 
     Route::group(['prefix' => '/user'], function () {
         Route::post('/', 'UserController@register');
-        Route::post('/resend_code', 'UserController@resend_code');
         Route::post('/login', 'UserController@login');
-        Route::group(['middleware' => CheckApiToken::class], function () {
-            Route::post('/activate', 'UserController@activate');
-            Route::post('/update', 'UserController@update');
-            Route::get('/{id}', 'UserController@show');
-        });
+        Route::post('/send_code', 'UserController@send_activation_code');
+        Route::post('/activate', 'UserController@activate');
+        Route::post('/update_password', 'UserController@update_password');
+        Route::get('/profile', 'UserController@profile');
+        Route::post('/{id}', 'UserController@update');
+
     });
 
 });
