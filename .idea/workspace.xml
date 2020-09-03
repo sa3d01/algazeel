@@ -2,20 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="29d3824d-e6ac-4a03-84c0-23fc323bf7cc" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/algazeel.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/commandlinetools/Laravel_9_3_20__10_29_AM.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/commandlinetools/schemas/frameworkDescriptionVersion1.1.4.xsd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/phpunit.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Resources/UserTypeResource.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/media/images/user/ylFcHKzAd0.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Contact.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/ContactController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/SettingController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_09_03_144820_create_contacts_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/media/images/user/AqWHmIWkfW.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/media/images/user/JdTNJ973Se.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/media/images/user/bg5J6Q7DVl.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/media/images/user/eL6bEx65SZ.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/media/images/user/q8fTmLfEf9.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/media/images/user/rNyVVC88K1.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/MasterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/MasterController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/UserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/CheckApiToken.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/CheckApiToken.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Resources/UserResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/UserResource.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Setting.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Setting.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_04_11_121918_create_settings_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_04_11_121918_create_settings_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -153,7 +156,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Http/Controllers/Api" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -164,15 +167,15 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources/views/dashboard/show" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/Http/Controllers/Api" />
       <recent name="$PROJECT_DIR$/resources/views/dashboard" />
       <recent name="$PROJECT_DIR$/app/Traits" />
       <recent name="$PROJECT_DIR$/public/panel" />
       <recent name="$PROJECT_DIR$/public/panel/bower_components/notify" />
-      <recent name="$PROJECT_DIR$/app/Http/Controllers/Dash" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/resources/views/dashboard/show" />
     </key>
   </component>
   <component name="RunManager">
@@ -224,7 +227,7 @@
       <workItem from="1597632103491" duration="634000" />
       <workItem from="1598971076147" duration="5872000" />
       <workItem from="1599040123061" duration="11301000" />
-      <workItem from="1599121733506" duration="10105000" />
+      <workItem from="1599121733506" duration="16412000" />
     </task>
     <task id="LOCAL-00001" summary="edits">
       <created>1599123021704</created>
@@ -233,7 +236,14 @@
       <option name="project" value="LOCAL" />
       <updated>1599123021704</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="3-9">
+      <created>1599138937431</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1599138937431</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -243,21 +253,22 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="init" />
     <MESSAGE value="edits" />
-    <option name="LAST_COMMIT_MESSAGE" value="edits" />
+    <MESSAGE value="3-9" />
+    <option name="LAST_COMMIT_MESSAGE" value="3-9" />
   </component>
   <component name="WindowStateProjectService">
     <state x="697" y="377" width="582" height="350" key="#Notifications" timestamp="1599048955279">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="697" y="377" width="582" height="350" key="#Notifications/67.27.1853.1053@67.27.1853.1053" timestamp="1599048955279" />
-    <state x="726" y="310" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1598975975606">
+    <state x="726" y="310" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1599145257565">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="726" y="310" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1598975975606" />
-    <state x="532" y="100" width="912" height="904" key="CommitChangelistDialog2" timestamp="1599123021524">
+    <state x="726" y="310" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1599145257565" />
+    <state x="532" y="100" width="912" height="904" key="CommitChangelistDialog2" timestamp="1599138937344">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="532" y="100" width="912" height="904" key="CommitChangelistDialog2/67.27.1853.1053@67.27.1853.1053" timestamp="1599123021524" />
+    <state x="532" y="100" width="912" height="904" key="CommitChangelistDialog2/67.27.1853.1053@67.27.1853.1053" timestamp="1599138937344" />
     <state x="771" y="296" width="424" height="513" key="FileChooserDialogImpl" timestamp="1599048780115">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
@@ -266,10 +277,10 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="785" y="473" key="Github.CreateGistDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1599044963788" />
-    <state x="588" y="288" width="800" height="528" key="Vcs.Push.Dialog.v2" timestamp="1599123028710">
+    <state x="588" y="288" width="800" height="528" key="Vcs.Push.Dialog.v2" timestamp="1599138939356">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="588" y="288" width="800" height="528" key="Vcs.Push.Dialog.v2/67.27.1853.1053@67.27.1853.1053" timestamp="1599123028710" />
+    <state x="588" y="288" width="800" height="528" key="Vcs.Push.Dialog.v2/67.27.1853.1053@67.27.1853.1053" timestamp="1599138939356" />
     <state x="167" y="125" width="1653" height="855" maximized="true" key="git4idea.log.GitShowExternalLogAction" timestamp="1599048955674">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>

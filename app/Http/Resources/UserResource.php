@@ -23,7 +23,7 @@ class UserResource extends JsonResource
             'email'=> $this->email,
             'image'=> $this->image ?? '',
             'type'=> new UserTypeResource($this->User_type),
-            'location'=> $this->location ?? '',
+//            'location'=> $this->location ?? '',
             'activation_code'=> $this->activation_code ?? '',
         ];
     }

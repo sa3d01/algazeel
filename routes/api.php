@@ -18,17 +18,21 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 Route::group(['prefix' => 'v1','namespace'=>'Api'], function () {
-    Route::get('/setting', 'SettingController@index');
+    Route::get('/setting', 'SettingController@index')->middleware(CheckApiToken::class);
 
     Route::group(['prefix' => '/user'], function () {
         Route::post('/', 'UserController@register');
         Route::post('/login', 'UserController@login');
+        Route::get('/logout', 'UserController@logout')->middleware(CheckApiToken::class);
         Route::post('/send_code', 'UserController@send_activation_code');
         Route::post('/activate', 'UserController@activate');
-        Route::post('/update_password', 'UserController@update_password');
-        Route::get('/profile', 'UserController@profile');
-        Route::post('/{id}', 'UserController@update');
-
+        Route::post('/update_password', 'UserController@update_password')->middleware(CheckApiToken::class);
+        Route::get('/profile', 'UserController@profile')->middleware(CheckApiToken::class);
+        Route::post('/{id}', 'UserController@update')->middleware(CheckApiToken::class);
+    });
+    Route::group(['prefix' => '/contact'], function () {
+        Route::get('/types', 'ContactController@types')->middleware(CheckApiToken::class);
+        Route::post('/', 'ContactController@store')->middleware(CheckApiToken::class);
     });
 
 });

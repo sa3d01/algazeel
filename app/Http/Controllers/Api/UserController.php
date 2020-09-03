@@ -27,7 +27,6 @@ class UserController extends MasterController
             $rules['mobile'] = 'required|regex:/(05)[0-9]{8}/|max:10|unique:users,mobile,' . $id;
             $rules['email'] = 'required|email|max:50|unique:users,email,' . $id;
             $rules['name'] = 'required|max:30';
-            $rules['password'] = 'required|min:8';
             $rules['device'] = 'required';
         } else {
             $rules = [
@@ -54,16 +53,6 @@ class UserController extends MasterController
     function send_code($mobile,$activation_code){
         //Mail::to($email)->send(new ConfirmCode($activation_code));
     }
-
-    function user(){
-        try {
-            $user=auth()->userOrFail();
-        }catch (UserNotDefinedException $e){
-            return $this->sendError('انتهت جلستك يرجى تسجيل الدخول',401);
-        }
-        return $user;
-    }
-
     public function register(Request $request){
         $validator = Validator::make($request->all(),$this->validation_rules(1),$this->validation_messages());
         if ($validator->fails()) {
@@ -88,6 +77,10 @@ class UserController extends MasterController
         }else{
             return $this->sendError('يوجد مشكلة بالبيانات');
         }
+    }
+    public function logout(Request $request){
+        auth()->logout();
+        return $this->sendResponse('');
     }
     public function send_activation_code(Request $request){
         $validator = Validator::make($request->only('mobile'),['mobile' => 'required|max:10|regex:/(05)[0-9]{8}/'],$this->validation_messages());
@@ -137,34 +130,31 @@ class UserController extends MasterController
         if ($validator->fails()) {
             return $this->sendError($validator->errors()->first());
         }
-        $user=$this->user();
+        $user = auth()->user();
         $token = auth()->login($user);
         $user->update(['password'=>$request['password']]);
         $data= new UserResource($user);
-        return $this->sendResponse(['activation_code'=>$data])->withHeaders(['apiToken'=>$token,'tokenType'=>'bearer']);
+        return $this->sendResponse($data)->withHeaders(['apiToken'=>$token,'tokenType'=>'bearer']);
     }
     public function profile(){
-        try {
-            $user=auth()->userOrFail();
-            $token = auth()->login($user);
-        }catch (UserNotDefinedException $e){
-            return $this->sendError('انتهت جلستك يرجى تسجيل الدخول',401);
-        }
+        $user = auth()->user();
+        $token = auth()->login($user);
         $data= new UserResource($user);
         return $this->sendResponse($data)->withHeaders(['apiToken'=>$token,'tokenType'=>'bearer']);
     }
     public function update($id,Request $request){
-        try {
-            $user=auth()->userOrFail();
-        }catch (UserNotDefinedException $e){
-            return $this->sendError('انتهت جلستك يرجى تسجيل الدخول',401);
+        $validator = Validator::make($request->all(),$this->validation_rules(2,$id),$this->validation_messages());
+        if ($validator->fails()) {
+            return $this->sendError($validator->errors()->first());
         }
+        $user = auth()->user();
         if ($user->id != $id){
             return $this->sendError('ﻻ يمكنك التعديل بملف شخص اخر',403);
         }
         $user->update($request->all());
         $data= new UserResource($user);
-        return $this->sendResponse($data);
+        $token = auth()->login($user);
+        return $this->sendResponse($data)->withHeaders(['apiToken'=>$token,'tokenType'=>'bearer']);
     }
 
 }

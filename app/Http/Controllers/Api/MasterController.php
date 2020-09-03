@@ -7,6 +7,7 @@ use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
+use Tymon\JWTAuth\Exceptions\UserNotDefinedException;
 
 class MasterController extends Controller
 {
@@ -39,8 +40,13 @@ class MasterController extends Controller
             return $this->sendError($validator->errors()->first());
         }
         $data=$request->all();
+        try {
+            $data['user_id']=auth()->user()->id;
+        }catch (UserNotDefinedException $e){
+
+        }
         $row=$this->model->create($data);
-        return $this->sendResponse($row);
+        return $this->sendResponse('تم الانشاء بنجاح');
     }
 
 }
