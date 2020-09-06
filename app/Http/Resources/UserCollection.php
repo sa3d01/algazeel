@@ -14,6 +14,14 @@ class UserCollection extends ResourceCollection
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        $data=[];
+        foreach ($this as $obj){
+            $arr['id']=$obj->id;
+            $arr['name']=$obj->name;
+            $arr['image']=$obj->image;
+            $arr['rating']=0;
+            $data[]=$arr;
+        }
+        return $data;
     }
 }

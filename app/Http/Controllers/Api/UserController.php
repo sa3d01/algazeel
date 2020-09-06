@@ -3,11 +3,14 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\UserCollection;
 use App\Http\Resources\UserResource;
 use App\User;
+use App\userType;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
 use Tymon\JWTAuth\Exceptions\UserNotDefinedException;
 
 class UserController extends MasterController
@@ -49,6 +52,29 @@ class UserController extends MasterController
             'email'=>'يرجى التأكد من صحة البريد الالكترونى',
             'regex'=>'تأكد من أن رقم الجوال يبدأ ب05 , ويحتوى على عشرة أرقام'
         );
+    }
+    public function types(){
+        $user_types=userType::where('status',1)->get();
+        $data=[];
+        foreach ($user_types as $type){
+            $arr['id']=$type->id;
+            $arr['name']=$type->name;
+            $data[]=$arr;
+        }
+        return $this->sendResponse($data);
+    }
+    public function search(Request $request){
+        $name=$request['name'];
+        $users=User::where('name','like','%'.$name.'%')->get();
+        if ($request['user_type_id'] && $request['user_type_id']!='')
+            $users=User::where('name','like','%'.$name.'%')->where('user_type_id',$request['user_type_id'])->get();
+        $data= new UserCollection($users);
+        return $this->sendResponse($data);
+    }
+    public function users_list($user_type_id,Request $request){
+        $users=User::where('user_type_id',$user_type_id)->get();
+        $data= new UserCollection($users);
+        return $this->sendResponse($data);
     }
     function send_code($mobile,$activation_code){
         //Mail::to($email)->send(new ConfirmCode($activation_code));
@@ -135,6 +161,74 @@ class UserController extends MasterController
         $user->update(['password'=>$request['password']]);
         $data= new UserResource($user);
         return $this->sendResponse($data)->withHeaders(['apiToken'=>$token,'tokenType'=>'bearer']);
+    }
+    public function upload_attachment(Request $request){
+        $validator = Validator::make(
+            [
+                'attachment' => 'required|max:10000|mimes:doc,docx,pdf',
+            ],
+            $this->validation_messages());
+        if ($validator->fails()) {
+            return $this->sendError($validator->errors()->first());
+        }
+        $user = auth()->user();
+        $dest='media/files/attachment/';
+        $attachment=request('attachment');
+        $fileName=null;
+        if (is_file($attachment)) {
+            $fileName = Str::random(10) . '.' . $attachment->getClientOriginalExtension();
+            $attachment->move($dest, $fileName);
+        }else{
+            return $this->sendError('ﻻ يمكن تحديد نوع الملف المرفق !');
+        }
+        $attachment_type=$request->input('type','pdf');
+        $attachments=$user->more_details['attachments']??[];
+        $date=date_create();
+        $attachments[]=[
+            'id'=>date_timestamp_get($date),
+            'attachment'=>$fileName,
+            'type'=>$attachment_type,
+        ];
+        $user->update(
+            [
+                'more_details'=>[
+                    'attachments'=>$attachments,
+                ],
+            ]
+        );
+        $data= new UserResource($user);
+        return $this->sendResponse($data);
+    }
+    public function array_remove_object($attachments,$attachment_id){
+        return array_filter($attachments, function($attachment) use($attachment_id) {
+            return $attachment['id'] != $attachment_id;
+        });
+    }
+    public function remove_attachment(Request $request){
+        $validator = Validator::make(
+            [
+                'id' => 'required',
+            ],
+            $this->validation_messages());
+        if ($validator->fails()) {
+            return $this->sendError($validator->errors()->first());
+        }
+        $user = auth()->user();
+        $attachment_id=$request['id'];
+        $attachments=[];
+        if (array_key_exists('attachments',(array)$user->more_details)){
+            $attachments=$user->more_details['attachments'];
+        }
+        $attachments=array_values($this->array_remove_object($attachments,$attachment_id));
+        $user->update(
+            [
+                'more_details'=>[
+                    'attachments'=>$attachments,
+                ],
+            ]
+        );
+        $data= new UserResource($user);
+        return $this->sendResponse($data);
     }
     public function profile(){
         $user = auth()->user();

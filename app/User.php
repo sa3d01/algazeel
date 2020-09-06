@@ -5,6 +5,7 @@ namespace App;
 use App\Traits\ModelBaseFunctions;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Mockery\Exception;
 use Tymon\JWTAuth\Contracts\JWTSubject;
 
 class User extends Authenticatable implements JWTSubject
@@ -14,7 +15,7 @@ class User extends Authenticatable implements JWTSubject
     private $route='user';
     private $images_link='media/images/user/';
 
-    protected $fillable = ['user_type_id','name','mobile','email','password','device','activation_code','activation_status','status','image','location','more_details'];
+    protected $fillable = ['user_type_id','name','mobile','email','password','device','activation_code','status','image','location','more_details'];
     protected $hidden = ['password', 'remember_token'];
     protected $casts = [
         'email_verified_at' => 'datetime',
@@ -35,5 +36,17 @@ class User extends Authenticatable implements JWTSubject
 
     public function User_type(){
         return $this->belongsTo(userType::class);
+    }
+    public function get_attachments(){
+        $collection=[];
+        if (array_key_exists('attachments',(array)$this->more_details)){
+            foreach ($this->more_details['attachments'] as $attachment){
+                $obj['id']=$attachment['id'];
+                $obj['type']=$attachment['type'];
+                $obj['attachment']=asset('media/files/attachment/').'/'.$attachment['attachment'];
+                $collection[]=$obj;
+            }
+        }
+        return $collection;
     }
 }

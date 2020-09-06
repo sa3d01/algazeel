@@ -21,8 +21,19 @@ class UserTypeSeeder extends Seeder
             'table' => 'users'
         ]);
         userType::create([
+            'name' => 'writer',
+            'table' => 'users',
+            'parent_id'=>2
+        ]);
+        userType::create([
+            'name' => 'studio',
+            'table' => 'users',
+            'parent_id'=>2
+        ]);
+        userType::create([
             'name' => 'superAdmin',
             'table' => 'admins'
         ]);
+
     }
 }

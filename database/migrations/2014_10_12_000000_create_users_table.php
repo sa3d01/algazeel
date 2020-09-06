@@ -23,7 +23,6 @@ class CreateUsersTable extends Migration
             $table->json('device')->nullable();
             //may be string or int
             $table->char('activation_code',4)->nullable();
-            $table->boolean('activation_status')->default(0);
             //null for pinned and 1 for approved and 0 for blocked
             $table->integer('status')->default(1);
             $table->char('image',20)->nullable();

@@ -2,23 +2,47 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="29d3824d-e6ac-4a03-84c0-23fc323bf7cc" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Contact.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/ContactController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/SettingController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2020_09_03_144820_create_contacts_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/media/images/user/AqWHmIWkfW.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/media/images/user/JdTNJ973Se.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/media/images/user/bg5J6Q7DVl.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/media/images/user/eL6bEx65SZ.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/media/images/user/q8fTmLfEf9.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/media/images/user/rNyVVC88K1.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/MasterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/MasterController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/OrderController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Order.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_09_03_152322_create_orders_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/media/files/attachment/2gJ0eS3vox.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/media/files/attachment/3uhEPa5SmU.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/media/files/attachment/5pNGUFfaGa.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/media/files/attachment/9CrUxes03G.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/media/files/attachment/9OorxWteWJ.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/media/files/attachment/CfxMUeK8PQ.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/media/files/attachment/DMKksn8pIX.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/media/files/attachment/FadSAraQfy.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/media/files/attachment/GSe3EZ8zAn.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/media/files/attachment/GY2OUjIQg1.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/media/files/attachment/IjK1oEteGt.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/media/files/attachment/Mb1Zy1l4Mr.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/media/files/attachment/NekxMkef9L.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/media/files/attachment/VLQhIBqMRC.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/media/files/attachment/ZOfSDgITC6.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/media/files/attachment/bjEowzB708.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/media/files/attachment/enwbx2C3s2.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/media/files/attachment/eohnCoCU6K.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/media/files/attachment/k3Wd2pfRMZ.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/media/files/attachment/l1gqVHwOMy.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/media/files/attachment/p0tdQ9x3pZ.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/media/files/attachment/pWKak0JIAY.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/media/files/attachment/svY5knjQK8.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/media/files/attachment/u5gIDturFh.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/media/files/attachment/urUJ1Ebvws.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/media/files/attachment/vTj19cnsqs.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/media/images/user/6xEeeavFw1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/media/images/user/mQi58Nbfz1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/media/images/user/stkr4qD9z3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/media/images/user/vjN0dkm3nG.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/CheckApiToken.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/CheckApiToken.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Resources/UserCollection.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/UserCollection.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Resources/UserResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/UserResource.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Setting.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Setting.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_04_11_121918_create_settings_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_04_11_121918_create_settings_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/UserTypeSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/UserTypeSeeder.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -167,15 +191,15 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/resources/views/dashboard/show" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/app/Http/Controllers/Api" />
       <recent name="$PROJECT_DIR$/resources/views/dashboard" />
       <recent name="$PROJECT_DIR$/app/Traits" />
       <recent name="$PROJECT_DIR$/public/panel" />
       <recent name="$PROJECT_DIR$/public/panel/bower_components/notify" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources/views/dashboard/show" />
     </key>
   </component>
   <component name="RunManager">
@@ -227,7 +251,10 @@
       <workItem from="1597632103491" duration="634000" />
       <workItem from="1598971076147" duration="5872000" />
       <workItem from="1599040123061" duration="11301000" />
-      <workItem from="1599121733506" duration="16412000" />
+      <workItem from="1599121733506" duration="17812000" />
+      <workItem from="1599324145433" duration="17000" />
+      <workItem from="1599347168907" duration="41000" />
+      <workItem from="1599380937717" duration="13917000" />
     </task>
     <task id="LOCAL-00001" summary="edits">
       <created>1599123021704</created>
@@ -243,7 +270,14 @@
       <option name="project" value="LOCAL" />
       <updated>1599138937431</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="3-9">
+      <created>1599145436135</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1599145436135</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -261,14 +295,14 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="697" y="377" width="582" height="350" key="#Notifications/67.27.1853.1053@67.27.1853.1053" timestamp="1599048955279" />
-    <state x="726" y="310" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1599145257565">
+    <state x="726" y="310" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1599386219884">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="726" y="310" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1599145257565" />
-    <state x="532" y="100" width="912" height="904" key="CommitChangelistDialog2" timestamp="1599138937344">
+    <state x="726" y="310" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1599386219884" />
+    <state x="532" y="100" width="912" height="904" key="CommitChangelistDialog2" timestamp="1599145436050">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="532" y="100" width="912" height="904" key="CommitChangelistDialog2/67.27.1853.1053@67.27.1853.1053" timestamp="1599138937344" />
+    <state x="532" y="100" width="912" height="904" key="CommitChangelistDialog2/67.27.1853.1053@67.27.1853.1053" timestamp="1599145436050" />
     <state x="771" y="296" width="424" height="513" key="FileChooserDialogImpl" timestamp="1599048780115">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
@@ -277,10 +311,10 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="785" y="473" key="Github.CreateGistDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1599044963788" />
-    <state x="588" y="288" width="800" height="528" key="Vcs.Push.Dialog.v2" timestamp="1599138939356">
+    <state x="588" y="288" width="800" height="528" key="Vcs.Push.Dialog.v2" timestamp="1599145441581">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="588" y="288" width="800" height="528" key="Vcs.Push.Dialog.v2/67.27.1853.1053@67.27.1853.1053" timestamp="1599138939356" />
+    <state x="588" y="288" width="800" height="528" key="Vcs.Push.Dialog.v2/67.27.1853.1053@67.27.1853.1053" timestamp="1599145441581" />
     <state x="167" y="125" width="1653" height="855" maximized="true" key="git4idea.log.GitShowExternalLogAction" timestamp="1599048955674">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
