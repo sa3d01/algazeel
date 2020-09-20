@@ -139,7 +139,7 @@ class UserController extends MasterController
             $data= new UserResource($exist_user);
             $exist_user->update(['activation_code'=>null]);
             $token = auth()->login($exist_user);
-            return $this->sendResponse(['activation_code'=>$data])->withHeaders(['apiToken'=>$token,'tokenType'=>'bearer']);
+            return $this->sendResponse($data)->withHeaders(['apiToken'=>$token,'tokenType'=>'bearer']);
         }elseif ($exist_user->activation_code!=$request['activation_code']) {
             return $this->sendError('كود التفعيل غير صحيح');
         }else{
