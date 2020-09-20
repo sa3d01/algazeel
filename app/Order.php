@@ -21,4 +21,15 @@ class Order extends Model
     public function type(){
         return $this->belongsTo(DropDown::class,'type_id','id');
     }
+    public function notifications(){
+        return $this->hasMany(Notification::class);
+    }
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+    public function provider()
+    {
+        return $this->belongsTo(User::class,'provider_id','id');
+    }
 }

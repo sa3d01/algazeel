@@ -20,12 +20,15 @@ use Illuminate\Support\Str;
 $factory->define(User::class, function (Faker $faker) {
     return [
         'name' => $faker->name,
+        'mobile' => '05'.rand(11111111,99999999),
         'email' => $faker->unique()->safeEmail,
         'email_verified_at' => now(),
-        'password' => '123456',
+        'password' => '12345678',
         'remember_token' => Str::random(10),
-        'status' => $faker->randomElement([1, 0, null]),
-        'user_type_id' => $faker->randomElement([1, 2]),
-        'image' => $faker->randomElement(['AVB9Ed0J9m.jpeg', '15AEL6tLCp.jpg','3JcGxWK1Pe.jpeg','KYbrGG5fva.jpg']),
+        'status' => 1,
+        'user_type_id' => $faker->randomElement([3, 4]),
+        'image' => $faker->randomElement(['0WhjhQRcSG.jpeg', '1bUjhnpa5v.jpg','3JcGxWK1Pe.jpeg','9WS22UZ01K.jpg','15AEL6tLCp.jpg']),
+        'device->type'=>$faker->randomElement(['IOS','ANDROID']),
+        'device->id'=>$faker->randomElement(['IOS','ANDROID']),
     ];
 });

@@ -11,11 +11,22 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        //users
          $this->call([
              UserTypeSeeder::class,
-            // UserSeeder::class,
+             UserSeeder::class,
              AdminSeeder::class,
          ]);
+         //settings
+        \App\Setting::create([
+            'about->user' => 'عن التطبيق',
+            'about->provider' => 'عن التطبيق',
+            'licence->user' => 'الشروط والأحكام',
+            'licence->provider' => 'الشروط والأحكام',
+            'more_details->deliver_offer_period'=>'15',
+            'more_details->accept_offer_period'=>'15',
+        ]);
+        //contact types
         \App\DropDown::create([
             'class' => 'Contact',
             'name->ar' => 'اقتراح'
@@ -28,6 +39,7 @@ class DatabaseSeeder extends Seeder
             'class' => 'Contact',
             'name->ar' => 'غير ذلك'
         ]);
+        //order types
         \App\DropDown::create([
             'class' => 'Order',
             'name->ar' => 'كتابة قصيدة',
@@ -38,6 +50,5 @@ class DatabaseSeeder extends Seeder
             'name->ar' => 'تسجيل قصيدة',
             'more_details->provider_type_id'=>'4'
         ]);
-
     }
 }

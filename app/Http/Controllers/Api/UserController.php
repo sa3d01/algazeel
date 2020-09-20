@@ -16,12 +16,10 @@ use Tymon\JWTAuth\Exceptions\UserNotDefinedException;
 class UserController extends MasterController
 {
     protected $model;
-    protected $auth_key;
 
     public function __construct(User $model)
     {
         $this->model = $model;
-        $this->auth_key = 'mobile';
         parent::__construct();
     }
     public function validation_rules($method, $id = null)
@@ -250,5 +248,4 @@ class UserController extends MasterController
         $token = auth()->login($user);
         return $this->sendResponse($data)->withHeaders(['apiToken'=>$token,'tokenType'=>'bearer']);
     }
-
 }

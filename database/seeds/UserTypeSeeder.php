@@ -14,11 +14,12 @@ class UserTypeSeeder extends Seeder
     {
         userType::create([
             'name' => 'user',
-            'table' => 'users'
+            'table' => 'users',
         ]);
         userType::create([
             'name' => 'provider',
-            'table' => 'users'
+            'table' => 'users',
+            'status'=>0
         ]);
         userType::create([
             'name' => 'writer',
@@ -32,7 +33,8 @@ class UserTypeSeeder extends Seeder
         ]);
         userType::create([
             'name' => 'superAdmin',
-            'table' => 'admins'
+            'table' => 'admins',
+            'status'=>0
         ]);
 
     }

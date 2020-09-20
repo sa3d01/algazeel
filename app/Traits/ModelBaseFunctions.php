@@ -51,14 +51,14 @@ trait ModelBaseFunctions
 
     public function getStatusIcon()
     {
-        if ($this->attributes['status'] === null) {
-            $name = 'معلق';
+        if ($this->attributes['status'] =='in_progress') {
+            $name = 'جاري';
+            $key = 'info';
+        } elseif ($this->attributes['status'] =='new') {
+            $name = 'جديد';
             $key = 'warning';
-        } elseif ($this->attributes['status'] === 0) {
-            $name = 'محظور';
-            $key = 'danger';
         } else {
-            $name = 'مفعل';
+            $name = 'منتهى';
             $key = 'success';
         }
         return "<a class='badge badge-$key-inverted'>

@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\OrderResource;
+use App\Notification;
 use App\User;
+use Edujugon\PushNotification\PushNotification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
@@ -45,8 +48,34 @@ class MasterController extends Controller
         }catch (UserNotDefinedException $e){
 
         }
-        $row=$this->model->create($data);
+        $this->model->create($data);
         return $this->sendResponse('تم الانشاء بنجاح');
+    }
+    public function notify($order,$sender,$receiver,$title){
+        $receiver->device['type'] =='IOS'? $fcm_notification=array('title'=>$title, 'sound' => 'default') : $fcm_notification=null;
+        $push = new PushNotification('fcm');
+        $msg = [
+            'notification' => $fcm_notification,
+            'data' => [
+                'title' => $title,
+                'body' => $title,
+                'status' => $order->status,
+                'type'=>'order',
+                'order'=>new OrderResource($order)
+            ],
+            'priority' => 'high',
+        ];
+        $push->setMessage($msg)
+            ->setDevicesToken($receiver->device['id'])
+            ->send();
+        $notification=new Notification();
+        $notification->type='app';
+        $notification->sender_id=$sender->id;
+        $notification->receiver_id=$receiver->id;
+        $notification->order_id=$order->id;
+        $notification->title=$title;
+        $notification->note=$title;
+        $notification->save();
     }
 
 }

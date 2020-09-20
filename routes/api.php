@@ -39,9 +39,20 @@ Route::group(['prefix' => 'v1','namespace'=>'Api'], function () {
         Route::get('/types', 'ContactController@types')->middleware(CheckApiToken::class);
         Route::post('/', 'ContactController@store')->middleware(CheckApiToken::class);
     });
+    Route::group(['prefix' => '/notification'], function () {
+        Route::get('/', 'NotificationController@index')->middleware(CheckApiToken::class);
+        Route::get('/{notification}', 'NotificationController@show')->middleware(CheckApiToken::class);
+    });
     Route::group(['prefix' => '/order'], function () {
         Route::get('/types', 'OrderController@types')->middleware(CheckApiToken::class);
         Route::post('/', 'OrderController@store')->middleware(CheckApiToken::class);
+        Route::get('/{status}/list', 'OrderController@status_list')->middleware(CheckApiToken::class);
+        Route::get('/{order}', 'OrderController@show')->name('order.show')->middleware(CheckApiToken::class);
+        Route::post('/{order}/send_offer', 'OrderController@send_offer')->middleware(CheckApiToken::class);
+        Route::post('/{order}/accept_offer', 'OrderController@accept_offer')->middleware(CheckApiToken::class);
+        Route::post('/{order}/refuse_offer', 'OrderController@refuse_offer')->middleware(CheckApiToken::class);
+        Route::post('/{order}/pay', 'OrderController@pay')->middleware(CheckApiToken::class);
+        Route::post('/{order}/done', 'OrderController@done')->middleware(CheckApiToken::class);
     });
 
 });

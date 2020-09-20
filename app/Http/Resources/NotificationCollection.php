@@ -4,7 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\ResourceCollection;
 
-class UserCollection extends ResourceCollection
+class NotificationCollection extends ResourceCollection
 {
     /**
      * Transform the resource collection into an array.
@@ -17,9 +17,11 @@ class UserCollection extends ResourceCollection
         $data=[];
         foreach ($this as $obj){
             $arr['id']=(int)$obj->id;
-            $arr['name']=$obj->name;
-            $arr['image']=$obj->image;
-            $arr['rating']=0;
+            $arr['type']=$obj->type;
+            $arr['read']=($obj->read == 'true') ? true : false;
+            $arr['title']=$obj->title;
+            $arr['order_id']=(int)$obj->order_id;
+            $arr['published_from']=$obj->published_from();
             $data[]=$arr;
         }
         return $data;
