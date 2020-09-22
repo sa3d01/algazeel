@@ -85,6 +85,14 @@
                                         <td><img width="50px" height="50px" src="{{$row->image}}"></td>
                                     @endif
                                     <td>
+                                        <form class="delete" data-id="{{$row->id}}" method="POST" action="{{ route('admin.'.$type.'.destroy',[$row->id]) }}">
+                                            @csrf
+                                            {{ method_field('DELETE') }}
+                                            <input type="hidden" value="{{$row->id}}">
+                                            <button type="button " class="btn p-0 no-bg">
+                                                <i class="fa fa-trash text-danger"></i>
+                                            </button>
+                                        </form>
                                         <a href="{{route('admin.'.$type.'.show',$row->id)}}"><i class="os-icon os-icon-grid-10"></i></a>
                                     </td>
                                 </tr>
@@ -156,6 +164,28 @@
                 });
                 Table.draw();
             });
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script>
+        $(document).on('click', '.delete', function (e) {
+            e.preventDefault();
+            var id = $(this).data('id');
+            Swal.fire({
+                title: "هل انت متأكد من الحذف ؟",
+                text: "لن تستطيع استعادة هذا العنصر مرة أخرى!",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonClass: 'btn-danger',
+                confirmButtonText: 'نعم , قم بالحذف!',
+                cancelButtonText: 'ﻻ , الغى عملية الحذف!',
+                closeOnConfirm: false,
+                closeOnCancel: false,
+                preConfirm: () => {
+                    $("form[data-id='" + id + "']").submit();
+                },
+                allowOutsideClick: () => !Swal.isLoading()
+            })
         });
     </script>
 @endsection
