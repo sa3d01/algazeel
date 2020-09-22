@@ -22,6 +22,11 @@
                             <thead>
                                 <tr>
                                     <th hidden></th>
+                                    @if(isset($selects))
+                                        @foreach($selects as $select)
+                                            <th>{{$select['title']}}</th>
+                                        @endforeach
+                                    @endif
                                     @foreach($index_fields as $key=>$value)
                                         <th>{{$key}}</th>
                                     @endforeach
@@ -37,8 +42,13 @@
                             <tfoot>
                                 <tr>
                                     <th hidden></th>
+                                    @if(isset($selects))
+                                        @foreach($selects as $select)
+                                            <th>{{$select['title']}}</th>
+                                        @endforeach
+                                    @endif
                                     @foreach($index_fields as $key=>$value)
-                                    <th>{{$key}}</th>
+                                        <th>{{$key}}</th>
                                     @endforeach
                                     @if(isset($status))
                                         <th>الحالة</th>
@@ -46,13 +56,19 @@
                                     @if(isset($image))
                                         <th>الصورة</th>
                                     @endif
-                                    <th>المزيد</th>
+                                        <th>المزيد</th>
                                 </tr>
                             </tfoot>
                             <tbody>
                             @foreach($rows as $row)
                                 <tr>
                                     <td hidden>{{$row->id}}</td>
+                                @if(isset($selects))
+                                    @foreach($selects as $select)
+                                        @php($related_model=$select['name'])
+                                        <td>{{$row->$related_model->nameForSelect()}}</td>
+                                    @endforeach
+                                @endif
                                 @foreach($index_fields as $key=>$value)
                                     @if($value=='created_at')
                                         <td>{{$row->published_at()}}</td>
@@ -109,10 +125,7 @@
                         "sSortDescending": ": تفعيل لترتيب العمود تنازلياً"
                     }
                 },
-                // "iDisplayLength": -1,
-                // "sPaginationType": "full_numbers",
             });
-//length of rows
             var rows=Table.rows().data();
             $(
                 ".filters-groups .date-picker-max, .filters-groups .date-picker-min"
@@ -145,6 +158,4 @@
             });
         });
     </script>
-
 @endsection
-

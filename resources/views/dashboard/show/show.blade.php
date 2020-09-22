@@ -9,6 +9,105 @@
         }
     </style>
     <link rel="stylesheet" href="{{asset('panel/dropify/dist/css/dropify.min.css')}}">
+    <style>
+        .sale_map
+        {
+            position: absolute !important;
+            height: 100% !important;
+            width: 100% !important;
+        }
+        .wrapper {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .file-upload {
+            height: 200px;
+            width: 200px;
+            border-radius: 100px;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 4px solid #FFFFFF;
+            overflow: hidden;
+            background-image: linear-gradient(to bottom, #2590EB 50%, #FFFFFF 50%);
+            background-size: 100% 200%;
+            transition: all 1s;
+            color: #FFFFFF;
+            font-size: 100px;
+        }
+        .file-upload input[type='file']{
+            height:200px;
+            width:200px;
+            position:absolute;
+            top:0;
+            left:0;
+            opacity:0;
+            cursor:pointer;
+        }
+    </style>
+
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBKhmEeCCFWkzxpDjA7QKjDu4zdLLoqYVw&language=ar&&callback=initMap&libraries=places" type="text/javascript">
+    </script>
+
+    <script type="text/javascript">
+        let new_map;
+        let old_map;
+        let marker;
+        function initMap() {
+            if (!document.getElementById('show_sale_map')){
+                marker = false;
+            }else {
+                // show map
+                let lat_str = document.getElementById('show_sale_map').getAttribute("data-lat");
+                let long_str = document.getElementById('show_sale_map').getAttribute("data-lng");
+                let uluru = {lat:parseFloat(lat_str), lng: parseFloat(long_str)};
+                let centerOfOldMap = new google.maps.LatLng(uluru);
+                let oldMapOptions = {
+                    center: centerOfOldMap,
+                    zoom: 14
+                };
+                old_map = new google.maps.Map(document.getElementById('show_sale_map'), oldMapOptions);
+                marker = new google.maps.Marker({position: centerOfOldMap,animation:google.maps.Animation.BOUNCE});
+                marker.setMap(old_map);
+                // end show map
+            }
+            // new map
+            let centerOfNewMap = new google.maps.LatLng(24.665658,46.7440368);
+            let newMapOptions = {
+                center: centerOfNewMap,
+                zoom: 14
+            };
+            new_map = new google.maps.Map(document.getElementById('sale_map'), newMapOptions);
+            // end new map
+            google.maps.event.addListener(new_map, 'click', function(event) {
+                let clickedLocation = event.latLng;
+                if(marker === false){
+                    marker = new google.maps.Marker({
+                        position: clickedLocation,
+                        map: new_map,
+                        draggable: true
+                    });
+                    google.maps.event.addListener(marker, 'dragend', function(event){
+                        markerLocation();
+                    });
+                } else{
+                    marker.setPosition(clickedLocation);
+                }
+                markerLocation();
+            });
+        }
+        function markerLocation(){
+            let currentLocation = marker.getPosition();
+            document.getElementById('lat').value = currentLocation.lat();
+            document.getElementById('lng').value = currentLocation.lng();
+        }
+        google.maps.event.addDomListener(window, 'load', initMap);
+    </script>
 @endsection
 @section('content')
     <div class="content-i">
@@ -19,15 +118,19 @@
                         @include('dashboard.show.first-box')
                     </div>
                     @if(isset($cards))
-                    <div class="element-wrapper">
-                        @include('dashboard.show.card-box')
-                    </div>
+                        <div class="element-wrapper">
+                            @include('dashboard.show.card-box')
+                        </div>
                     @endif
                     <div class="element-wrapper">
                         @include('dashboard.show.activity-box')
                     </div>
                 </div>
-                @include('dashboard.show.edit-box')
+                @if(isset($only_show) && $only_show==true)
+                    @include('dashboard.show.show-box')
+                @else
+                    @include('dashboard.show.edit-box')
+                @endif
             </div>
         </div>
     </div>
@@ -75,16 +178,19 @@
         $(document).on('click', '.block', function (e) {
             e.preventDefault();
             Swal.fire({
-                title: 'من فضلك اذكر سبب الحظر',
-                input: 'text',
+                title: "هل انت متأكد من الحظر ؟",
+                text: "تأكد من اجابتك قبل التأكيد!",
+                type: "warning",
                 showCancelButton: true,
-                confirmButtonText: 'حظر',
-                showLoaderOnConfirm: true,
-                preConfirm: (block_reason) => {
+                confirmButtonClass: 'btn-danger',
+                confirmButtonText: 'نعم , قم بالحظر!',
+                cancelButtonText: 'ﻻ , الغى عملية الحظر!',
+                closeOnConfirm: false,
+                closeOnCancel: false,
+                preConfirm: () => {
                     $.ajax({
                         url: $(this).data('href'),
                         type:'GET',
-                        data: {block_reason}
                     })
                 },
                 allowOutsideClick: () => !Swal.isLoading()
@@ -110,13 +216,29 @@
         </script>
     @endif
     <script type="text/javascript">
-        $("#file-input").change(function(){
+        $('#image_preview').html("");
+        var files=JSON.parse($("#uploadFile").attr('data-images'));
+        for(var i=0;i<files.length;i++)
+        {
+            $('#image_preview').append("<img style='pointer-events: none;max-height: 100px;max-width: 100px;margin-right: 5px;margin-left: 5px;border-radius: 10px;' src='https://top-auction.com/media/images/sale/"+files[i]+"'>");
+        }
+        $("#uploadFile").change(function(){
             $('#image_preview').html("");
-            var total_file=document.getElementById("file-input").files.length;
+            var total_file=document.getElementById("uploadFile").files.length;
             for(var i=0;i<total_file;i++)
             {
-                $('#image_preview').append("<img style='pointer-events: none;max-height: 100px;max-width: 100px' src='"+URL.createObjectURL(event.target.files[i])+"'>");
+                $('#image_preview').append("<img style='pointer-events: none;max-height: 100px;max-width: 100px;margin-right: 5px;margin-left: 5px;border-radius: 10px;' src='"+URL.createObjectURL(event.target.files[i])+"'>");
+            }
+        });
+        $("#pdf").change(function(){
+            $('#pdf_preview').html("");
+            var total_file=document.getElementById("pdf").files.length;
+            for(var i=0;i<total_file;i++)
+            {
+                $('#pdf_preview').append("" +
+                    "<iframe src='"+URL.createObjectURL(event.target.files[i])+"' style='width:100%; height:500px;'></iframe>");
             }
         });
     </script>
+
 @endsection

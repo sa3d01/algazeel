@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+//Route::prefix('/admin')->name('admin.')->middleware(['auth', 'permission:access-dashboard'])->namespace('Admin')->group(function(){
 Route::prefix('/admin')->name('admin.')->namespace('Admin')->group(function(){
     Route::namespace('Auth')->group(function(){
         Route::get('/login','LoginController@showLoginForm')->name('login');
@@ -22,23 +23,35 @@ Route::prefix('/admin')->name('admin.')->namespace('Admin')->group(function(){
         Route::get('/password/reset/{token}','ResetPasswordController@showResetForm')->name('password.reset');
         Route::post('/password/reset','ResetPasswordController@reset')->name('password.update');
     });
+
     Route::get('/', 'HomeController@index')->name('home');
+
     Route::get('/setting', 'HomeController@setting')->name('setting');
     Route::post('/setting', 'HomeController@update_setting')->name('setting.update');
 
-    Route::get('/admin/{id}', 'AdminController@show')->name('profile');
+    Route::get('admin/profile', 'AdminController@profile')->name('profile');
+    Route::post('admin/update_profile/{id}', 'AdminController@update_profile')->name('update_profile');
+    Route::resource('admin', 'AdminController');
     Route::post('/admin/{id}', 'AdminController@update')->name('update');
+    Route::get('admin/activate/{id}', 'AdminController@activate')->name('admin.activate');
+
+    Route::resource('role', 'RoleController');
+    Route::post('/role/{id}', 'RoleController@update')->name('update');
 
     Route::post('user/{id}', 'UserController@update')->name('user.update');
     Route::resource('user', 'UserController');
     Route::get('user/activate/{id}', 'UserController@activate')->name('user.activate');
 
-    Route::post('page/{id}', 'PageController@update')->name('page.update');
-    Route::resource('page', 'PageController');
-    Route::get('page/activate/{id}', 'PageController@activate')->name('page.activate');
+    Route::post('provider/{id}', 'ProviderController@update')->name('provider.update');
+    Route::resource('provider', 'ProviderController');
+    Route::get('provider/activate/{id}', 'ProviderController@activate')->name('provider.activate');
+
 
 
 
 });
 Auth::routes();
-Route::get('/', 'HomeController@index')->name('home');
+Route::get('/', function (){
+    return redirect()->route('admin.home');
+});
+

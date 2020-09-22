@@ -51,7 +51,13 @@ trait ModelBaseFunctions
 
     public function getStatusIcon()
     {
-        if ($this->attributes['status'] =='in_progress') {
+        if ($this->attributes['status'] == 1){
+            $name = 'مفعل';
+            $key = 'success';
+        }elseif ($this->attributes['status'] == 0) {
+            $name = 'محظور';
+            $key = 'danger';
+        }elseif ($this->attributes['status'] =='in_progress') {
             $name = 'جاري';
             $key = 'info';
         } elseif ($this->attributes['status'] =='new') {

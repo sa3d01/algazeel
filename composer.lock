@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "38679c9f61a6453aff3f3a0265e345d5",
+    "content-hash": "0c643960a3cb05c721f7ca8189b9bea9",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -428,16 +428,16 @@
         },
         {
             "name": "egulias/email-validator",
-            "version": "2.1.20",
+            "version": "2.1.21",
             "source": {
                 "type": "git",
                 "url": "https://github.com/egulias/EmailValidator.git",
-                "reference": "f46887bc48db66c7f38f668eb7d6ae54583617ff"
+                "reference": "563d0cdde5d862235ffe24a158497f4d490191b5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/egulias/EmailValidator/zipball/f46887bc48db66c7f38f668eb7d6ae54583617ff",
-                "reference": "f46887bc48db66c7f38f668eb7d6ae54583617ff",
+                "url": "https://api.github.com/repos/egulias/EmailValidator/zipball/563d0cdde5d862235ffe24a158497f4d490191b5",
+                "reference": "563d0cdde5d862235ffe24a158497f4d490191b5",
                 "shasum": ""
             },
             "require": {
@@ -482,7 +482,7 @@
                 "validation",
                 "validator"
             ],
-            "time": "2020-09-06T13:44:32+00:00"
+            "time": "2020-09-19T14:37:56+00:00"
         },
         {
             "name": "fideloper/proxy",
@@ -1389,16 +1389,16 @@
         },
         {
             "name": "league/mime-type-detection",
-            "version": "1.4.0",
+            "version": "1.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/mime-type-detection.git",
-                "reference": "fda190b62b962d96a069fcc414d781db66d65b69"
+                "reference": "ea2fbfc988bade315acd5967e6d02274086d0f28"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/mime-type-detection/zipball/fda190b62b962d96a069fcc414d781db66d65b69",
-                "reference": "fda190b62b962d96a069fcc414d781db66d65b69",
+                "url": "https://api.github.com/repos/thephpleague/mime-type-detection/zipball/ea2fbfc988bade315acd5967e6d02274086d0f28",
+                "reference": "ea2fbfc988bade315acd5967e6d02274086d0f28",
                 "shasum": ""
             },
             "require": {
@@ -1436,7 +1436,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-08-09T10:34:01+00:00"
+            "time": "2020-09-21T18:10:53+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -2411,6 +2411,80 @@
                 }
             ],
             "time": "2020-08-18T17:17:46+00:00"
+        },
+        {
+            "name": "spatie/laravel-permission",
+            "version": "3.17.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spatie/laravel-permission.git",
+                "reference": "35d40a45e49f5713f477823b571e05ef6a3a0394"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spatie/laravel-permission/zipball/35d40a45e49f5713f477823b571e05ef6a3a0394",
+                "reference": "35d40a45e49f5713f477823b571e05ef6a3a0394",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/auth": "^5.8|^6.0|^7.0|^8.0",
+                "illuminate/container": "^5.8|^6.0|^7.0|^8.0",
+                "illuminate/contracts": "^5.8|^6.0|^7.0|^8.0",
+                "illuminate/database": "^5.8|^6.0|^7.0|^8.0",
+                "php": "^7.2.5"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^3.8|^4.0|^5.0|^6.0",
+                "phpunit/phpunit": "^8.0|^9.0",
+                "predis/predis": "^1.1"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Spatie\\Permission\\PermissionServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Spatie\\Permission\\": "src"
+                },
+                "files": [
+                    "src/helpers.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Freek Van der Herten",
+                    "email": "freek@spatie.be",
+                    "homepage": "https://spatie.be",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Permission handling for Laravel 5.8 and up",
+            "homepage": "https://github.com/spatie/laravel-permission",
+            "keywords": [
+                "acl",
+                "laravel",
+                "permission",
+                "permissions",
+                "rbac",
+                "roles",
+                "security",
+                "spatie"
+            ],
+            "funding": [
+                {
+                    "url": "https://spatie.be/open-source/support-us",
+                    "type": "custom"
+                }
+            ],
+            "time": "2020-09-16T16:47:18+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -6181,6 +6255,7 @@
             "keywords": [
                 "tokenizer"
             ],
+            "abandoned": true,
             "time": "2019-09-17T06:23:10+00:00"
         },
         {

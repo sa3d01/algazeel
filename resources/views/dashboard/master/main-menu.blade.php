@@ -1,55 +1,5 @@
 <ul class="main-menu">
     <li class="sub-header">
-        <span>اعدادات عامة</span>
-    </li>
-    <li class=" has-sub-menu">
-        <a href="#">
-            <div class="icon-w">
-                <div class="os-icon os-icon-paperclip"></div>
-            </div>
-            <span>الصفحات التعريفية</span></a>
-        <div class="sub-menu-w">
-            <div class="sub-menu-header">
-                الصفحات التعريفية
-            </div>
-            <div class="sub-menu-icon">
-                <i class="os-icon os-icon-paperclip"></i>
-            </div>
-            <div class="sub-menu-i">
-                <ul class="sub-menu">
-                    <li>
-                        <a href="{{route('admin.page.index')}}">قائمة البيانات</a>
-                    </li>
-                    <li>
-                        <a href="{{route('admin.page.create')}}">اضافة </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </li>
-    <li class=" has-sub-menu">
-        <a href="#">
-            <div class="icon-w">
-                <div class="os-icon os-icon-settings"></div>
-            </div>
-            <span>الاعدادات العامة</span></a>
-        <div class="sub-menu-w">
-            <div class="sub-menu-header">
-                الاعدادات العامة
-            </div>
-            <div class="sub-menu-icon">
-                <i class="os-icon os-icon-settings"></i>
-            </div>
-            <div class="sub-menu-i">
-                <ul class="sub-menu">
-                    <li>
-                        <a href="{{route('admin.setting')}}">عرض </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </li>
-    <li class="sub-header">
         <span>المستخدمين</span>
     </li>
     <li class="has-sub-menu">
@@ -57,10 +7,10 @@
             <div class="icon-w">
                 <div class="os-icon os-icon-users"></div>
             </div>
-            <span>الأعضاء</span></a>
+            <span>المستخدمين</span></a>
         <div class="sub-menu-w">
             <div class="sub-menu-header">
-                الأعضاء
+                المستخدمين
             </div>
             <div class="sub-menu-icon">
                 <i class="os-icon os-icon-users"></i>
@@ -68,13 +18,159 @@
             <div class="sub-menu-i">
                 <ul class="sub-menu">
                     <li>
-                        <a href="{{route('admin.user.index')}}">قائمة البيانات</a>
+                        <a href="{{route('admin.user.index')}}"> المستخدمين</a>
                     </li>
                     <li>
-                        <a href="{{route('admin.user.create')}}">إضافة جديد</a>
+                        <a href="{{route('admin.user.create')}}"> إضافة مستخدم</a>
                     </li>
                 </ul>
             </div>
         </div>
     </li>
+{{--    //providers--}}
+    <li class="sub-header">
+        <span>مزودى الخدمات</span>
+    </li>
+    <li class=" has-sub-menu">
+        <a href="#">
+            <div class="icon-w">
+                <div class="os-icon os-icon-agenda-1"></div>
+            </div>
+            <span>مزودى الخدمات</span></a>
+        <div class="sub-menu-w">
+            <div class="sub-menu-header">
+                مزودى الخدمات
+            </div>
+            <div class="sub-menu-icon">
+                <i class="os-icon os-icon-agenda-1"></i>
+            </div>
+            <div class="sub-menu-i">
+                <ul class="sub-menu">
+                    <li>
+                        <a href="{{route('admin.provider.index')}}"> مزودى الخدمات </a>
+                    </li>
+                    <li>
+                        <a href="{{route('admin.provider.create')}}">اضافة  مزود خدمة</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </li>
+
+{{--        <li class="sub-header">--}}
+{{--            <span>الأقسام</span>--}}
+{{--        </li>--}}
+{{--        <li class="has-sub-menu">--}}
+{{--            <a href="#">--}}
+{{--                <div class="icon-w">--}}
+{{--                    <div class="os-icon os-icon-calendar-time"></div>--}}
+{{--                </div>--}}
+{{--                <span>الأقسام</span>--}}
+{{--            </a>--}}
+{{--            <div class="sub-menu-w">--}}
+{{--                <div class="sub-menu-header">--}}
+{{--                    الأقسام--}}
+{{--                </div>--}}
+{{--                <div class="sub-menu-icon">--}}
+{{--                    <i class="os-icon os-icon-calendar-time"></i>--}}
+{{--                </div>--}}
+{{--                <div class="sub-menu-i">--}}
+{{--                    <ul class="sub-menu">--}}
+{{--                        <li>--}}
+{{--                            <a href="{{route('admin.category.index')}}">الأقسام</a>--}}
+{{--                        </li>--}}
+{{--                        <li>--}}
+{{--                            <a href="{{route('admin.category.create')}}">إضافة جديد</a>--}}
+{{--                        </li>--}}
+{{--                    </ul>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </li>--}}
+{{--        <li class="sub-header">--}}
+{{--            <span>خصائص السيارات</span>--}}
+{{--        </li>--}}
+{{--        <li class="has-sub-menu">--}}
+{{--            <a href="#">--}}
+{{--                <div class="icon-w">--}}
+{{--                    <div class="os-icon os-icon-trending-up"></div>--}}
+{{--                </div>--}}
+{{--                <span>خصائص السيارات</span>--}}
+{{--            </a>--}}
+{{--            <div class="sub-menu-w">--}}
+{{--                <div class="sub-menu-header">--}}
+{{--                    خصائص السيارات--}}
+{{--                </div>--}}
+{{--                <div class="sub-menu-icon">--}}
+{{--                    <i class="os-icon os-icon-trending-up"></i>--}}
+{{--                </div>--}}
+{{--                <div class="sub-menu-i">--}}
+{{--                    <ul class="sub-menu">--}}
+{{--                        <li>--}}
+{{--                            <a href="{{route('admin.mark.index')}}">الماركات</a>--}}
+{{--                        </li>--}}
+{{--                        <li>--}}
+{{--                            <a href="{{route('admin.model.index')}}">الموديﻻت</a>--}}
+{{--                        </li>--}}
+{{--                        <li>--}}
+{{--                            <a href="{{route('admin.color.index')}}">الألوان</a>--}}
+{{--                        </li>--}}
+{{--                        <li>--}}
+{{--                            <a href="{{route('admin.mark.create')}}">إضافة ماركة</a>--}}
+{{--                        </li>--}}
+{{--                        <li>--}}
+{{--                            <a href="{{route('admin.model.create')}}">إضافة موديل</a>--}}
+{{--                        </li>--}}
+{{--                        <li>--}}
+{{--                            <a href="{{route('admin.color.create')}}">إضافة لون</a>--}}
+{{--                        </li>--}}
+{{--                    </ul>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </li>--}}
+{{--        <li class="sub-header">--}}
+{{--            <span>المزادات</span>--}}
+{{--        </li>--}}
+{{--        <li class="has-sub-menu">--}}
+{{--            <a href="#">--}}
+{{--                <div class="icon-w">--}}
+{{--                    <div class="os-icon os-icon-wallet-loaded"></div>--}}
+{{--                </div>--}}
+{{--                <span>المزادات</span>--}}
+{{--            </a>--}}
+{{--            <div class="sub-menu-w">--}}
+{{--                <div class="sub-menu-header">--}}
+{{--                    المزادات--}}
+{{--                </div>--}}
+{{--                <div class="sub-menu-icon">--}}
+{{--                    <i class="os-icon os-icon-wallet-loaded"></i>--}}
+{{--                </div>--}}
+{{--                <div class="sub-menu-i">--}}
+{{--                    <ul class="sub-menu">--}}
+{{--                        <li>--}}
+{{--                            <a href="{{route('admin.sale.status',['status'=>'active'])}}">المزادات الجارية</a>--}}
+{{--                        </li>--}}
+{{--                        <li>--}}
+{{--                            <a href="{{route('admin.sale.status',['status'=>'near'])}}">المزادات القريبة</a>--}}
+{{--                        </li>--}}
+{{--                        <li>--}}
+{{--                            <a href="{{route('admin.sale.status',['status'=>'closed'])}}">المزادات المغلقة</a>--}}
+{{--                        </li>--}}
+{{--                        <li>--}}
+{{--                            <a href="{{route('admin.sale.create')}}">إضافة جديد</a>--}}
+{{--                        </li>--}}
+{{--                    </ul>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </li>--}}
+{{--        <li class="sub-header">--}}
+{{--            <span>رسائل الأعضاء</span>--}}
+{{--        </li>--}}
+{{--        <li class=" has-sub-menu">--}}
+{{--            <a href="{{route('admin.contact.index')}}">--}}
+{{--                <div class="icon-w">--}}
+{{--                    <div class="os-icon os-icon-email-2-at"></div>--}}
+{{--                </div>--}}
+{{--                <span>رسائل الأعضاء</span>--}}
+{{--            </a>--}}
+{{--        </li>--}}
 </ul>

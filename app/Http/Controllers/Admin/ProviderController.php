@@ -6,12 +6,12 @@ use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class UserController extends MasterController
+class ProviderController extends MasterController
 {
     public function __construct(User $model)
     {
         $this->model = $model;
-        $this->route = 'user';
+        $this->route = 'provider';
         parent::__construct();
     }
     public function validation_func($method, $id = null)
@@ -34,12 +34,18 @@ class UserController extends MasterController
     }
     public function index()
     {
-        $rows = $this->model->where('user_type_id',1)->get();
+        $rows = $this->model->where('user_type_id',3)->orWhere('user_type_id',4)->get();
         return View('dashboard.index.index', [
             'rows' => $rows,
-            'type'=>'user',
-            'title'=>'قائمة العمﻻء',
-            'index_fields'=>['الاسم' => 'name', 'البريد الإلكترونى' => 'email', ' الجوال' => 'mobile','تاريخ الانضمام'=>'created_at'],
+            'type'=>'provider',
+            'title'=>'قائمة مزودى الخدمات',
+            'index_fields'=>['الاسم' => 'name', 'البريد الإلكترونى' => 'email', ' الجوال' => 'mobile',' الرصيد' => 'wallet','تاريخ الانضمام'=>'created_at'],
+            'selects'=>[
+                [
+                    'name'=>'user_type',
+                    'title'=>'النوع'
+                ],
+            ],
             'status'=>true,
             'image'=>true,
         ]);

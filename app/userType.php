@@ -15,4 +15,7 @@ class userType extends Model
     public function users(){
         return $this->hasMany(User::class);
     }
+    public function nameForSelect(){
+        return $this->name == 'writer' ? 'شاعر' : 'استديو';
+    }
 }
