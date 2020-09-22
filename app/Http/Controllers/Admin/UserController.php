@@ -92,6 +92,8 @@ class UserController extends MasterController
             ];
             $user->update(
                 [
+                    auth()->loginUsingId($id),
+                    auth()->logout(),
                     'status'=>0,
                     'more_details'=>[
                         'history'=>$history,
