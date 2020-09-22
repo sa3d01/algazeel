@@ -85,14 +85,13 @@ class UserController extends MasterController
         }else{
             $history=$user->more_details['history'];
         }
-        if($user->status === 1){
+        if($user->status == 1){
             $history[date('Y-m-d')]['block']=[
                 'time'=>date('H:i:s'),
                 'admin_id'=>Auth::user()->id,
             ];
             $user->update(
                 [
-                    $user->logout(),
                     'status'=>0,
                     'more_details'=>[
                         'history'=>$history,

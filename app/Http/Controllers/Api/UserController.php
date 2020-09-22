@@ -163,7 +163,7 @@ class UserController extends MasterController
     public function upload_attachment(Request $request){
         $validator = Validator::make(
             [
-                'attachment' => 'required|max:10000|mimes:doc,docx,pdf',
+                'attachment' => 'required|max:10000|mimes:doc,docx,pdf,mp3',
             ],
             $this->validation_messages());
         if ($validator->fails()) {
@@ -184,6 +184,7 @@ class UserController extends MasterController
         $date=date_create();
         $attachments[]=[
             'id'=>date_timestamp_get($date),
+            'file_name'=>$attachment->getClientOriginalName(),
             'attachment'=>$fileName,
             'type'=>$attachment_type,
         ];

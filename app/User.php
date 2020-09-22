@@ -43,6 +43,7 @@ class User extends Authenticatable implements JWTSubject
             foreach ($this->more_details['attachments'] as $attachment){
                 $obj['id']=$attachment['id'];
                 $obj['type']=$attachment['type'];
+                $obj['file_name']=$attachment['file_name'];
                 $obj['attachment']=asset('media/files/attachment/').'/'.$attachment['attachment'];
                 $collection[]=$obj;
             }

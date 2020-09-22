@@ -19,33 +19,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="29d3824d-e6ac-4a03-84c0-23fc323bf7cc" name="Default Changelist" comment="order cycle">
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/ProviderController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/permission.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2020_09_22_084024_create_permission_tables.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/media/images/logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/media/images/user/Hd0beZYTaA.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/algazeel.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/algazeel.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+    <list default="true" id="29d3824d-e6ac-4a03-84c0-23fc323bf7cc" name="Default Changelist" comment="Admin Panel">
+      <change afterPath="$PROJECT_DIR$/vendor.zip" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/MasterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/MasterController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Traits/ModelBaseFunctions.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Traits/ModelBaseFunctions.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/userType.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/userType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/dashboard/index/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard/index/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/dashboard/master/base.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard/master/base.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/dashboard/master/cards.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard/master/cards.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/dashboard/master/custom-buttons.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard/master/custom-buttons.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/dashboard/master/main-menu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard/master/main-menu.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/dashboard/show/edit-box.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard/show/edit-box.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/dashboard/show/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard/show/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -189,7 +166,6 @@
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Http/Controllers/Admin" />
     <property name="node.js.detected.package.eslint" value="true" />
@@ -272,7 +248,7 @@
       <workItem from="1600446289331" duration="2934000" />
       <workItem from="1600593512578" duration="24052000" />
       <workItem from="1600630824352" duration="71000" />
-      <workItem from="1600763376315" duration="11464000" />
+      <workItem from="1600763376315" duration="16097000" />
     </task>
     <task id="LOCAL-00001" summary="edits">
       <created>1599123021704</created>
@@ -316,7 +292,28 @@
       <option name="project" value="LOCAL" />
       <updated>1600621528348</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Admin Panel">
+      <created>1600777043066</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1600777043066</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Admin Panel">
+      <created>1600779011939</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1600779011939</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Admin Panel">
+      <created>1600779531742</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1600779531742</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -341,7 +338,8 @@
     <MESSAGE value="3-9" />
     <MESSAGE value="20-9" />
     <MESSAGE value="order cycle" />
-    <option name="LAST_COMMIT_MESSAGE" value="order cycle" />
+    <MESSAGE value="Admin Panel" />
+    <option name="LAST_COMMIT_MESSAGE" value="Admin Panel" />
   </component>
   <component name="WindowStateProjectService">
     <state x="591" y="215" width="800" height="684" key="#Deployment" timestamp="1600777004125">
@@ -374,11 +372,11 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="785" y="473" key="Github.CreateGistDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1599044963788" />
-    <state x="592" y="288" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1600621531819">
+    <state x="592" y="288" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1600779533775">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
     <state x="588" y="288" width="800" height="528" key="Vcs.Push.Dialog.v2/67.27.1853.1053@67.27.1853.1053" timestamp="1599145441581" />
-    <state x="592" y="288" width="800" height="535" key="Vcs.Push.Dialog.v2/72.27.1848.1053@72.27.1848.1053" timestamp="1600621531819" />
+    <state x="592" y="288" width="800" height="535" key="Vcs.Push.Dialog.v2/72.27.1848.1053@72.27.1848.1053" timestamp="1600779533775" />
     <state x="690" y="270" width="602" height="573" key="VcsDiffUtil.ChangesDialog" timestamp="1600595370267">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
