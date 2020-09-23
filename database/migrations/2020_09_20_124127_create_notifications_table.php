@@ -23,6 +23,7 @@ class CreateNotificationsTable extends Migration
             $table->enum('read',['true','false'])->default('false');
             $table->enum('type',['admin','app'])->default('app');
             $table->enum('admin_notify_type',['user','provider','all','single'])->default('single');
+            $table->json('receivers')->nullable();
             $table->json('more_details')->nullable();
             $table->timestamps();
         });
