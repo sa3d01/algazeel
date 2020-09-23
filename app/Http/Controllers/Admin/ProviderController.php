@@ -73,10 +73,8 @@ class ProviderController extends MasterController
     }
     public function store(Request $request)
     {
-        return $request->all();
         $this->validate($request, $this->validation_func(1),$this->validation_msg());
         $data=$request->all();
-        $data['user_type_id']=1;
         $this->model->create($data);
         return redirect()->route('admin.user.index')->with('created');
     }
@@ -91,6 +89,7 @@ class ProviderController extends MasterController
             'edit_fields'=>['الاسم' => 'name', 'البريد الإلكترونى' => 'email', 'الجوال' => 'mobile'],
             'status'=>true,
             'image'=>true,
+            'address'=>true,
             'only_show'=>true,
         ]);
     }

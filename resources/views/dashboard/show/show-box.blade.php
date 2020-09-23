@@ -122,8 +122,6 @@
                                 @if(isset($select))
                                     @php
                                         $drop_down_rows=\App\DropDown::where(['class'=>$select['class'],'status'=>1])->get();
-                                        $marks=\App\DropDown::where(['class'=>'Mark','status'=>1])->get();
-                                        $models=\App\DropDown::where(['class'=>'Model','parent_id'=>$marks->first()->id,'status'=>1])->get();
                                         $related_model=substr_replace($select['input_name'], "", -3);
                                         try {
                                             $related_model_id=$row->$related_model->id;
@@ -140,52 +138,6 @@
                                                 <option value="{{$related_model_id}}">
                                                     {{$related_model_val}}
                                                 </option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-12" id="marks" hidden>
-                                        <div class="form-group">
-                                            <label for=""> الماركة </label>
-                                            <select disabled id="mark_id" name="mark_id" class="form-control">
-                                                <option value="{{$row->model ? $row->model->mark->id : null}}">
-                                                    {{$row->model ? $row->model->mark->name['ar'] : ''}}
-                                                </option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-12" id="models" hidden>
-                                        <div class="form-group">
-                                            <label for=""> الموديل </label>
-                                            <select disabled id="model_id" name="model_id" class="form-control">
-                                                <option value="{{$row->model ? $row->model->id : null}}">
-                                                    {{$row->model ? $row->model->name['ar'] : ''}}
-                                                </option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div id="color" class="col-sm-12" hidden>
-                                        <div class="form-group">
-                                            <label for="">اللون</label>
-                                            <select disabled id="color" name="color" class="form-control">
-                                                @php($selected_color=\App\DropDown::where('name->ar',$row->color)->first())
-                                                <option style="background-color:{{$selected_color->more_details['hexa']?? '#FFF'}}" value="{{$row->color}}">
-                                                    {{$row->color}}
-                                                </option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div id="year" class="col-sm-12" hidden>
-                                        <div class="form-group">
-                                            <label for="">سنة الصنع</label>
-                                            <select id="year" name="year" class="form-control">
-                                                <option value="{{$row->year}}">
-                                                    {{$row->year}}
-                                                </option>
-                                                @for($year=1980;$year<=2040;$year++)
-                                                    <option value="{{$year}}">
-                                                        {{$year}}
-                                                    </option>
-                                                @endfor
                                             </select>
                                         </div>
                                     </div>
@@ -208,11 +160,11 @@
                                     <br>
                                     <br>
                                 @endif
-                                @if(isset($address) && $row->address!=null)
+                                @if(isset($address) && $row->location!=null)
                                     <div class="col-sm-12">
                                         <div class="card-img" style="height: 400px">
                                             <label for="show_sale_map">الموقع</label>
-                                            <div id="show_sale_map" data-lat="{{$row->address['lat']}}" data-lng="{{$row->address['lng']}}" class="sale_map"></div>
+                                            <div id="show_sale_map" data-lat="{{$row->location['lat']}}" data-lng="{{$row->location['lng']}}" class="map"></div>
                                         </div>
                                     </div>
                                 @endif

@@ -50,4 +50,7 @@ class User extends Authenticatable implements JWTSubject
         }
         return $collection;
     }
+    public function rating(){
+        return 0;
+    }
 }

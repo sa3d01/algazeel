@@ -20,13 +20,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="29d3824d-e6ac-4a03-84c0-23fc323bf7cc" name="Default Changelist" comment="Admin Panel">
-      <change afterPath="$PROJECT_DIR$/resources/views/dashboard/show/show-box.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/ProviderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/ProviderController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Resources/UserResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/UserResource.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/dashboard/create/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard/create/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/dashboard/master/base.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard/master/base.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/dashboard/master/main-menu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard/master/main-menu.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/dashboard/show/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard/show/show.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -253,7 +250,7 @@
       <workItem from="1600593512578" duration="24052000" />
       <workItem from="1600630824352" duration="71000" />
       <workItem from="1600763376315" duration="23794000" />
-      <workItem from="1600874241509" duration="1445000" />
+      <workItem from="1600874241509" duration="3230000" />
     </task>
     <task id="LOCAL-00001" summary="edits">
       <created>1599123021704</created>
@@ -332,7 +329,14 @@
       <option name="project" value="LOCAL" />
       <updated>1600782961307</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Admin Panel">
+      <created>1600878823684</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1600878823684</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -391,11 +395,11 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="785" y="473" key="Github.CreateGistDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1599044963788" />
-    <state x="592" y="288" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1600782963244">
+    <state x="592" y="288" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1600878826937">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
     <state x="588" y="288" width="800" height="528" key="Vcs.Push.Dialog.v2/67.27.1853.1053@67.27.1853.1053" timestamp="1599145441581" />
-    <state x="592" y="288" width="800" height="535" key="Vcs.Push.Dialog.v2/72.27.1848.1053@72.27.1848.1053" timestamp="1600782963244" />
+    <state x="592" y="288" width="800" height="535" key="Vcs.Push.Dialog.v2/72.27.1848.1053@72.27.1848.1053" timestamp="1600878826937" />
     <state x="690" y="270" width="602" height="573" key="VcsDiffUtil.ChangesDialog" timestamp="1600595370267">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
