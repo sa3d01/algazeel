@@ -49,9 +49,9 @@
                     <li>
                         <a href="{{route('admin.provider.index')}}"> مزودى الخدمات </a>
                     </li>
-                    <li>
-                        <a href="{{route('admin.provider.create')}}">اضافة  مزود خدمة</a>
-                    </li>
+{{--                    <li>--}}
+{{--                        <a href="{{route('admin.provider.create')}}">اضافة  مزود خدمة</a>--}}
+{{--                    </li>--}}
                 </ul>
             </div>
         </div>

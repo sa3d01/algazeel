@@ -155,7 +155,7 @@
 <!--copyRight-->
 <div class="text-center">
     <p class="m-0 py-3 text-white">
-        حقوق ملكية لشركة مزادات الثقة 2020
+        حقوق ملكية لشركة البيت الجزيل 2020
     </p>
 </div>
 {{--script--}}

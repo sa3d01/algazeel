@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\User;
+use App\userType;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -53,17 +54,26 @@ class ProviderController extends MasterController
     public function create()
     {
         return View('dashboard.create.create', [
-            'type'=>'user',
-            'action'=>'admin.user.store',
-            'title'=>'أضافة عميل',
-            'create_fields'=>['الاسم' => 'name', 'البريد الإلكترونى' => 'email', 'الجوال' => 'mobile'],
+            'type'=>'provider',
+            'action'=>'admin.provider.store',
+            'title'=>'أضافة مزود خدمة',
+            'create_fields'=>['الاسم' => 'name', 'البريد الإلكترونى' => 'email', 'الجوال' => 'mobile', 'نص تعريفى' => 'note'],
             'status'=>true,
             'password'=>true,
             'image'=>true,
+            'address'=>true,
+            'selects'=>[
+                [
+                    'input_name'=>'user_type_id',
+                    'rows'=>userType::where('id',3)->orWhere('id',4)->get(),
+                    'title'=>'النوع'
+                ],
+            ],
         ]);
     }
     public function store(Request $request)
     {
+        return $request->all();
         $this->validate($request, $this->validation_func(1),$this->validation_msg());
         $data=$request->all();
         $data['user_type_id']=1;
@@ -75,13 +85,13 @@ class ProviderController extends MasterController
         $row = User::findOrFail($id);
         return View('dashboard.show.show', [
             'row' => $row,
-            'type'=>'user',
-            'action'=>'admin.user.update',
+            'type'=>'provider',
+            'action'=>'admin.provider.update',
             'title'=>'الملف الشخصى',
             'edit_fields'=>['الاسم' => 'name', 'البريد الإلكترونى' => 'email', 'الجوال' => 'mobile'],
             'status'=>true,
-            'password'=>true,
             'image'=>true,
+            'only_show'=>true,
         ]);
     }
     public function activate($id,Request $request){
@@ -91,7 +101,7 @@ class ProviderController extends MasterController
         }else{
             $history=$user->more_details['history'];
         }
-        if($user->status === 1){
+        if($user->status == 1){
             $history[date('Y-m-d')]['block']=[
                 'time'=>date('H:i:s'),
                 'admin_id'=>Auth::user()->id,
