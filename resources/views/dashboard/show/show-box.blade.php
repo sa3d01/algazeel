@@ -93,6 +93,13 @@
                                                 <div class="help-block form-text with-errors form-control-feedback"></div>
                                             </div>
                                         </div>
+                                    @elseif($value== 'created_at')
+                                        <div class="col-sm-12">
+                                            <div class="form-group" id="{{$value}}">
+                                                <label for=""> {{$key}}</label>
+                                                <input disabled name="{{$value}}" value="{!! $row->published_at() !!}" class="form-control" type="text">
+                                            </div>
+                                        </div>
                                     @elseif($value=='start_date' || $value=='end_date')
                                         <div class="col-sm-12" id="{{$value}}">
                                             <div class="form-group row">
@@ -119,31 +126,25 @@
                                     @endif
                                 @endif
                             @endforeach
-                                @if(isset($select))
-                                    @php
-                                        $drop_down_rows=\App\DropDown::where(['class'=>$select['class'],'status'=>1])->get();
-                                        $related_model=substr_replace($select['input_name'], "", -3);
-                                        try {
-                                            $related_model_id=$row->$related_model->id;
-                                            $related_model_val=$row->$related_model->name['ar'];
-                                        }catch (Exception $e){
-                                            $related_model_id=$row->mark->id;
-                                            $related_model_val=$row->mark->name['ar'];
-                                        }
-                                    @endphp
-                                    <div class="col-sm-12">
-                                        <div class="form-group">
-                                            <label for=""> {{$select['name']}} </label>
-                                            <select disabled id="{{$select['input_name']}}" name="{{$select['input_name']}}" class="form-control">
-                                                <option value="{{$related_model_id}}">
-                                                    {{$related_model_val}}
-                                                </option>
-                                            </select>
+                                @if(isset($selects))
+                                    @foreach($selects as $select)
+                                        @php($related_model=$select['name'])
+                                        <div class="col-sm-12">
+                                            <div class="form-group">
+                                                <label for=""> {{$select['title']}} </label>
+                                                @if(array_key_exists("route",$select))
+                                                    <a href="{{$select['route']}}">
+                                                        <input disabled value="{!!$row->$related_model->nameForSelect()!!}" class="form-control" type="text">
+                                                    </a>
+                                                @else
+                                                    <input disabled value="{!!$row->$related_model->nameForSelect()!!}" class="form-control" type="text">
+                                                @endif
+                                            </div>
                                         </div>
-                                    </div>
+                                    @endforeach
                                 @endif
                                 @if(isset($image))
-                                    <div class="col-sm-6">
+                                    <div class="col-sm-12">
                                         <div class="white-box">
                                             <label for="input-file-now-custom-1">الصورة</label>
                                             <input disabled name="image" type="file" id="input-file-now-custom-1" class="dropify" data-default-file="{{$row->image}}"/>
@@ -172,16 +173,18 @@
                                 @if(isset($attachments))
                                     <div class="col-sm-12">
                                         <label for="attachments">الملفات المرفقة</label>
-                                    @if(array_key_exists("attachments",$row->more_details))
+                                    @if(array_key_exists("attachments",(array)$row->more_details))
                                         @foreach($row->more_details['attachments'] as $attachment)
+                                            <br>
                                             <div>
-                                                <iframe id="iframe" src="{{asset('media/files/attachment/'.$attachment['attachment'])}}" style="width:100%; height:500px;" frameborder="0"></iframe>
+                                                <label for="map">{{$attachment['file_name']}}</label>
+                                                <iframe id="iframe" src="{{asset('media/files/attachment/'.$attachment['attachment'])}}" style="width:100%; height:300px;"></iframe>
                                             </div>
                                             <br>
                                         @endforeach
                                     @else
                                         <div>
-                                            <p>ﻻ يوجد ملفات مرفقة</p>
+                                            <input disabled value="ﻻ يوجد ملفات مرفقة" class="form-control" type="text">
                                         </div>
                                     @endif
                                     </div>

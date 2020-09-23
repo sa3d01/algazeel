@@ -1,14 +1,5 @@
 @extends('dashboard.master.base')
 @section('title',$title)
-@section('style')
-    <style>
-        .image-upload > input {
-            visibility:hidden;
-            width:0;
-            height:0
-        }
-    </style>
-@endsection
 @section('content')
     <div class="content-i">
         <div class="content-box">
@@ -17,11 +8,57 @@
                     <h5 class="form-header">
                         {{$title}}
                     </h5>
-                    @if($type=='notification')
-                        <div class="form-buttons-w">
-                            <a href="{{route('admin.'.$type.'.create')}}" class="btn btn-primary create-submit" ><label>+</label> إضافة</a>
+                    <div class="element-box">
+                        {!! Form::open(['method'=>'post', 'files'=>true, 'enctype' => 'multipart/form-data', 'route'=>[$action], 'class' => 'formValidate']) !!}
+                        {!! Form::hidden('add_by', \Illuminate\Support\Facades\Auth::user()->id) !!}
+                        {!! Form::hidden('admin_notify_type', $admin_notify_type) !!}
+                        <div class="element-info">
+                            <div class="element-info-with-icon">
+                                <div class="element-info-icon">
+                                    <div class="os-icon os-icon-wallet-loaded"></div>
+                                </div>
+                                <div class="element-info-text">
+                                    <h5 class="element-inner-header">
+                                        إضافة
+                                    </h5>
+                                    @if(isset($create_alert))
+                                        <div class="element-inner-desc">
+                                            {{$create_alert}}
+                                        </div>
+                                    @endif
+                                </div>
+                            </div>
                         </div>
-                    @endif
+                        @if(isset($create_fields))
+                            <fieldset class="form-group">
+                                <div class="row">
+                                    @foreach($create_fields as $key=>$value)
+                                        @if($value=='note')
+                                            <div class="col-sm-12">
+                                                <div class="form-group" id="{{$value}}">
+                                                    <label> {{$key}} </label>
+                                                    <textarea name="{{$value}}" class="form-control" cols="80" rows="5"></textarea>
+                                                </div>
+                                            </div>
+                                        @else
+                                            <div class="col-sm-12">
+                                                <div class="form-group" id="{{$value}}">
+                                                    <label for=""> {{$key}}</label>
+                                                    <input name="{{$value}}" class="form-control" type="text">
+                                                    <div class="help-block form-text with-errors form-control-feedback"></div>
+                                                </div>
+                                            </div>
+                                        @endif
+                                    @endforeach
+                                </div>
+                            </fieldset>
+                        @endif
+                        <div class="form-buttons-w">
+                            <button class="btn btn-primary create-submit" type="submit"> إرسال</button>
+                        </div>
+                        {!! Form::close() !!}
+                    </div>
+
                     <div  class="table-responsive">
                         <table id="datatable" width="100%" class="table table-striped table-lightfont">
                             <thead>
@@ -30,18 +67,7 @@
                                     @foreach($index_fields as $key=>$value)
                                         <th>{{$key}}</th>
                                     @endforeach
-                                    @if(isset($selects))
-                                        @foreach($selects as $select)
-                                            <th>{{$select['title']}}</th>
-                                        @endforeach
-                                    @endif
-                                    @if(isset($status))
-                                        <th>الحالة</th>
-                                    @endif
-                                    @if(isset($image))
-                                        <th>الصورة</th>
-                                    @endif
-                                    <th>المزيد</th>
+                                    <th>عدد مستقبلي الاشعار</th>
                                 </tr>
                             </thead>
                             <tfoot>
@@ -50,18 +76,7 @@
                                     @foreach($index_fields as $key=>$value)
                                         <th>{{$key}}</th>
                                     @endforeach
-                                    @if(isset($selects))
-                                        @foreach($selects as $select)
-                                            <th>{{$select['title']}}</th>
-                                        @endforeach
-                                    @endif
-                                    @if(isset($status))
-                                        <th>الحالة</th>
-                                    @endif
-                                    @if(isset($image))
-                                        <th>الصورة</th>
-                                    @endif
-                                        <th>المزيد</th>
+                                    <th>عدد مستقبلي الاشعار</th>
                                 </tr>
                             </tfoot>
                             <tbody>
@@ -75,31 +90,7 @@
                                         <td>{{$row->$value}}</td>
                                     @endif
                                 @endforeach
-                                    @if(isset($selects))
-                                        @foreach($selects as $select)
-                                            @php($related_model=$select['name'])
-                                            <td>{{$row->$related_model->nameForSelect()}}</td>
-                                        @endforeach
-                                    @endif
-                                    @if(isset($status))
-                                        <td>
-                                        {!!$row->getStatusIcon()!!}
-                                        </td>
-                                    @endif
-                                    @if(isset($image))
-                                        <td><img width="50px" height="50px" src="{{$row->image}}"></td>
-                                    @endif
-                                    <td>
-                                        <form class="delete" data-id="{{$row->id}}" method="POST" action="{{ route('admin.'.$type.'.destroy',[$row->id]) }}">
-                                            @csrf
-                                            {{ method_field('DELETE') }}
-                                            <input type="hidden" value="{{$row->id}}">
-                                            <button type="button " class="btn p-0 no-bg">
-                                                <i class="fa fa-trash text-danger"></i>
-                                            </button>
-                                        </form>
-                                        <a href="{{route('admin.'.$type.'.show',$row->id)}}"><i class="os-icon os-icon-grid-10"></i></a>
-                                    </td>
+                                    <td>{{count((array)$row->receivers)}}</td>
                                 </tr>
                             @endforeach
                             </tbody>
@@ -169,28 +160,6 @@
                 });
                 Table.draw();
             });
-        });
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
-    <script>
-        $(document).on('click', '.delete', function (e) {
-            e.preventDefault();
-            var id = $(this).data('id');
-            Swal.fire({
-                title: "هل انت متأكد من الحذف ؟",
-                text: "لن تستطيع استعادة هذا العنصر مرة أخرى!",
-                type: "warning",
-                showCancelButton: true,
-                confirmButtonClass: 'btn-danger',
-                confirmButtonText: 'نعم , قم بالحذف!',
-                cancelButtonText: 'ﻻ , الغى عملية الحذف!',
-                closeOnConfirm: false,
-                closeOnCancel: false,
-                preConfirm: () => {
-                    $("form[data-id='" + id + "']").submit();
-                },
-                allowOutsideClick: () => !Swal.isLoading()
-            })
         });
     </script>
 @endsection

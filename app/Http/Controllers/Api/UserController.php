@@ -25,9 +25,9 @@ class UserController extends MasterController
     public function validation_rules($method, $id = null)
     {
         if ($method == 2) {
-            $rules['mobile'] = 'required|regex:/(05)[0-9]{8}/|max:10|unique:users,mobile,' . $id;
-            $rules['email'] = 'required|email|max:50|unique:users,email,' . $id;
-            $rules['name'] = 'required|max:30';
+            $rules['mobile'] = 'nullable|regex:/(05)[0-9]{8}/|max:10|unique:users,mobile,' . $id;
+            $rules['email'] = 'nullable|email|max:50|unique:users,email,' . $id;
+            $rules['name'] = 'nullable|max:30';
             $rules['device'] = 'required';
         } else {
             $rules = [

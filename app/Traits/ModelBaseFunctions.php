@@ -2,6 +2,7 @@
 
 namespace App\Traits;
 
+use App\Rating;
 use Carbon\Carbon;
 use Illuminate\Support\Str;
 
@@ -51,25 +52,29 @@ trait ModelBaseFunctions
 
     public function getStatusIcon()
     {
-        if ($this->attributes['status'] == 1){
-            $name = 'مفعل';
-            $key = 'success';
-        }elseif ($this->attributes['status'] == 0) {
-            $name = 'محظور';
-            $key = 'danger';
-        }elseif ($this->attributes['status'] =='in_progress') {
+        if ($this->attributes['status'] ==='in_progress') {
             $name = 'جاري';
             $key = 'info';
-        } elseif ($this->attributes['status'] =='new') {
+        } elseif ($this->attributes['status'] ==='new') {
             $name = 'جديد';
             $key = 'warning';
-        } else {
+        }elseif ($this->attributes['status'] ==='done') {
             $name = 'منتهى';
             $key = 'success';
+        }elseif ($this->attributes['status'] === 1){
+            $name = 'مفعل';
+            $key = 'success';
+        }else{
+            $name = 'محظور';
+            $key = 'danger';
         }
         return "<a class='badge badge-$key-inverted'>
                 $name
                 </a>";
+    }
+    public function getRateIcon()
+    {
+        return "<p>لم يتم التقييم بعد</p>";
     }
 
     public function activate()

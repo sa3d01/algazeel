@@ -91,7 +91,7 @@ abstract class MasterController extends Controller
     public function destroy($id)
     {
         $this->model->find($id)->delete();
-        return redirect('admin/' . $this->route . '')->with('deleted', 'تم الحذف بنجاح');
+        return redirect()->back()->with('deleted', 'تم الحذف بنجاح');
     }
 
     public function show($id)

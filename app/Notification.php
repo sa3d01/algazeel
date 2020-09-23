@@ -17,9 +17,10 @@ class Notification extends Model
 
     private $route='notification';
 
-    protected $fillable = ['sender_id','receiver_id','order_id','title','note','read','type','more_details'];
+    protected $fillable = ['sender_id','receiver_id','order_id','title','note','read','admin_notify_type','receivers','type','more_details'];
     protected $casts = [
         'more_details' => 'json',
+        'receivers' => 'array',
     ];
 
     public function sender(){
@@ -30,5 +31,16 @@ class Notification extends Model
     }
     public function order(){
         return $this->belongsTo(Order::class);
+    }
+    public function nameForShow($admin_notify_type){
+        if ($admin_notify_type=='user'){
+            return 'اشعارات العمﻻء' ;
+        }elseif ($admin_notify_type=='provider'){
+            return 'اشعارات مقدمى الخدمات' ;
+        }elseif ($admin_notify_type=='all'){
+            return 'اشعارات كل مستخدمى التطبيق' ;
+        }else{
+            return 'اشعارات موجهة' ;
+        }
     }
 }

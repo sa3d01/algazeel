@@ -53,4 +53,10 @@ class User extends Authenticatable implements JWTSubject
     public function rating(){
         return 0;
     }
+    public function nameForSelect(){
+        return $this->name ;
+    }
+    public function orders(){
+        return $this->hasMany(Order::class);
+    }
 }

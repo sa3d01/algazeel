@@ -96,35 +96,17 @@ class ProviderController extends MasterController
     }
     public function activate($id,Request $request){
         $user=$this->model->find($id);
-        if($user->more_details==null){
-            $history=[];
-        }else{
-            $history=$user->more_details['history'];
-        }
         if($user->status == 1){
-            $history[date('Y-m-d')]['block']=[
-                'time'=>date('H:i:s'),
-                'admin_id'=>Auth::user()->id,
-            ];
             $user->update(
                 [
                     'status'=>0,
-                    'more_details'=>[
-                        'history'=>$history,
-                    ],
                 ]
             );
+
         }else{
-            $history[date('Y-m-d')]['approve']=[
-                'time'=>date('H:i:s'),
-                'admin_id'=>Auth::user()->id,
-            ];
             $user->update(
                 [
                     'status'=>1,
-                    'more_details'=>[
-                        'history'=>$history,
-                    ],
                 ]
             );
         }

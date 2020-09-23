@@ -46,6 +46,12 @@ Route::prefix('/admin')->name('admin.')->namespace('Admin')->group(function(){
     Route::resource('provider', 'ProviderController');
     Route::get('provider/activate/{id}', 'ProviderController@activate')->name('provider.activate');
 
+    Route::get('order/status/{status}', 'OrderController@orders')->name('order.status');
+    Route::resource('order', 'OrderController');
+
+    Route::get('notification/admin_notify_type/{admin_notify_type}', 'NotificationController@notifications')->name('notification.admin_notify_type');
+//    Route::get('notification/add/{admin_notify_type}', 'NotificationController@add')->name('notification.add');
+    Route::resource('notification', 'NotificationController');
 
 
 
