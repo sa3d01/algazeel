@@ -15,7 +15,7 @@ class User extends Authenticatable implements JWTSubject
     private $route='user';
     private $images_link='media/images/user/';
 
-    protected $fillable = ['user_type_id','wallet','name','mobile','email','password','device','activation_code','status','image','location','more_details'];
+    protected $fillable = ['user_type_id','wallet','name','mobile','email','password','device','activation_code','status','image','note','location','more_details'];
     protected $hidden = ['password', 'remember_token'];
     protected $casts = [
         'email_verified_at' => 'datetime',

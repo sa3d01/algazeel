@@ -29,6 +29,7 @@ class CreateUsersTable extends Migration
             $table->char('image',20)->nullable();
             $table->string('password')->nullable();
             $table->json('location')->nullable();
+            $table->text('note')->nullable();
             $table->json('more_details')->nullable();
             $table->softDeletes('deleted_at', 0);
             $table->timestamp('email_verified_at')->nullable();

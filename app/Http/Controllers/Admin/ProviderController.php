@@ -86,11 +86,12 @@ class ProviderController extends MasterController
             'type'=>'provider',
             'action'=>'admin.provider.update',
             'title'=>'الملف الشخصى',
-            'edit_fields'=>['الاسم' => 'name', 'البريد الإلكترونى' => 'email', 'الجوال' => 'mobile'],
+            'edit_fields'=>['الاسم' => 'name', 'البريد الإلكترونى' => 'email', 'الجوال' => 'mobile', 'النص التعريفى' => 'note', 'الرصيد' => 'wallet'],
+            'only_show'=>true,
             'status'=>true,
             'image'=>true,
             'address'=>true,
-            'only_show'=>true,
+            'attachments'=>true
         ]);
     }
     public function activate($id,Request $request){

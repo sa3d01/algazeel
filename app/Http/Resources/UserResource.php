@@ -25,8 +25,9 @@ class UserResource extends JsonResource
             'type'=> new UserTypeResource($this->User_type),
             'activation_code'=> $this->activation_code ? (int)$this->activation_code : '',
             'location'=> $this->location ?? '',
+            'note'=> $this->note ?? '',
             'attachments'=> $this->get_attachments() ,
-            'rating'=>0
+            'rating'=>$this->rating()
         ];
     }
 }

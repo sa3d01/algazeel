@@ -163,9 +163,27 @@
                                 @if(isset($address) && $row->location!=null)
                                     <div class="col-sm-12">
                                         <div class="card-img" style="height: 400px">
-                                            <label for="show_sale_map">الموقع</label>
-                                            <div id="show_sale_map" data-lat="{{$row->location['lat']}}" data-lng="{{$row->location['lng']}}" class="map"></div>
+                                            <label for="map">الموقع</label>
+                                            <div id="map" data-lat="{{$row->location['lat']}}" data-lng="{{$row->location['lng']}}" class="map"></div>
                                         </div>
+                                    </div>
+                                    <br>
+                                @endif
+                                @if(isset($attachments))
+                                    <div class="col-sm-12">
+                                        <label for="attachments">الملفات المرفقة</label>
+                                    @if(array_key_exists("attachments",$row->more_details))
+                                        @foreach($row->more_details['attachments'] as $attachment)
+                                            <div>
+                                                <iframe id="iframe" src="{{asset('media/files/attachment/'.$attachment['attachment'])}}" style="width:100%; height:500px;" frameborder="0"></iframe>
+                                            </div>
+                                            <br>
+                                        @endforeach
+                                    @else
+                                        <div>
+                                            <p>ﻻ يوجد ملفات مرفقة</p>
+                                        </div>
+                                    @endif
                                     </div>
                                 @endif
                         </div>

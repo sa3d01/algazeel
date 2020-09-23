@@ -19,7 +19,7 @@ class UserCollection extends ResourceCollection
             $arr['id']=(int)$obj->id;
             $arr['name']=$obj->name;
             $arr['image']=$obj->image;
-            $arr['rating']=0;
+            $arr['rating']=$obj->rating();
             $data[]=$arr;
         }
         return $data;

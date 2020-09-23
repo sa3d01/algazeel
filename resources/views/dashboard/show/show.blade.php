@@ -3,9 +3,15 @@
 @section('style')
     <link rel="stylesheet" href="{{asset('panel/dropify/dist/css/dropify.min.css')}}">
     <script async defer
-            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBKhmEeCCFWkzxpDjA7QKjDu4zdLLoqYVw">
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBKhmEeCCFWkzxpDjA7QKjDu4zdLLoqYVw&&callback=initMap" type="text/javascript">
     </script>
     <style>
+        .map
+        {
+            position: absolute !important;
+            height: 100% !important;
+            width: 100% !important;
+        }
         .image-upload > input {
             visibility:hidden;
             width:0;
@@ -176,35 +182,26 @@
             }
         });
     </script>
-    <script type="text/javascript">
-        var lat_str = $("#map").attr("data-lat");
-        var lat_arr = lat_str.split(",");
-        var long_str = $("#map").attr("data-long");
-        var long_arr = long_str.split(",");
-        var uluru = {lat:parseFloat(lat_arr[0]), lng: parseFloat(long_arr[0])};
-        var locations=[];
-        for (i=0;i<lat_arr.length;i++){
-            locations[i]=['hi', lat_arr[i], long_arr[i], i+1];
-        }
-        var map = new google.maps.Map(document.getElementById('map'), {
-            zoom: 16,
-            center: new google.maps.LatLng(uluru),
-            mapTypeId: google.maps.MapTypeId.ROADMAP
-        });
-        var infowindow = new google.maps.InfoWindow();
-        var marker, i;
-        for (i = 0; i < locations.length; i++) {
-            marker = new google.maps.Marker({
-                position: new google.maps.LatLng(parseFloat(locations[i][1]), parseFloat(locations[i][2])),
-                map: map
-            });
-            google.maps.event.addListener(marker, 'click', (function(marker, i) {
-                return function() {
-                    infowindow.setContent('');
-                    infowindow.open(map, marker);
-                }
-            })(marker, i));
-        }
-    </script>
 
+
+
+    <script type="text/javascript">
+        let map;
+        let marker;
+        function initMap() {
+            // show map
+            let lat_str = document.getElementById('map').getAttribute("data-lat");
+            let long_str = document.getElementById('map').getAttribute("data-lng");
+            let uluru = {lat:parseFloat(lat_str), lng: parseFloat(long_str)};
+            let centerOfOldMap = new google.maps.LatLng(uluru);
+            let oldMapOptions = {
+                center: centerOfOldMap,
+                zoom: 9
+            };
+            map = new google.maps.Map(document.getElementById('map'), oldMapOptions);
+            marker = new google.maps.Marker({position: centerOfOldMap,animation:google.maps.Animation.BOUNCE});
+            marker.setMap(map);
+        }
+        google.maps.event.addDomListener(window, 'load', initMap);
+    </script>
 @endsection
