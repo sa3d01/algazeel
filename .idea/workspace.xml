@@ -19,94 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="29d3824d-e6ac-4a03-84c0-23fc323bf7cc" name="Default Changelist" comment="notifications">
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/AdminController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/ContactController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/ContactController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/panel/apps_bank.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/panel/apps_crypto.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/panel/apps_email.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/panel/apps_full_chat.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/panel/apps_pipeline.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/panel/apps_projects.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/panel/apps_support_dashboard.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/panel/apps_support_index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/panel/apps_todo.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/panel/auth_lock.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/panel/auth_login.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/panel/auth_register.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/panel/emails_activate.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/panel/emails_forgot.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/panel/emails_order.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/panel/emails_payment_due.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/panel/emails_welcome.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/panel/forms_regular.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/panel/forms_uploads.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/panel/forms_validation.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/panel/forms_wisiwig.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/panel/forms_wizard.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/panel/icon_fonts_batch_icons.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/panel/icon_fonts_dashicons.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/panel/icon_fonts_dripicons.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/panel/icon_fonts_eightyshades.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/panel/icon_fonts_entypo.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/panel/icon_fonts_feather.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/panel/icon_fonts_font_awesome.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/panel/icon_fonts_foundation_icon_font.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/panel/icon_fonts_ligature_symbols.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/panel/icon_fonts_light_admin.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/panel/icon_fonts_metrize_icons.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/panel/icon_fonts_picons_social.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/panel/icon_fonts_picons_thin.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/panel/icon_fonts_simple_line_icons.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/panel/icon_fonts_themefy.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/panel/icon_fonts_typicons.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/panel/icon_fonts_weather_icons.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/panel/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/panel/layouts_menu_right.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/panel/layouts_menu_side_compact.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/panel/layouts_menu_side_compact_click.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/panel/layouts_menu_side_compact_dark.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/panel/layouts_menu_side_full.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/panel/layouts_menu_side_full_dark.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/panel/layouts_menu_side_mini.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/panel/layouts_menu_side_mini_dark.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/panel/layouts_menu_side_transparent.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/panel/layouts_menu_sub_style_flyout.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/panel/layouts_menu_sub_style_flyout_bright.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/panel/layouts_menu_sub_style_flyout_dark.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/panel/layouts_menu_top.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/panel/layouts_menu_top_dark.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/panel/layouts_menu_top_image.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/panel/misc_calendar.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/panel/misc_charts.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/panel/misc_chat.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/panel/misc_error_404.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/panel/misc_error_500.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/panel/misc_invoice.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/panel/misc_pricing_plans.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/panel/rentals_index_grid.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/panel/rentals_index_list.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/panel/rentals_single.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/panel/tables_datatables.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/panel/tables_editable.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/panel/tables_regular.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/panel/tf_redirect.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/panel/uikit_alerts.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/panel/uikit_buttons.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/panel/uikit_dropdowns.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/panel/uikit_grid.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/panel/uikit_modals.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/panel/uikit_popovers.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/panel/uikit_progress.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/panel/uikit_tooltips.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/panel/uikit_typography.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/panel/users_profile_big.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/panel/users_profile_small.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/dashboard/master/base.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard/master/base.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/dashboard/master/custom-buttons.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard/master/custom-buttons.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/dashboard/master/main-menu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard/master/main-menu.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-    </list>
+    <list default="true" id="29d3824d-e6ac-4a03-84c0-23fc323bf7cc" name="Default Changelist" comment="contact" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -332,7 +245,7 @@
       <workItem from="1600593512578" duration="24052000" />
       <workItem from="1600630824352" duration="71000" />
       <workItem from="1600763376315" duration="23794000" />
-      <workItem from="1600874241509" duration="24116000" />
+      <workItem from="1600874241509" duration="24400000" />
     </task>
     <task id="LOCAL-00001" summary="edits">
       <created>1599123021704</created>
@@ -446,7 +359,14 @@
       <option name="project" value="LOCAL" />
       <updated>1600900880843</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="contact">
+      <created>1600905981325</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1600905981325</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -474,7 +394,8 @@
     <MESSAGE value="Admin Panel" />
     <MESSAGE value="show provider" />
     <MESSAGE value="notifications" />
-    <option name="LAST_COMMIT_MESSAGE" value="notifications" />
+    <MESSAGE value="contact" />
+    <option name="LAST_COMMIT_MESSAGE" value="contact" />
   </component>
   <component name="WindowStateProjectService">
     <state x="591" y="215" width="800" height="684" key="#Deployment" timestamp="1600777004125">
@@ -511,11 +432,11 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="785" y="473" key="Github.CreateGistDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1599044963788" />
-    <state x="592" y="288" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1600900882163">
+    <state x="592" y="288" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1600905987943">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
     <state x="588" y="288" width="800" height="528" key="Vcs.Push.Dialog.v2/67.27.1853.1053@67.27.1853.1053" timestamp="1599145441581" />
-    <state x="592" y="288" width="800" height="535" key="Vcs.Push.Dialog.v2/72.27.1848.1053@72.27.1848.1053" timestamp="1600900882163" />
+    <state x="592" y="288" width="800" height="535" key="Vcs.Push.Dialog.v2/72.27.1848.1053@72.27.1848.1053" timestamp="1600905987943" />
     <state x="690" y="270" width="602" height="573" key="VcsDiffUtil.ChangesDialog" timestamp="1600595370267">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>

@@ -38,7 +38,7 @@ class UserController extends MasterController
         return View('dashboard.index.index', [
             'rows' => $rows,
             'type'=>'user',
-            'title'=>'قائمة العمﻻء',
+            'title'=>'قائمة العملاء',
             'index_fields'=>['الاسم' => 'name', 'البريد الإلكترونى' => 'email', ' الجوال' => 'mobile','تاريخ الانضمام'=>'created_at'],
             'status'=>true,
             'image'=>true,

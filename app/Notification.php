@@ -34,7 +34,7 @@ class Notification extends Model
     }
     public function nameForShow($admin_notify_type){
         if ($admin_notify_type=='user'){
-            return 'اشعارات العمﻻء' ;
+            return 'اشعارات العملاء' ;
         }elseif ($admin_notify_type=='provider'){
             return 'اشعارات مقدمى الخدمات' ;
         }elseif ($admin_notify_type=='all'){

@@ -220,7 +220,7 @@
                                             @if(isset($permissions))
                                                 <div class="col-sm-12">
                                                     <div class="form-group">
-                                                        <label for=""> الصﻻحيات</label>
+                                                        <label for=""> الصلاحيات</label>
                                                         <select name="permissions[]" class="form-control select2" multiple="true">
                                                             @foreach(\Spatie\Permission\Models\Permission::all() as $permission)
                                                                 <option value="{{$permission->name}}" @if($loop->first) selected="true" @endif>
