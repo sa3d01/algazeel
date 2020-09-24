@@ -208,11 +208,11 @@
                         @endif
                     </div>
                 </fieldset>
-                @can('edit-'.$type.'s')
+{{--                @can('edit-'.$type.'s')--}}
                     <div class="form-buttons-w">
                         <button class="btn btn-primary edit-submit" type="submit"> تعديل</button>
                     </div>
-                @endcan
+{{--                @endcan--}}
                 {!! Form::close() !!}
             @endif
         </div>
