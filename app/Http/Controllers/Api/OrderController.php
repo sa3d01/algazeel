@@ -11,6 +11,7 @@ use App\Http\Resources\UserResource;
 use App\Order;
 use App\Setting;
 use App\User;
+use App\Wallet;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
@@ -117,10 +118,21 @@ class OrderController extends MasterController
         $order->update([
             'status'=>'done'
         ]);
+        $setting=Setting::first();
+        Wallet::create([
+            'order_id'=>$id,
+            'app_ratio'=>$order->price*$setting->more_details['app_ratio']/100,
+            'provider_ratio'=>$order->price-($order->price*$setting->more_details['app_ratio']/100)
+        ]);
+        $provider=User::find($order->provider_id);
+        $provider->update([
+           'wallet'=>$provider->wallet+($order->price-($order->price*$setting->more_details['app_ratio']/100))
+        ]);
         $title='قام المستخدم باتمام الطلب رقم '.$order->id;
         $this->notify($order,$request->user(),$order->provider,$title);
         return $this->sendResponse('تمت العملية بنجاح');
     }
+
 
 
 

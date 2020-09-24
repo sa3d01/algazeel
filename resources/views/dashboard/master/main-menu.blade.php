@@ -107,15 +107,27 @@
         </div>
     </li>
 
-        <li class="sub-header">
+    <li class="sub-header">
+        <span>التقارير المالية </span>
+    </li>
+    <li class="sub-menu">
+        <a href="{{route('admin.wallet.index')}}">
+            <div class="icon-w">
+                <div class="os-icon os-icon-wallet-loaded"></div>
+            </div>
+            <span>التقارير المالية </span>
+        </a>
+    </li>
+
+    <li class="sub-header">
+        <span>رسائل الأعضاء</span>
+    </li>
+    <li class="sub-menu">
+        <a href="{{route('admin.contact.index')}}">
+            <div class="icon-w">
+                <div class="os-icon os-icon-email-2-at"></div>
+            </div>
             <span>رسائل الأعضاء</span>
-        </li>
-        <li class=" has-sub-menu">
-            <a href="{{route('admin.contact.index')}}">
-                <div class="icon-w">
-                    <div class="os-icon os-icon-email-2-at"></div>
-                </div>
-                <span>رسائل الأعضاء</span>
-            </a>
-        </li>
+        </a>
+    </li>
 </ul>

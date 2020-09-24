@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Resources\OrderResource;
+use App\Notification;
 use App\User;
+use Edujugon\PushNotification\PushNotification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -93,6 +96,40 @@ class UserController extends MasterController
                     'status'=>1,
                 ]
             );
+        }
+        $user->refresh();
+        return redirect()->back()->with('updated');
+    }
+    public function wallet_decrement($id,Request $request){
+        $user=$this->model->find($id);
+        $wallet_decrement_value=$request['wallet_decrement_value'];
+        if ($user->wallet >= $wallet_decrement_value){
+            $user->update(
+                [
+                    'wallet'=>$user->wallet-$wallet_decrement_value,
+                ]
+            );
+            $user->device['type'] =='IOS'? $fcm_notification=array('title'=>'رسالة ادارية', 'sound' => 'default') : $fcm_notification=null;
+            $push = new PushNotification('fcm');
+            $msg = [
+                'notification' => $fcm_notification,
+                'data' => [
+                    'title' => 'رسالة ادارية',
+                    'body' => 'اليك من محفظتك'.$wallet_decrement_value.'تم سداد مبلغ ',
+                    'status' =>'admin',
+                    'type'=>'admin',
+                ],
+                'priority' => 'high',
+            ];
+            $push->setMessage($msg)
+                ->setDevicesToken($user->device['id'])
+                ->send();
+            $notification=new Notification();
+            $notification->type='app';
+            $notification->receiver_id=$user->id;
+            $notification->title='رسالة ادارية';
+            $notification->note='اليك من محفظتك'.$wallet_decrement_value.'تم سداد مبلغ ';
+            $notification->save();
         }
         $user->refresh();
         return redirect()->back()->with('updated');

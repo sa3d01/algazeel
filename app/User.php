@@ -53,10 +53,19 @@ class User extends Authenticatable implements JWTSubject
     public function rating(){
         return 0;
     }
+    public function walletDecrement()
+    {
+        $action = route('admin.user.wallet_decrement', ['id' => $this->attributes['id']]);
+        return "<a style='color: #0a0b0b' id='wallet_decrement' class='btn btn-warning btn-sm' data-href='$action' href='$action'><i class='os-icon os-icon-check-circle'></i><span>تسديد</span></a>";
+    }
+
     public function nameForSelect(){
         return $this->name ;
     }
     public function orders(){
         return $this->hasMany(Order::class);
+    }
+    public function provider_orders(){
+        return $this->hasMany(Order::class,'provider_id','id');
     }
 }

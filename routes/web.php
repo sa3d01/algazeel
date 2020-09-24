@@ -41,6 +41,7 @@ Route::prefix('/admin')->name('admin.')->namespace('Admin')->group(function(){
     Route::post('user/{id}', 'UserController@update')->name('user.update');
     Route::resource('user', 'UserController');
     Route::get('user/activate/{id}', 'UserController@activate')->name('user.activate');
+    Route::get('user/wallet_decrement/{id}', 'UserController@wallet_decrement')->name('user.wallet_decrement');
 
     Route::post('provider/{id}', 'ProviderController@update')->name('provider.update');
     Route::resource('provider', 'ProviderController');
@@ -59,6 +60,7 @@ Route::prefix('/admin')->name('admin.')->namespace('Admin')->group(function(){
     Route::resource('contact', 'ContactController');
     Route::get('send_single_notify/{receiver_id}/{note}', 'ContactController@send_single_notify');
 
+    Route::resource('wallet', 'WalletController');
 
 
 });
