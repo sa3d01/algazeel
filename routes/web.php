@@ -26,26 +26,26 @@ Route::prefix('/admin')->name('admin.')->namespace('Admin')->group(function(){
 
     Route::get('/', 'HomeController@index')->name('home');
 
-    Route::get('/setting', 'HomeController@setting')->name('setting');
-    Route::post('/setting', 'HomeController@update_setting')->name('setting.update');
+    Route::get('/setting', 'HomeController@setting')->name('setting')->middleware('permission:edit-settings');
+    Route::post('/setting', 'HomeController@update_setting')->name('setting.update')->middleware('permission:edit-settings');
 
     Route::get('admin/profile', 'AdminController@profile')->name('profile');
     Route::post('admin/update_profile/{id}', 'AdminController@update_profile')->name('update_profile');
     Route::resource('admin', 'AdminController');
-    Route::post('/admin/{id}', 'AdminController@update')->name('update');
-    Route::get('admin/activate/{id}', 'AdminController@activate')->name('admin.activate');
+    Route::post('/admin/{id}', 'AdminController@update')->name('update')->middleware('permission:edit-admins');
+    Route::get('admin/activate/{id}', 'AdminController@activate')->name('admin.activate')->middleware('permission:edit-admins');
 
-    Route::resource('role', 'RoleController');
-    Route::post('/role/{id}', 'RoleController@update')->name('update');
+    Route::resource('role', 'RoleController')->middleware('permission:edit-roles');
+    Route::post('/role/{id}', 'RoleController@update')->name('update')->middleware('permission:edit-roles');
 
     Route::post('user/{id}', 'UserController@update')->name('user.update');
-    Route::resource('user', 'UserController');
-    Route::get('user/activate/{id}', 'UserController@activate')->name('user.activate');
-    Route::get('user/wallet_decrement/{id}', 'UserController@wallet_decrement')->name('user.wallet_decrement');
+    Route::resource('user', 'UserController')->middleware('permission:view-users');
+    Route::get('user/activate/{id}', 'UserController@activate')->name('user.activate')->middleware('permission:edit-user');
+    Route::get('user/wallet_decrement/{id}', 'UserController@wallet_decrement')->name('user.wallet_decrement')->middleware('permission:edit-wallets');
 
-    Route::post('provider/{id}', 'ProviderController@update')->name('provider.update');
+    Route::post('provider/{id}', 'ProviderController@update')->name('provider.update')->middleware('permission:view-providers');
     Route::resource('provider', 'ProviderController');
-    Route::get('provider/activate/{id}', 'ProviderController@activate')->name('provider.activate');
+    Route::get('provider/activate/{id}', 'ProviderController@activate')->name('provider.activate')->middleware('permission:edit-providers');
 
     Route::get('order/status/{status}', 'OrderController@orders')->name('order.status');
     Route::resource('order', 'OrderController');

@@ -1,4 +1,5 @@
 <ul class="main-menu">
+    @can('view-users')
     <li class="sub-header">
         <span>المستخدمين</span>
     </li>
@@ -24,7 +25,9 @@
             </div>
         </div>
     </li>
+    @endcan
 {{--    //providers--}}
+    @can('view-providers')
     <li class="sub-header">
         <span>مزودى الخدمات</span>
     </li>
@@ -50,7 +53,9 @@
             </div>
         </div>
     </li>
+    @endcan
 {{--    //orders--}}
+    @can('view-orders')
     <li class="sub-header">
         <span>الطلبات </span>
     </li>
@@ -78,7 +83,9 @@
             </div>
         </div>
     </li>
+    @endcan
 {{--//notifications--}}
+    @can('view-notifications')
     <li class="sub-header">
         <span>الاشعارات الجماعية </span>
     </li>
@@ -106,7 +113,8 @@
             </div>
         </div>
     </li>
-
+    @endcan
+    @can('view-wallets')
     <li class="sub-header">
         <span>التقارير المالية </span>
     </li>
@@ -118,7 +126,8 @@
             <span>التقارير المالية </span>
         </a>
     </li>
-
+    @endcan
+    @can('view-contacts')
     <li class="sub-header">
         <span>رسائل الأعضاء</span>
     </li>
@@ -130,4 +139,5 @@
             <span>رسائل الأعضاء</span>
         </a>
     </li>
+    @endcan
 </ul>

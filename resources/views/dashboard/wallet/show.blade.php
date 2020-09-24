@@ -49,11 +49,11 @@
                                         </div>
                                     </div>
                                 </div>
+                                @can('edit-wallets')
                                 <div class="col-sm-6 text-right">
-                                    @if(!($row->id == Auth::user()->id && $type=='admin'))
-                                        {!! $row->walletDecrement() !!}
-                                    @endif
+                                    {!! $row->walletDecrement() !!}
                                 </div>
+                                @endcan
                             </div>
                         </div>
                     </div>

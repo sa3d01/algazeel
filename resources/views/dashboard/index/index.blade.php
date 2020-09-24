@@ -17,10 +17,12 @@
                     <h5 class="form-header">
                         {{$title}}
                     </h5>
-                    @if($type=='notification')
+                    @if($type=='role'|| $type=='admin')
+                        @can('add-'.$type.'s')
                         <div class="form-buttons-w">
                             <a href="{{route('admin.'.$type.'.create')}}" class="btn btn-primary create-submit" ><label>+</label> إضافة</a>
                         </div>
+                        @endcan
                     @endif
                     <div  class="table-responsive">
                         <table id="datatable" width="100%" class="table table-striped table-lightfont">
@@ -71,6 +73,14 @@
                                 @foreach($index_fields as $key=>$value)
                                     @if($value=='created_at')
                                         <td>{{$row->published_at()}}</td>
+                                    @elseif($value=='role')
+                                        @if($row->hasRole(\Spatie\Permission\Models\Role::all()))
+                                            <td>{{$row->getRoleArabicName()}}</td>
+                                        @else
+                                            ﻻ يمتلك أي صﻻحيات حتى الآن
+                                        @endif
+                                    @elseif($type=='role' && $value=='users_count')
+                                        <td>{{$row->users()->count()}}</td>
                                     @else
                                         <td>{{$row->$value}}</td>
                                     @endif

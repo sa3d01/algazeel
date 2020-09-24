@@ -36,6 +36,7 @@
     </svg>
 </div>
 <div class="up-controls">
+    @if(isset($status) && $status==true)
     <div class="row">
         <div class="col-sm-6">
             <div class="value-pair">
@@ -64,9 +65,12 @@
         @else
             <div class="col-sm-6 text-right">
                 @if(!($row->id == Auth::user()->id && $type=='admin'))
+                    @can('edit-'.$type.'s')
                     {!! $row->activate() !!}
+                    @endcan
                 @endif
             </div>
         @endif
     </div>
+    @endif
 </div>

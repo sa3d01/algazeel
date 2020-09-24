@@ -1,5 +1,5 @@
 <div class="menu-actions">
-
+    @can('view-contacts')
     <!--------------------
     START - Contacts Link in secondary top menu
     -------------------->
@@ -35,11 +35,12 @@
         <!--------------------
         END - Contacts Link in secondary top menu
         -------------------->
-
+    @endcan
 <!--------------------
             START - Settings Link in secondary top menu
             -------------------->
     {{--@can('view-settings || view-pages || view-roles || view-admins')--}}
+
     <div class="top-icon top-settings os-dropdown-trigger os-dropdown-position-right">
         <i class="os-icon os-icon-ui-46"></i>
         <div class="os-dropdown">
@@ -47,15 +48,21 @@
                 <i class="os-icon os-icon-ui-46"></i>
             </div>
             <ul>
+                @can('edit-settings')
                     <li>
                         <a href="{{route('admin.setting')}}"><i class="os-icon os-icon-ui-49"></i><span>إعدادات عامة</span></a>
                     </li>
+                @endcan
+                @can('edit-roles')
                     <li>
                         <a href="{{route('admin.role.index')}}"><i class="os-icon os-icon-ui-83"></i><span>الصﻻحيات والأدوار</span></a>
                     </li>
+                @endcan
+                @can('edit-admins')
                     <li>
                         <a href="{{route('admin.admin.index')}}"><i class="os-icon os-icon-ui-93"></i><span>أعضاء الإدارة</span></a>
                     </li>
+                @endcan
             </ul>
         </div>
     </div>
