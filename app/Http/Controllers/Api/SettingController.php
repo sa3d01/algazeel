@@ -29,7 +29,7 @@ class SettingController extends MasterController
             $data['about']=$setting->about['user'];
             $data['licence']=$setting->licence['user'];
         }else{
-            $data['about']=$setting->about['provider'];
+            $data['about']=$setting->about['user'];
             $data['licence']=$setting->licence['provider'];
         }
         return $this->sendResponse($data);

@@ -20,11 +20,14 @@ class DatabaseSeeder extends Seeder
          //settings
         \App\Setting::create([
             'about->user' => 'عن التطبيق',
-            'about->provider' => 'عن التطبيق',
             'licence->user' => 'الشروط والأحكام',
             'licence->provider' => 'الشروط والأحكام',
             'more_details->deliver_offer_period'=>'15',
             'more_details->accept_offer_period'=>'15',
+            'more_details->app_ratio'=>'15',
+            'socials->twitter'=>'https://',
+            'socials->snap'=>'https://',
+            'socials->instagram'=>'https://',
         ]);
         //contact types
         \App\DropDown::create([

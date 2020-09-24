@@ -20,9 +20,6 @@
                     <li>
                         <a href="{{route('admin.user.index')}}"> المستخدمين</a>
                     </li>
-                    <li>
-                        <a href="{{route('admin.user.create')}}"> إضافة مستخدم</a>
-                    </li>
                 </ul>
             </div>
         </div>

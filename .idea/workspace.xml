@@ -19,7 +19,16 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="29d3824d-e6ac-4a03-84c0-23fc323bf7cc" name="Default Changelist" comment="contact" />
+    <list default="true" id="29d3824d-e6ac-4a03-84c0-23fc323bf7cc" name="Default Changelist" comment="contact">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/MasterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/MasterController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/SettingController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/SettingController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/dashboard/master/main-menu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard/master/main-menu.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/dashboard/master/notification.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard/master/notification.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/dashboard/settings.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard/settings.blade.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -246,6 +255,8 @@
       <workItem from="1600630824352" duration="71000" />
       <workItem from="1600763376315" duration="23794000" />
       <workItem from="1600874241509" duration="24400000" />
+      <workItem from="1600906676624" duration="288000" />
+      <workItem from="1600940925417" duration="3407000" />
     </task>
     <task id="LOCAL-00001" summary="edits">
       <created>1599123021704</created>
@@ -366,7 +377,14 @@
       <option name="project" value="LOCAL" />
       <updated>1600905981325</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="contact">
+      <created>1600906953396</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1600906953396</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -432,11 +450,11 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="785" y="473" key="Github.CreateGistDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1599044963788" />
-    <state x="592" y="288" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1600905987943">
+    <state x="592" y="288" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1600906955754">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
     <state x="588" y="288" width="800" height="528" key="Vcs.Push.Dialog.v2/67.27.1853.1053@67.27.1853.1053" timestamp="1599145441581" />
-    <state x="592" y="288" width="800" height="535" key="Vcs.Push.Dialog.v2/72.27.1848.1053@72.27.1848.1053" timestamp="1600905987943" />
+    <state x="592" y="288" width="800" height="535" key="Vcs.Push.Dialog.v2/72.27.1848.1053@72.27.1848.1053" timestamp="1600906955754" />
     <state x="690" y="270" width="602" height="573" key="VcsDiffUtil.ChangesDialog" timestamp="1600595370267">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>

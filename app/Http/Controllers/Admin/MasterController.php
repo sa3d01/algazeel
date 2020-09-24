@@ -52,7 +52,8 @@ abstract class MasterController extends Controller
             'not_paid_in_progress_orders_count'=>$not_paid_in_progress_orders_count,
             'done_orders_count'=>$done_orders_count,
             'rejected_orders_count'=>$rejected_orders_count,
-            'new_contacts_count'=>$new_contacts_count
+            'new_contacts_count'=>$new_contacts_count,
+            'new_contacts'=>Contact::where('read','false')->get(),
         ));
     }
 
