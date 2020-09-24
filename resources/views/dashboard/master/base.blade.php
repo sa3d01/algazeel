@@ -191,6 +191,32 @@
 <script src="{{asset('panel/js/dataTables.bootstrap4.min.js')}}"></script>
 <script src="{{asset('panel/js/demo_customizer.js?version=4.4.0')}}"></script>
 <script src="{{asset('panel/js/main.js?version=4.4.0')}}"></script>
+<script>
+    // message-input
+    $.ajaxSetup({
+        headers: {
+            'Content-Type':'application/json',
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+    $("#message-input").keypress(function(e){
+        if (e.which == 13) {
+            // e.preventDefault();
+            let note = $("#message-input").val();
+            let receiver_id = $(this).data("receiver");
+            $.ajax({
+                dataType: 'json',
+                type: 'GET',
+                url: "/admin/send_single_notify/"+receiver_id+"/"+note,
+                success: function(res) {
+                    console.log(res)
+                },error:function (msg){
+                    console.log(msg.responseJSON['message'])
+                }
+            })
+        }
+    });
+</script>
 @include('dashboard.master.alerts')
 @yield('script')
 </body>

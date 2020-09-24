@@ -50,8 +50,14 @@ Route::prefix('/admin')->name('admin.')->namespace('Admin')->group(function(){
     Route::resource('order', 'OrderController');
 
     Route::get('notification/admin_notify_type/{admin_notify_type}', 'NotificationController@notifications')->name('notification.admin_notify_type');
-//    Route::get('notification/add/{admin_notify_type}', 'NotificationController@add')->name('notification.add');
     Route::resource('notification', 'NotificationController');
+
+
+    Route::get('show_single_contact/{id}', 'ContactController@show_single_contact');
+    Route::get('single_contact_form/{user_id}/{contact_id}', 'ContactController@single_contact_form')->name('contact.form');
+    Route::post('send_single_contact', 'ContactController@send_single_contact')->name('contact.send');
+    Route::resource('contact', 'ContactController');
+    Route::get('send_single_notify/{receiver_id}/{note}', 'ContactController@send_single_notify');
 
 
 

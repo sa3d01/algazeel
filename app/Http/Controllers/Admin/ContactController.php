@@ -6,6 +6,7 @@ use App\Contact;
 use App\Notification;
 use App\Page;
 use App\User;
+use Edujugon\PushNotification\PushNotification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -15,8 +16,6 @@ class ContactController extends MasterController
     {
         $this->model = $model;
         $this->route = 'contact';
-        $this->middleware('permission:view-contacts', ['only' => ['index']]);
-        $this->middleware('permission:create-contacts', ['only' => ['send_single_notify']]);
 
         parent::__construct();
     }
@@ -39,6 +38,7 @@ class ContactController extends MasterController
             $type='اقتراح';
         }
 
+        $route=route('admin.user.show',$contact->user->id);
         $message=$contact->message;
         $user_id=$contact->user->id;
         $name=$contact->user->name;
@@ -54,7 +54,7 @@ class ContactController extends MasterController
                                     </div>
                                 </div>
                                 <div class='user-name'>
-                                   <a href='https://top-auction.com/admin/user/$user_id'><h6 class='user-title'>$name</h6></a>
+                                   <a href='$route'><h6 class='user-title'>$name</h6></a>
                                    <div class='user-role'>السبب <span>$type</span>
                                     </div>
                                 </div>
@@ -113,6 +113,7 @@ class ContactController extends MasterController
         $data['note']=$note;
         $data['type']='admin';
         Notification::create($data);
+        $this->notify(User::find($receiver_id),$note);
         return true;
     }
     public function send_single_contact(Request $request){
@@ -124,6 +125,32 @@ class ContactController extends MasterController
         $data['admin_notify_type']='single';
         $data['more_details']['contact_id']=$request['contact_id'];
         Notification::create($data);
+        $this->notify(User::find($request['user_id']),$request['note']);
         return redirect()->route('admin.contact.index')->with('created');
     }
+
+    public function notify($receiver,$note){
+        if(array_key_exists("type",(array)$receiver->device)){
+            if ($receiver->device['type'] =='IOS'){
+                $fcm_notification=array('title'=>'رسالة إدارية', 'sound' => 'default');
+            }else{
+                $fcm_notification=null;
+            }
+        }
+        $push = new PushNotification('fcm');
+        $msg = [
+            'notification' => $fcm_notification,
+            'data' => [
+                'title' => 'رسالة إدارية',
+                'body' => $note,
+                'status' => 'admin',
+                'type'=>'admin',
+            ],
+            'priority' => 'high',
+        ];
+        $push->setMessage($msg)
+            ->setDevicesToken($receiver->device['id'])
+            ->send();
+    }
+
 }
