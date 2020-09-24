@@ -32,11 +32,11 @@ Route::prefix('/admin')->name('admin.')->namespace('Admin')->group(function(){
     Route::get('admin/profile', 'AdminController@profile')->name('profile');
     Route::post('admin/update_profile/{id}', 'AdminController@update_profile')->name('update_profile');
     Route::resource('admin', 'AdminController');
-    Route::post('/admin/{id}', 'AdminController@update')->name('update')->middleware('permission:edit-admins');
-    Route::get('admin/activate/{id}', 'AdminController@activate')->name('admin.activate')->middleware('permission:edit-admins');
+    Route::post('/admin/{id}', 'AdminController@update')->name('update');
+    Route::get('admin/activate/{id}', 'AdminController@activate')->name('admin.activate');
 
-    Route::resource('role', 'RoleController')->middleware('permission:edit-roles');
-    Route::post('/role/{id}', 'RoleController@update')->name('update')->middleware('permission:edit-roles');
+    Route::resource('role', 'RoleController');
+    Route::post('/role/{id}', 'RoleController@update')->name('update');
 
     Route::post('user/{id}', 'UserController@update')->name('user.update');
     Route::resource('user', 'UserController')->middleware('permission:view-users');
