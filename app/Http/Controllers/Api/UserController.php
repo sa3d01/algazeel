@@ -2,16 +2,13 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Http\Controllers\Controller;
 use App\Http\Resources\UserCollection;
 use App\Http\Resources\UserResource;
 use App\User;
 use App\userType;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
-use Tymon\JWTAuth\Exceptions\UserNotDefinedException;
 
 class UserController extends MasterController
 {
@@ -70,9 +67,15 @@ class UserController extends MasterController
         return $this->sendResponse($data);
     }
     public function users_list($user_type_id,Request $request){
-        $users=User::where('user_type_id',$user_type_id)->get();
-        $data= new UserCollection($users);
-        return $this->sendResponse($data);
+        $top_providers=User::where('user_type_id',$user_type_id)->take(5)->get();
+        $providers=User::where('user_type_id',$user_type_id)->paginate(10);
+        $data['top_providers']= new UserCollection($top_providers);
+        $data['providers']= $providers;
+        $response = [
+            'status' => 200,
+            'data' => $data,
+        ];
+        return response()->json($response, 200);
     }
     function send_code($mobile,$activation_code){
         //Mail::to($email)->send(new ConfirmCode($activation_code));

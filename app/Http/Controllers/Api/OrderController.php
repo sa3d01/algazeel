@@ -64,7 +64,12 @@ class OrderController extends MasterController
     }
     public function status_list($status)
     {
-        return $this->sendResponse(new OrderCollection($this->model->where('status',$status)->get()));
+        if (auth()->user()->user_type->name=='user'){
+            $data=new OrderCollection($this->model->where(['status'=>$status,'user_id'=>auth()->user()->id])->get());
+        }else{
+            $data=new OrderCollection($this->model->where(['status'=>$status,'provider_id'=>auth()->user()->id])->get());
+        }
+        return $this->sendResponse($data);
     }
     public function send_offer($id,Request $request){
         $order=Order::find($id);
