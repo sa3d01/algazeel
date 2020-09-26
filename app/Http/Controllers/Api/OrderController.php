@@ -137,6 +137,16 @@ class OrderController extends MasterController
         $this->notify($order,$request->user(),$order->provider,$title);
         return $this->sendResponse('تمت العملية بنجاح');
     }
+    public function update($id,Request $request){
+        $order=Order::find($id);
+        $note=$request['note'];
+        if ($order->user_id != auth()->user()->id || $order->status!='new')
+            return $this->sendError('ﻻ يمكن القيام بهذه العملية حاليا');
+        $order->update([
+            'note'=>$note
+        ]);
+        return $this->sendResponse('تمت العملية بنجاح');
+    }
 
 
 

@@ -35,6 +35,10 @@ Route::group(['prefix' => 'v1','namespace'=>'Api'], function () {
         Route::post('/forget_password', 'UserController@forget_password');
         Route::get('/profile', 'UserController@profile')->middleware(CheckApiToken::class);
         Route::post('/{id}', 'UserController@update')->middleware(CheckApiToken::class);
+        Route::get('/{id}', 'UserController@show');
+        //Todo wallet
+        //Todo rating
+        //Todo chat
     });
     Route::group(['prefix' => '/contact'], function () {
         Route::get('/types', 'ContactController@types')->middleware(CheckApiToken::class);
@@ -49,6 +53,7 @@ Route::group(['prefix' => 'v1','namespace'=>'Api'], function () {
         Route::post('/', 'OrderController@store')->middleware(CheckApiToken::class);
         Route::get('/{status}/list', 'OrderController@status_list')->middleware(CheckApiToken::class);
         Route::get('/{order}', 'OrderController@show')->name('order.show')->middleware(CheckApiToken::class);
+        Route::put('/{order}', 'OrderController@update')->middleware(CheckApiToken::class);
         Route::post('/{order}/send_offer', 'OrderController@send_offer')->middleware(CheckApiToken::class);
         Route::post('/{order}/accept_offer', 'OrderController@accept_offer')->middleware(CheckApiToken::class);
         Route::post('/{order}/refuse_offer', 'OrderController@refuse_offer')->middleware(CheckApiToken::class);

@@ -273,6 +273,11 @@ class UserController extends MasterController
         $data= new UserResource($user);
         return $this->sendResponse($data)->withHeaders(['apiToken'=>$token,'tokenType'=>'bearer']);
     }
+    public function show($id){
+        $user = User::find($id);
+        $data= new UserResource($user);
+        return $this->sendResponse($data);
+    }
     public function update($id,Request $request){
         $validator = Validator::make($request->all(),$this->validation_rules(2,$id),$this->validation_messages());
         if ($validator->fails()) {
