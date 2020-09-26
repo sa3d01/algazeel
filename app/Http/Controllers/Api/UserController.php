@@ -158,9 +158,9 @@ class UserController extends MasterController
     }
     public function update_password(Request $request){
         $validator = Validator::make(
-            $request->only('password'),
+            $request->only('password','old_password'),
             [
-                'old_password' => 'required|min:8',
+                'old_password' => 'required',
                 'password' => 'required|min:8',
             ],
             $this->validation_messages());
