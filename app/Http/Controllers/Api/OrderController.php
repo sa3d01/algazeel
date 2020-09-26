@@ -60,7 +60,7 @@ class OrderController extends MasterController
     {
         if (!Order::find($id))
             return $this->sendError('not found');
-        return OrderResource::make(Order::find($id));
+        return $this->sendResponse(OrderResource::make(Order::find($id)));
     }
     public function status_list($status)
     {

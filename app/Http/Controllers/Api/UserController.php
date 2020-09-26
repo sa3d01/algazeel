@@ -67,6 +67,7 @@ class UserController extends MasterController
         return $this->sendResponse($data);
     }
     public function users_list($user_type_id,Request $request){
+        //ToDo take top rated
         $top_providers=User::where('user_type_id',$user_type_id)->take(5)->get();
         $providers=User::where('user_type_id',$user_type_id)->simplepaginate(10);
         $data['top_providers']= new UserCollection($top_providers);
@@ -159,6 +160,7 @@ class UserController extends MasterController
         $validator = Validator::make(
             $request->only('password'),
             [
+                'old_password' => 'required|min:8',
                 'password' => 'required|min:8',
             ],
             $this->validation_messages());
@@ -166,11 +168,15 @@ class UserController extends MasterController
             return $this->sendError($validator->errors()->first());
         }
         $user = auth()->user();
-        $token = auth()->login($user);
-        $user->update(['password'=>$request['password']]);
-        $data= new UserResource($user);
-        return $this->sendResponse($data)->withHeaders(['apiToken'=>$token,'tokenType'=>'bearer']);
-    }
+        $token=auth()->attempt(['mobile'=>$user->mobile,'password'=>$request['old_password']]);
+        if ($token){
+            $user->update(['password'=>$request['password']]);
+            $data= new UserResource($user);
+            return $this->sendResponse($data)->withHeaders(['apiToken'=>$token,'tokenType'=>'bearer']);
+        }else{
+            return $this->sendError('يوجد مشكلة بالبيانات');
+        }
+     }
     public function upload_attachment(Request $request){
         $validator = Validator::make(
             [
