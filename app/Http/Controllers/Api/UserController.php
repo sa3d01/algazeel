@@ -68,9 +68,17 @@ class UserController extends MasterController
     }
     public function users_list($user_type_id,Request $request){
         $top_providers=User::where('user_type_id',$user_type_id)->take(5)->get();
-        $providers=User::where('user_type_id',$user_type_id)->paginate(10);
+        $providers=User::where('user_type_id',$user_type_id)->simplepaginate(10);
         $data['top_providers']= new UserCollection($top_providers);
-        $data['providers']= $providers;
+        $data['providers']['data']= new UserCollection($providers);
+        $data['providers']['current_page']= collect($providers)['current_page'];
+        $data['providers']['first_page_url']= collect($providers)['first_page_url'];
+        $data['providers']['from']= collect($providers)['from'];
+        $data['providers']['next_page_url']= collect($providers)['next_page_url'];
+        $data['providers']['path']= collect($providers)['path'];
+        $data['providers']['per_page']= collect($providers)['per_page'];
+        $data['providers']['prev_page_url']= collect($providers)['prev_page_url'];
+        $data['providers']['to']= collect($providers)['to'];
         $response = [
             'status' => 200,
             'data' => $data,
