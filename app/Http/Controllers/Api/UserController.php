@@ -177,6 +177,27 @@ class UserController extends MasterController
             return $this->sendError('يوجد مشكلة بالبيانات');
         }
      }
+     public function forget_password(Request $request){
+        $validator = Validator::make(
+            $request->only('password','mobile'),
+            [
+                'mobile' => 'required',
+                'password' => 'required|min:8',
+            ],
+            $this->validation_messages());
+        if ($validator->fails()) {
+            return $this->sendError($validator->errors()->first());
+        }
+        $user=User::whereMobile($request['mobile'])->first();
+         if ($user){
+             $user->update(['password'=>$request['password']]);
+             $token = auth()->login($user);
+             $data= new UserResource($user);
+             return $this->sendResponse($data)->withHeaders(['apiToken'=>$token,'tokenType'=>'bearer']);
+        }else{
+            return $this->sendError('يوجد مشكلة بالبيانات');
+        }
+     }
     public function upload_attachment(Request $request){
         $validator = Validator::make(
             [

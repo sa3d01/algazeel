@@ -32,6 +32,7 @@ Route::group(['prefix' => 'v1','namespace'=>'Api'], function () {
         Route::post('/send_code', 'UserController@send_activation_code');
         Route::post('/activate', 'UserController@activate');
         Route::post('/update_password', 'UserController@update_password')->middleware(CheckApiToken::class);
+        Route::post('/forget_password', 'UserController@forget_password');
         Route::get('/profile', 'UserController@profile')->middleware(CheckApiToken::class);
         Route::post('/{id}', 'UserController@update')->middleware(CheckApiToken::class);
     });
