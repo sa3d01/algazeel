@@ -83,7 +83,7 @@ class UserController extends MasterController
     }
     public function activate($id,Request $request){
         $user=$this->model->find($id);
-        if($user->status == 1){
+        if($user->status == '1'){
             $user->update(
                 [
                     'status'=>0,
