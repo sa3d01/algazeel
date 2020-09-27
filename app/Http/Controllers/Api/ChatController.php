@@ -37,11 +37,8 @@ class ChatController extends MasterController
     }
     public function index(){
         $data=[];
-        if (auth()->user()->user_type->name=='user'){
-            $orders=Order::where(['user_id'=>auth()->user()->id,'paid'=>1])->get();
-        }else{
-            $orders=Order::where(['provider_id'=>auth()->user()->id,'paid'=>1])->get();
-        }
+        $order_ids=(array)auth()->user()->more_details['chat_orders'];
+        $orders=Order::whereIn('id',$order_ids)->get();
         foreach ($orders as $order){
             $last_msg=Chat::where('order_id',$order->id)->latest()->first();
             $arr['id']=(int)$order->id;
@@ -65,6 +62,7 @@ class ChatController extends MasterController
         $data=[];
         $chat=Chat::where('order_id',$id)->latest()->get();
         foreach ($chat as $message){
+            $arr['id']=$message->id??0;
             $arr['sender']=[
                 'id'=>$message->sender_id,
                 'name'=>$message->sender->name,
@@ -76,6 +74,15 @@ class ChatController extends MasterController
             $data[]=$arr;
         }
         return $this->sendResponse($data);
+    }
+    public function destroy($id){
+        $order=Order::find($id);
+        if (auth()->user()->user_type->name=='user'){
+
+        }else{
+            $orders=Order::where(['provider_id'=>auth()->user()->id,'paid'=>1])->get();
+        }
+
     }
     public function upload_attachment($attachment){
         $dest='media/files/chat/';

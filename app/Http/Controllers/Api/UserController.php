@@ -291,7 +291,7 @@ class UserController extends MasterController
             $arr['order_id']=$wallet_order->order_id;
             $arr['app_ratio']=$wallet_order->app_ratio;
             $arr['order_price']=$wallet_order->order->price;
-            $data['orders']=$arr;
+            $data['orders'][]=$arr;
         }
         return $this->sendResponse($data);
     }

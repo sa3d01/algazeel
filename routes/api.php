@@ -64,6 +64,8 @@ Route::group(['prefix' => 'v1','namespace'=>'Api'], function () {
         Route::get('/orders', 'ChatController@index');
         Route::get('/{order}', 'ChatController@show');
         Route::post('/', 'ChatController@store');
+        Route::delete('/{order}', 'ChatController@destroy');
+        Route::delete('/{order}/{message}', 'ChatController@destroy_message');
     });
 
 });
