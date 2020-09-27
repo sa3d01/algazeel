@@ -36,8 +36,8 @@ Route::group(['prefix' => 'v1','namespace'=>'Api'], function () {
         Route::get('/profile', 'UserController@profile')->middleware(CheckApiToken::class);
         Route::post('/{id}', 'UserController@update')->middleware(CheckApiToken::class);
         Route::get('/{id}', 'UserController@show');
-        //Todo wallet
-        //Todo rating
+        Route::get('/{id}/wallet', 'UserController@wallet');
+
         //Todo chat
     });
     Route::group(['prefix' => '/contact'], function () {
@@ -59,6 +59,7 @@ Route::group(['prefix' => 'v1','namespace'=>'Api'], function () {
         Route::post('/{order}/refuse_offer', 'OrderController@refuse_offer')->middleware(CheckApiToken::class);
         Route::post('/{order}/pay', 'OrderController@pay')->middleware(CheckApiToken::class);
         Route::post('/{order}/done', 'OrderController@done')->middleware(CheckApiToken::class);
+        Route::post('/{order}/rating', 'OrderController@rating')->middleware(CheckApiToken::class);
     });
 
 });

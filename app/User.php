@@ -50,9 +50,6 @@ class User extends Authenticatable implements JWTSubject
         }
         return $collection;
     }
-    public function rating(){
-        return 0;
-    }
     public function walletDecrement()
     {
         $action = route('admin.user.wallet_decrement', ['id' => $this->attributes['id']]);
@@ -67,5 +64,9 @@ class User extends Authenticatable implements JWTSubject
     }
     public function provider_orders(){
         return $this->hasMany(Order::class,'provider_id','id');
+    }
+    public function rating(){
+        $orders=Order::where('provider_id',$this->id)->pluck('id');
+        return (double)Rating::whereIn('order_id',$orders)->avg('rate');
     }
 }

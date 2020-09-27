@@ -32,4 +32,16 @@ class Order extends Model
     {
         return $this->belongsTo(User::class,'provider_id','id');
     }
+    public function ratings(){
+        return $this->hasMany(Rating::class,'order_id','id');
+    }
+    public function getRateIcon()
+    {
+        if (count($this->ratings)){
+            $rate=(double)$this->ratings->avg('rate');
+            return "<p><i class='fa fa-star' aria-hidden='hidden'></i>$rate</p>";
+        }else{
+            return "<p>لم يتم التقييم بعد</p>";
+        }
+    }
 }

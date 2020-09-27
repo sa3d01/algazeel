@@ -14,6 +14,11 @@ class OrderResource extends JsonResource
      */
     public function toArray($request)
     {
+        if (count($this->ratings)){
+            $rate=(double)$this->ratings->avg('rate');
+        }else{
+            $rate=0;
+        }
         return [
             'id'=>(int)  $this->id,
             'status'=> $this->status,
@@ -34,7 +39,7 @@ class OrderResource extends JsonResource
             'paid'=>$this->paid==0?false:true,
             'price'=>(int)$this->price,
             'cancel_reason'=>$this->cancel_reason,
-            'rating'=>0
+            'rating'=>$rate
         ];
     }
 }

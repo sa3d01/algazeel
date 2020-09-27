@@ -9,6 +9,7 @@ use App\Http\Resources\OrderCollection;
 use App\Http\Resources\OrderResource;
 use App\Http\Resources\UserResource;
 use App\Order;
+use App\Rating;
 use App\Setting;
 use App\User;
 use App\Wallet;
@@ -144,6 +145,24 @@ class OrderController extends MasterController
             return $this->sendError('ﻻ يمكن القيام بهذه العملية حاليا');
         $order->update([
             'note'=>$note
+        ]);
+        return $this->sendResponse('تمت العملية بنجاح');
+    }
+    public function rating($id,Request $request){
+        if (!Order::find($id)){
+            return $this->sendError('ﻻ يمكن القيام بهذه العملية حاليا');
+        }
+        $validator = Validator::make($request->only('rate'),['rate'=>'required|numeric'],$this->validation_messages());
+        if ($validator->fails()) {
+            return $this->sendError($validator->errors()->first());
+        }
+        $rated=Rating::where('order_id',$id)->first();
+        if ($rated){
+            return $this->sendError('ﻻ يمكن القيام بهذه العملية حاليا');
+        }
+        Rating::create([
+           'order_id'=>$id,
+           'rate'=>$request['rate']
         ]);
         return $this->sendResponse('تمت العملية بنجاح');
     }

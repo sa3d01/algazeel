@@ -72,10 +72,7 @@ trait ModelBaseFunctions
                 $name
                 </a>";
     }
-    public function getRateIcon()
-    {
-        return "<p>لم يتم التقييم بعد</p>";
-    }
+
 
     public function activate()
     {

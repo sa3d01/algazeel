@@ -6,6 +6,7 @@ use App\Http\Resources\UserCollection;
 use App\Http\Resources\UserResource;
 use App\User;
 use App\userType;
+use App\Wallet;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
@@ -276,6 +277,22 @@ class UserController extends MasterController
     public function show($id){
         $user = User::find($id);
         $data= new UserResource($user);
+        return $this->sendResponse($data);
+    }
+    public function wallet($id,Request $request){
+        $user = auth()->user();
+        if ($id != auth()->user()->id){
+            return $this->sendError('يوجد مشكلة بالبيانات');
+        }
+        $provider_orders=$user->provider_orders->pluck('id');
+        $wallet_orders=Wallet::whereIn('order_id',$provider_orders)->latest()->get();
+        $data['wallet']=$user->wallet;
+        foreach ($wallet_orders as $wallet_order){
+            $arr['order_id']=$wallet_order->order_id;
+            $arr['app_ratio']=$wallet_order->app_ratio;
+            $arr['order_price']=$wallet_order->order->price;
+            $data['orders']=$arr;
+        }
         return $this->sendResponse($data);
     }
     public function update($id,Request $request){
