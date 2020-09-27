@@ -19,17 +19,8 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="29d3824d-e6ac-4a03-84c0-23fc323bf7cc" name="Default Changelist" comment="wallet and rate apis">
-      <change afterPath="$PROJECT_DIR$/app/Chat.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/ChatController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2020_09_27_104158_create_chats_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/ProviderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/ProviderController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/OrderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/OrderController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/dashboard/show/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard/show/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+    <list default="true" id="29d3824d-e6ac-4a03-84c0-23fc323bf7cc" name="Default Changelist" comment="chat">
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/ChatController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/ChatController.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -263,7 +254,7 @@
       <workItem from="1600962508495" duration="73000" />
       <workItem from="1601074336915" duration="12656000" />
       <workItem from="1601150904587" duration="2044000" />
-      <workItem from="1601196134170" duration="14286000" />
+      <workItem from="1601196134170" duration="15606000" />
     </task>
     <task id="LOCAL-00001" summary="edits">
       <created>1599123021704</created>
@@ -482,7 +473,14 @@
       <option name="project" value="LOCAL" />
       <updated>1601200663206</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="chat">
+      <created>1601212472982</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1601212472982</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -518,7 +516,8 @@
     <MESSAGE value="auth api" />
     <MESSAGE value="mo edits" />
     <MESSAGE value="wallet and rate apis" />
-    <option name="LAST_COMMIT_MESSAGE" value="wallet and rate apis" />
+    <MESSAGE value="chat" />
+    <option name="LAST_COMMIT_MESSAGE" value="chat" />
   </component>
   <component name="WindowStateProjectService">
     <state x="591" y="215" width="800" height="684" key="#Deployment" timestamp="1600777004125">
@@ -555,11 +554,11 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="785" y="473" key="Github.CreateGistDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1599044963788" />
-    <state x="592" y="288" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1601200664869">
+    <state x="592" y="288" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1601212475492">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
     <state x="588" y="288" width="800" height="528" key="Vcs.Push.Dialog.v2/67.27.1853.1053@67.27.1853.1053" timestamp="1599145441581" />
-    <state x="592" y="288" width="800" height="535" key="Vcs.Push.Dialog.v2/72.27.1848.1053@72.27.1848.1053" timestamp="1601200664869" />
+    <state x="592" y="288" width="800" height="535" key="Vcs.Push.Dialog.v2/72.27.1848.1053@72.27.1848.1053" timestamp="1601212475492" />
     <state x="690" y="270" width="602" height="573" key="VcsDiffUtil.ChangesDialog" timestamp="1600595370267">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>

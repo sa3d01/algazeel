@@ -123,6 +123,7 @@ class ChatController extends MasterController
                 'body' => $note,
                 'status' => 'chat',
                 'type'=>'chat',
+                'order'=>OrderResource::make($order)
             ],
             'priority' => 'high',
         ];
