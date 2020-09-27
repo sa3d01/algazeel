@@ -37,6 +37,15 @@ class User extends Authenticatable implements JWTSubject
     public function User_type(){
         return $this->belongsTo(userType::class);
     }
+    public function orders(){
+        return $this->hasMany(Order::class);
+    }
+    public function provider_orders(){
+        return $this->hasMany(Order::class,'provider_id','id');
+    }
+
+    //functions
+
     public function get_attachments(){
         $collection=[];
         if (array_key_exists('attachments',(array)$this->more_details)){
@@ -59,12 +68,7 @@ class User extends Authenticatable implements JWTSubject
     public function nameForSelect(){
         return $this->name ;
     }
-    public function orders(){
-        return $this->hasMany(Order::class);
-    }
-    public function provider_orders(){
-        return $this->hasMany(Order::class,'provider_id','id');
-    }
+
     public function rating(){
         $orders=Order::where('provider_id',$this->id)->pluck('id');
         return (double)Rating::whereIn('order_id',$orders)->avg('rate');

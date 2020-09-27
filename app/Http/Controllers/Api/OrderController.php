@@ -149,6 +149,7 @@ class OrderController extends MasterController
         return $this->sendResponse('تمت العملية بنجاح');
     }
     public function rating($id,Request $request){
+        $order=Order::find($id);
         if (!Order::find($id)){
             return $this->sendError('ﻻ يمكن القيام بهذه العملية حاليا');
         }
@@ -164,6 +165,8 @@ class OrderController extends MasterController
            'order_id'=>$id,
            'rate'=>$request['rate']
         ]);
+        $title='قام المستخدم بتقييم الطلب رقم '.$id;
+        $this->notify($order,$request->user(),$order->provider,$title);
         return $this->sendResponse('تمت العملية بنجاح');
     }
 

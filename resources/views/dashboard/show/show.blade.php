@@ -179,9 +179,6 @@
             }
         });
     </script>
-
-
-
     <script type="text/javascript">
         let map;
         let marker;

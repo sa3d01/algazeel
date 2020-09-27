@@ -40,12 +40,12 @@ Route::prefix('/admin')->name('admin.')->namespace('Admin')->group(function(){
 
     Route::post('user/{id}', 'UserController@update')->name('user.update');
     Route::resource('user', 'UserController')->middleware('permission:view-users');
-    Route::get('user/activate/{id}', 'UserController@activate')->name('user.activate')->middleware('permission:edit-user');
+    Route::get('user/activate/{id}', 'UserController@activate')->name('user.activate');
     Route::get('user/wallet_decrement/{id}', 'UserController@wallet_decrement')->name('user.wallet_decrement')->middleware('permission:edit-wallets');
 
     Route::post('provider/{id}', 'ProviderController@update')->name('provider.update')->middleware('permission:view-providers');
     Route::resource('provider', 'ProviderController');
-    Route::get('provider/activate/{id}', 'ProviderController@activate')->name('provider.activate')->middleware('permission:edit-providers');
+    Route::get('provider/activate/{id}', 'ProviderController@activate')->name('provider.activate');
 
     Route::get('order/status/{status}', 'OrderController@orders')->name('order.status');
     Route::resource('order', 'OrderController');
@@ -61,8 +61,6 @@ Route::prefix('/admin')->name('admin.')->namespace('Admin')->group(function(){
     Route::get('send_single_notify/{receiver_id}/{note}', 'ContactController@send_single_notify');
 
     Route::resource('wallet', 'WalletController');
-
-
 });
 Auth::routes();
 Route::get('/', function (){
