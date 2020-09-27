@@ -37,8 +37,9 @@ class ChatController extends MasterController
     }
     public function index(){
         $data=[];
+
         $order_ids=(array)auth()->user()->more_details['chat_orders'];
-        $orders=Order::whereIn('id',$order_ids)->get();
+        $orders=Order::all();
         foreach ($orders as $order){
             $last_msg=Chat::where('order_id',$order->id)->latest()->first();
             $arr['id']=(int)$order->id;
