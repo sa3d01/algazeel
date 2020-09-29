@@ -76,13 +76,16 @@ class ChatController extends MasterController
         return $this->sendResponse($data);
     }
     public function destroy($id){
-        $order=Order::find($id);
-        if (auth()->user()->user_type->name=='user'){
-
-        }else{
-            $orders=Order::where(['provider_id'=>auth()->user()->id,'paid'=>1])->get();
-        }
-
+        $order_ids=(array)auth()->user()->more_details['chat_orders'];
+        $order_ids = array_diff($order_ids, array($id));
+        auth()->user()->update(
+            [
+                'more_details'=>[
+                    'chat_orders'=>$order_ids,
+                ],
+            ]
+        );
+        return $this->sendResponse('تمت العملية بنجاح');
     }
     public function upload_attachment($attachment){
         $dest='media/files/chat/';

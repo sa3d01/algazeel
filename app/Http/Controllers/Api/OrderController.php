@@ -108,8 +108,8 @@ class OrderController extends MasterController
     }
     public function pay($id,Request $request){
         $order=Order::find($id);
-//        if ($order->paid != 0)
-//            return $this->sendError('ﻻ يمكن القيام بهذه العملية حاليا');
+        if ($order->paid != 0)
+            return $this->sendError('ﻻ يمكن القيام بهذه العملية حاليا');
         $order->update([
             'paid'=>1
         ]);
@@ -139,8 +139,8 @@ class OrderController extends MasterController
                 ],
             ]
         );
-//        $title='قام المستخدم بدفع قيمة الطلب رقم '.$order->id;
-//        $this->notify($order,$request->user(),$order->provider,$title);
+        $title='قام المستخدم بدفع قيمة الطلب رقم '.$order->id;
+        $this->notify($order,$request->user(),$order->provider,$title);
         return $this->sendResponse('تمت العملية بنجاح');
     }
     public function done($id,Request $request){
