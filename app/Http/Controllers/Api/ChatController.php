@@ -69,8 +69,12 @@ class ChatController extends MasterController
                 'name'=>$message->sender->name,
                 'image'=>$message->sender->image,
             ];
-            $arr['msg']=$message->msg??"";
             $arr['type']=$message->type??"";
+            if ($message->type=='text'){
+                $arr['msg']=$message->msg??"";
+            }else{
+                $arr['msg']=asset('media/images/chat/').'/'.$message->msg;
+            }
             $arr['time']=$message->published_from();
             $data_chat[]=$arr;
         }
