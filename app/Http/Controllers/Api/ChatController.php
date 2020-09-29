@@ -73,7 +73,7 @@ class ChatController extends MasterController
             if ($message->type=='text'){
                 $arr['msg']=$message->msg??"";
             }else{
-                $arr['msg']=asset('media/images/chat/').'/'.$message->msg;
+                $arr['msg']=asset('media/files/chat/').'/'.$message->msg;
             }
             $arr['time']=$message->published_from();
             $data_chat[]=$arr;
