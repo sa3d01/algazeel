@@ -74,7 +74,7 @@ class ChatController extends MasterController
             $arr['time']=$message->published_from();
             $data_chat[]=$arr;
         }
-        $data['chat'][]= $data_chat;
+        $data['chat']= $data_chat;
         $data['current_page']= collect($chat)['current_page'];
         $data['first_page_url']= collect($chat)['first_page_url'];
         $data['from']= collect($chat)['from'];
