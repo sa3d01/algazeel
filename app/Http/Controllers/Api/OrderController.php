@@ -108,51 +108,35 @@ class OrderController extends MasterController
     }
     public function pay($id,Request $request){
         $order=Order::find($id);
-        if ($order->paid != 0)
-            return $this->sendError('ﻻ يمكن القيام بهذه العملية حاليا');
+//        if ($order->paid != 0)
+//            return $this->sendError('ﻻ يمكن القيام بهذه العملية حاليا');
         $order->update([
             'paid'=>1
         ]);
         $user=$order->user;
-//        if (array_key_exists('chat_orders',(array)$user->more_details)){
-//            $user_chat_orders=$user->more_details['chat_orders'];
-//            $user->update(
-//                [
-//                    'more_details'=>[
-//                        'chat_orders'=>array_push($user_chat_orders,$id),
-//                    ],
-//                ]
-//            );
-//        }else{
-//            $user->update(
-//                [
-//                    'more_details'=>[
-//                        'chat_orders'=>(array)$id,
-//                    ],
-//                ]
-//            );
-//        }
-//
-//        $provider=$order->provider;
-//        if (array_key_exists('chat_orders',(array)$provider->more_details)){
-//            $provider_chat_orders=$provider->more_details['chat_orders'];
-//            $provider->update(
-//                [
-//                    'more_details'=>[
-//                        'chat_orders'=>array_push($provider_chat_orders,$id),
-//                    ],
-//                ]
-//            );
-//        }else{
-//            $provider->update(
-//                [
-//                    'more_details'=>[
-//                        'chat_orders'=>(array)$id,
-//                    ],
-//                ]
-//            );
-//        }
-
+        $user_chat_orders=[];
+        if (array_key_exists('chat_orders',(array)$user->more_details)){
+            $user_chat_orders[]=$user->more_details['chat_orders'];
+        }
+        $user->update(
+            [
+                'more_details'=>[
+                    'chat_orders'=>array_push($user_chat_orders,$id),
+                ],
+            ]
+        );
+        $provider=$order->provider;
+        $provider_chat_orders=[];
+        if (array_key_exists('chat_orders',(array)$provider->more_details)){
+            $provider_chat_orders[]=$provider->more_details['chat_orders'];
+        }
+        $provider->update(
+            [
+                'more_details'=>[
+                    'chat_orders'=>array_push($provider_chat_orders,$id),
+                ],
+            ]
+        );
         $title='قام المستخدم بدفع قيمة الطلب رقم '.$order->id;
         $this->notify($order,$request->user(),$order->provider,$title);
         return $this->sendResponse('تمت العملية بنجاح');
