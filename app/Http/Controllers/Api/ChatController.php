@@ -74,15 +74,15 @@ class ChatController extends MasterController
             $arr['time']=$message->published_from();
             $data_chat[]=$arr;
         }
-        $data['chat']['data']= $data_chat;
-        $data['chat']['current_page']= collect($chat)['current_page'];
-        $data['chat']['first_page_url']= collect($chat)['first_page_url'];
-        $data['chat']['from']= collect($chat)['from'];
-        $data['chat']['next_page_url']= collect($chat)['next_page_url'];
-        $data['chat']['path']= collect($chat)['path'];
-        $data['chat']['per_page']= collect($chat)['per_page'];
-        $data['chat']['prev_page_url']= collect($chat)['prev_page_url'];
-        $data['chat']['to']= collect($chat)['to'];
+        $data[]['chat']= $data_chat;
+        $data['current_page']= collect($chat)['current_page'];
+        $data['first_page_url']= collect($chat)['first_page_url'];
+        $data['from']= collect($chat)['from'];
+        $data['next_page_url']= collect($chat)['next_page_url'];
+        $data['path']= collect($chat)['path'];
+        $data['per_page']= collect($chat)['per_page'];
+        $data['prev_page_url']= collect($chat)['prev_page_url'];
+        $data['to']= collect($chat)['to'];
         return $this->sendResponse($data);
     }
     public function destroy($id){
