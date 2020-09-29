@@ -114,11 +114,11 @@ class OrderController extends MasterController
             'paid'=>1
         ]);
         $user=$order->user;
-        $user_chat_orders=[];
         if (array_key_exists('chat_orders',(array)$user->more_details)){
-            $user_chat_orders=(array)$user->more_details['chat_orders'];
+            $user_chat_orders=$user->more_details['chat_orders'];
+            $user_chat_orders=array_push($user_chat_orders,$id);
         }
-        $user_chat_orders[]=array_push($user_chat_orders,$id);
+        $user_chat_orders=(array)$id;
         $user->update(
             [
                 'more_details'=>[
@@ -127,11 +127,11 @@ class OrderController extends MasterController
             ]
         );
         $provider=$order->provider;
-        $provider_chat_orders=[];
         if (array_key_exists('chat_orders',(array)$provider->more_details)){
-            $provider_chat_orders=(array)$provider->more_details['chat_orders'];
+            $provider_chat_orders=$provider->more_details['chat_orders'];
+            $provider_chat_orders=array_push($provider_chat_orders,$id);
         }
-        $provider_chat_orders[]=array_push($provider_chat_orders,$id);
+        $provider_chat_orders=(array)$id;
         $provider->update(
             [
                 'more_details'=>[
@@ -139,8 +139,8 @@ class OrderController extends MasterController
                 ],
             ]
         );
-        $title='قام المستخدم بدفع قيمة الطلب رقم '.$order->id;
-        $this->notify($order,$request->user(),$order->provider,$title);
+//        $title='قام المستخدم بدفع قيمة الطلب رقم '.$order->id;
+//        $this->notify($order,$request->user(),$order->provider,$title);
         return $this->sendResponse('تمت العملية بنجاح');
     }
     public function done($id,Request $request){
