@@ -58,7 +58,7 @@ class ChatController extends MasterController
         }
         return $this->sendResponse($data);
     }
-    public function show($id){
+    function chat($id){
         $data=[];
         $data_chat=[];
         $chat=Chat::where('order_id',$id)->latest()->simplepaginate(10);
@@ -87,6 +87,10 @@ class ChatController extends MasterController
         $data['per_page']= collect($chat)['per_page'];
         $data['prev_page_url']= collect($chat)['prev_page_url'];
         $data['to']= collect($chat)['to'];
+        return $data;
+    }
+    public function show($id){
+        $data=$this->chat($id);
         return $this->sendResponse($data);
     }
     public function destroy($id){
@@ -117,7 +121,6 @@ class ChatController extends MasterController
         if ($validator->fails()) {
             return $this->sendError($validator->errors()->first());
         }
-
         $order=Order::find($request['order_id']);
         $all=$request->all();
         $all['sender_id']=auth()->user()->id;
@@ -135,7 +138,8 @@ class ChatController extends MasterController
         $title = 'رسالة جديدة';
         $note = ' قام ' . auth()->user()->name .' بارسال رسالة على طلبك '. $message->order_id . ' اضغط لعرض التفاصيل ';
         $this->chat_notify($order,auth()->user(),User::find($all['receiver_id']),$title,$note);
-        return $this->sendResponse('تم الارسال');
+        $data=$this->chat($request['order_id']);
+        return $this->sendResponse($data);
     }
     public function chat_notify($order,$sender,$receiver,$title,$note){
         $receiver->device['type'] =='IOS'? $fcm_notification=array('title'=>$title, 'sound' => 'default') : $fcm_notification=null;
