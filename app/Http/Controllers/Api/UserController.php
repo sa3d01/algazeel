@@ -70,8 +70,8 @@ class UserController extends MasterController
     public function users_list($user_type_id,Request $request){
         //ToDo take top rated
         $top_providers=User::where('user_type_id',$user_type_id)->take(5)->get();
-        $providers=User::where('user_type_id',$user_type_id)->simplepaginate(10);
         $data['top_providers']= new UserCollection($top_providers);
+        $providers=User::where('user_type_id',$user_type_id)->simplepaginate(10);
         $data['providers']['data']= new UserCollection($providers);
         $data['providers']['current_page']= collect($providers)['current_page'];
         $data['providers']['first_page_url']= collect($providers)['first_page_url'];
@@ -109,6 +109,12 @@ class UserController extends MasterController
         $token=auth()->attempt($cred);
         if ($token){
             $user=auth()->user();
+            $user->update([
+                'device'=>[
+                    'id'=>$request->device['id'],
+                    'type'=>$request->device['type'],
+                ]
+            ]);
             $data= new UserResource($user);
             return $this->sendResponse($data)->withHeaders(['apiToken'=>$token,'tokenType'=>'bearer']);
         }else{
@@ -116,6 +122,13 @@ class UserController extends MasterController
         }
     }
     public function logout(Request $request){
+        $user=auth()->user();
+        $user->update([
+            'device'=>[
+                'id'=>null,
+                'type'=>null,
+            ]
+        ]);
         auth()->logout();
         return $this->sendResponse('');
     }

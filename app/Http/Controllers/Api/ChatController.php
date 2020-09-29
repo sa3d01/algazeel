@@ -60,7 +60,8 @@ class ChatController extends MasterController
     }
     public function show($id){
         $data=[];
-        $chat=Chat::where('order_id',$id)->latest()->get();
+        $data_chat=[];
+        $chat=Chat::where('order_id',$id)->latest()->simplepaginate(10);
         foreach ($chat as $message){
             $arr['id']=$message->id??0;
             $arr['sender']=[
@@ -71,8 +72,17 @@ class ChatController extends MasterController
             $arr['msg']=$message->msg??"";
             $arr['type']=$message->type??"";
             $arr['time']=$message->published_from();
-            $data[]=$arr;
+            $data_chat[]=$arr;
         }
+        $data['chat']['data']= $data_chat;
+        $data['chat']['current_page']= collect($chat)['current_page'];
+        $data['chat']['first_page_url']= collect($chat)['first_page_url'];
+        $data['chat']['from']= collect($chat)['from'];
+        $data['chat']['next_page_url']= collect($chat)['next_page_url'];
+        $data['chat']['path']= collect($chat)['path'];
+        $data['chat']['per_page']= collect($chat)['per_page'];
+        $data['chat']['prev_page_url']= collect($chat)['prev_page_url'];
+        $data['chat']['to']= collect($chat)['to'];
         return $this->sendResponse($data);
     }
     public function destroy($id){
