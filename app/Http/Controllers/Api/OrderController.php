@@ -115,7 +115,8 @@ class OrderController extends MasterController
         ]);
         $user=$order->user;
         if (array_key_exists('chat_orders',(array)$user->more_details)){
-            $user_chat_orders=array_push($user->more_details['chat_orders'],$id);
+            $user_chat_orders=(array)$user->more_details['chat_orders'];
+            $user_chat_orders=array_push($user_chat_orders,$id);
         }else{
             $user_chat_orders=(array)$id;
         }
@@ -128,7 +129,8 @@ class OrderController extends MasterController
         );
         $provider=$order->provider;
         if (array_key_exists('chat_orders',(array)$provider->more_details)){
-            $provider_chat_orders=array_push($provider->more_details['chat_orders'],$id);
+            $provider_chat_orders=(array)$provider->more_details['chat_orders'];
+            $provider_chat_orders=array_push($provider_chat_orders,$id);
         }else{
             $provider_chat_orders=(array)$id;
         }
