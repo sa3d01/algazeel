@@ -114,30 +114,28 @@ class OrderController extends MasterController
             'paid'=>1
         ]);
         $user=$order->user;
+        $user_chat_orders=[];
         if (array_key_exists('chat_orders',(array)$user->more_details)){
-            $user_chat_orders=$user->more_details['chat_orders'];
-            $user_chat_orders=array_push($user_chat_orders,$id);
-        }else{
-            $user_chat_orders=(array)$id;
+            $user_chat_orders[]=$user->more_details['chat_orders'];
         }
+        $user_chat_orders[]=$id;
         $user->update(
             [
                 'more_details'=>[
-                    'chat_orders'=>(array)$user_chat_orders,
+                    'chat_orders'=>$user_chat_orders,
                 ],
             ]
         );
         $provider=$order->provider;
+        $provider_chat_orders=[];
         if (array_key_exists('chat_orders',(array)$provider->more_details)){
-            $provider_chat_orders=$provider->more_details['chat_orders'];
-            $provider_chat_orders=array_push($provider_chat_orders,$id);
-        }else{
-            $provider_chat_orders=(array)$id;
+            $provider_chat_orders[]=$provider->more_details['chat_orders'];
         }
+        $provider_chat_orders[]=$id;
         $provider->update(
             [
                 'more_details'=>[
-                    'chat_orders'=>(array)$provider_chat_orders,
+                    'chat_orders'=>$provider_chat_orders,
                 ],
             ]
         );
