@@ -121,7 +121,7 @@ class OrderController extends MasterController
         $user->update(
             [
                 'more_details'=>[
-                    'chat_orders'=>array_push($user_chat_orders,$id),
+                    'chat_orders'=>$user_chat_orders,
                 ],
             ]
         );
@@ -133,7 +133,7 @@ class OrderController extends MasterController
         $provider->update(
             [
                 'more_details'=>[
-                    'chat_orders'=>array_push($provider_chat_orders,$id),
+                    'chat_orders'=>$provider_chat_orders,
                 ],
             ]
         );
