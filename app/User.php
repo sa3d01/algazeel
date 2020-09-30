@@ -76,4 +76,10 @@ class User extends Authenticatable implements JWTSubject
         $orders=Order::where('provider_id',$this->id)->pluck('id');
         return (double)Rating::whereIn('order_id',$orders)->avg('rate');
     }
+    public function getRateIcon()
+    {
+        $orders=Order::where('provider_id',$this->id)->pluck('id');
+        $rate=(double)Rating::whereIn('order_id',$orders)->avg('rate');
+        return "<p><i class='fa fa-star' aria-hidden='hidden'></i>$rate</p>";
+    }
 }
