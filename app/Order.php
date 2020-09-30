@@ -32,6 +32,10 @@ class Order extends Model
     {
         return $this->belongsTo(User::class,'provider_id','id');
     }
+    public function chats()
+    {
+        return $this->hasMany(Chat::class);
+    }
     public function ratings(){
         return $this->hasMany(Rating::class,'order_id','id');
     }

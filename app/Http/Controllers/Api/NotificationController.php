@@ -34,6 +34,10 @@ class NotificationController extends MasterController
     {
         if (!$this->model->find($id))
             return $this->sendError('not found');
+        $single=$this->model->find($id);
+        $single->update([
+            'read'=>'true'
+        ]);
         return $this->sendResponse(NotificationResource::make($this->model->find($id)));
     }
     public function index()

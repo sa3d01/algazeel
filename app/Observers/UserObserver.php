@@ -10,6 +10,6 @@ class UserObserver
     public function deleting(User $user)
     {
         $user->orders()->delete();
-        //Todo remove chat messages
+        $user->chats()->delete();
     }
 }

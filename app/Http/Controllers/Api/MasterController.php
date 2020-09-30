@@ -61,7 +61,8 @@ class MasterController extends Controller
                 'body' => $title,
                 'status' => $order->status,
                 'type'=>'order',
-                'order'=>new OrderResource($order)
+                'order'=>new OrderResource($order),
+                'id'=>$order->id
             ],
             'priority' => 'high',
         ];

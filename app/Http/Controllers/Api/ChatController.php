@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Api;
 
 use App\Chat;
+use App\Http\Resources\ChatCollection;
+use App\Http\Resources\ChatResource;
 use App\Http\Resources\OrderCollection;
 use App\Http\Resources\OrderResource;
 use App\Http\Resources\UserResource;
@@ -60,25 +62,8 @@ class ChatController extends MasterController
     }
     function chat($id){
         $data=[];
-        $data_chat=[];
         $chat=Chat::where('order_id',$id)->latest()->simplepaginate(10);
-        foreach ($chat as $message){
-            $arr['id']=$message->id??0;
-            $arr['sender']=[
-                'id'=>$message->sender_id,
-                'name'=>$message->sender->name,
-                'image'=>$message->sender->image,
-            ];
-            $arr['type']=$message->type??"";
-            if ($message->type=='text'){
-                $arr['msg']=$message->msg??"";
-            }else{
-                $arr['msg']=asset('media/files/chat/').'/'.$message->msg;
-            }
-            $arr['time']=$message->published_from();
-            $data_chat[]=$arr;
-        }
-        $data['chat']= $data_chat;
+        $data['chat']= new ChatCollection($chat);
         $data['current_page']= collect($chat)['current_page'];
         $data['first_page_url']= collect($chat)['first_page_url'];
         $data['from']= collect($chat)['from'];
@@ -137,11 +122,10 @@ class ChatController extends MasterController
         $message=$this->model->create($all);
         $title = 'رسالة جديدة';
         $note = ' قام ' . auth()->user()->name .' بارسال رسالة على طلبك '. $message->order_id . ' اضغط لعرض التفاصيل ';
-        $this->chat_notify($order,auth()->user(),User::find($all['receiver_id']),$title,$note);
-        $data=$this->chat($request['order_id']);
-        return $this->sendResponse($data);
+        $this->chat_notify($order,$message,User::find($all['receiver_id']),$title,$note);
+        return $this->sendResponse(ChatResource::make($message));
     }
-    public function chat_notify($order,$sender,$receiver,$title,$note){
+    public function chat_notify($order,$message,$receiver,$title,$note){
         $receiver->device['type'] =='IOS'? $fcm_notification=array('title'=>$title, 'sound' => 'default') : $fcm_notification=null;
         $push = new PushNotification('fcm');
         $msg = [
@@ -151,20 +135,14 @@ class ChatController extends MasterController
                 'body' => $note,
                 'status' => 'chat',
                 'type'=>'chat',
-                'order'=>OrderResource::make($order)
+                'order'=>OrderResource::make($order),
+                'id'=>$order->id,
+                'message'=>ChatResource::make($message)
             ],
             'priority' => 'high',
         ];
         $push->setMessage($msg)
             ->setDevicesToken($receiver->device['id'])
             ->send();
-        $notification=new Notification();
-        $notification->type='app';
-        $notification->sender_id=$sender->id;
-        $notification->receiver_id=$receiver->id;
-        $notification->order_id=$order->id;
-        $notification->title=$title;
-        $notification->note=$note;
-        $notification->save();
     }
 }

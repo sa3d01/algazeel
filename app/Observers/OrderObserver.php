@@ -13,15 +13,10 @@ class OrderObserver
         $this->notify($order,request()->user(),$order->provider,$order->id.'# يوجد طلب جديد رقم ');
     }
 
-    public function updated(Order $order)
-    {
-        //Todo handle accept or cancel order changes
-    }
-
     public function deleting(Order $order)
     {
         $order->notifications()->delete();
-        //Todo remove chat messages
+        $order->chats()->delete();
     }
 
     public function notify($order,$sender,$receiver,$title){
@@ -34,6 +29,7 @@ class OrderObserver
                 'body' => $title,
                 'status' => $order->status,
                 'type'=>'order',
+                'id'=>$order->id,
                 'order'=>new OrderResource($order)
             ],
             'priority' => 'high',
