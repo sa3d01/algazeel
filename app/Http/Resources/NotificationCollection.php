@@ -14,7 +14,6 @@ class NotificationCollection extends ResourceCollection
      */
     public function toArray($request)
     {
-        $unread=$this->where('read','false')->count();
         $data=[];
         foreach ($this as $obj){
             $arr['id']=(int)$obj->id;
@@ -26,7 +25,6 @@ class NotificationCollection extends ResourceCollection
             $arr['published_from']=$obj->published_from();
             $data[]=$arr;
         }
-        $data['unread_count']=$unread;
         return $data;
     }
 }

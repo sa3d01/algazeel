@@ -42,7 +42,9 @@ class NotificationController extends MasterController
     }
     public function index()
     {
-        return $this->sendResponse(new NotificationCollection($this->model->where('receiver_id',\request()->user()->id)->latest()->get()));
+        $notifies=new NotificationCollection($this->model->where('receiver_id',\request()->user()->id)->latest()->get());
+        $unread=$this->model->where('receiver_id',\request()->user()->id)->where('read','false')->count();
+        return $this->sendResponse(['data'=>$notifies,'unread'=>$unread]);
     }
 
 
