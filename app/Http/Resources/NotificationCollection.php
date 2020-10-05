@@ -22,6 +22,11 @@ class NotificationCollection extends ResourceCollection
             $arr['title']=$obj->title;
             $arr['note']=$obj->note;
             $arr['order_id']=(int)$obj->order_id;
+            if($obj->order_id!=null){
+                $arr['order_status']=$obj->order->status;
+            }else{
+                $arr['order_status']='';
+            }
             $arr['published_from']=$obj->published_from();
             $data[]=$arr;
         }
