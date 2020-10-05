@@ -14,7 +14,7 @@ class ChatResource extends JsonResource
      */
     public function toArray($request)
     {
-        $arr['id']=$this->id;
+        $arr['id']=(int) $this->id;
         $arr['sender']=[
             'id'=>$this->sender->id,
             'name'=>$this->sender->name,

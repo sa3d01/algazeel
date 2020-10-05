@@ -20,8 +20,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="29d3824d-e6ac-4a03-84c0-23fc323bf7cc" name="Default Changelist" comment="chat">
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/NotificationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/NotificationController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Resources/NotificationCollection.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/NotificationCollection.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Resources/ChatResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/ChatResource.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/dashboard/wallet/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard/wallet/show.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -166,7 +167,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Http/Resources" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../whichSpot" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -259,21 +260,13 @@
       <workItem from="1601249138158" duration="905000" />
       <workItem from="1601373598482" duration="5664000" />
       <workItem from="1601412637102" duration="2335000" />
-      <workItem from="1601479730455" duration="2705000" />
-    </task>
-    <task id="LOCAL-00010" summary="Admin Panel">
-      <created>1600782612405</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1600782612405</updated>
-    </task>
-    <task id="LOCAL-00011" summary="Admin Panel">
-      <created>1600782961307</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1600782961307</updated>
+      <workItem from="1601479730455" duration="3364000" />
+      <workItem from="1601489172786" duration="2576000" />
+      <workItem from="1601495837323" duration="8693000" />
+      <workItem from="1601569410414" duration="772000" />
+      <workItem from="1601572060183" duration="2506000" />
+      <workItem from="1601650026160" duration="1357000" />
+      <workItem from="1601809206667" duration="1632000" />
     </task>
     <task id="LOCAL-00012" summary="Admin Panel">
       <created>1600878823684</created>
@@ -604,7 +597,21 @@
       <option name="project" value="LOCAL" />
       <updated>1601481953803</updated>
     </task>
-    <option name="localTasksCounter" value="59" />
+    <task id="LOCAL-00059" summary="chat">
+      <created>1601482440766</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1601482440767</updated>
+    </task>
+    <task id="LOCAL-00060" summary="rate">
+      <created>1601492939247</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1601492939247</updated>
+    </task>
+    <option name="localTasksCounter" value="61" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -640,6 +647,7 @@
     <MESSAGE value="auth api" />
     <MESSAGE value="mo edits" />
     <MESSAGE value="wallet and rate apis" />
+    <MESSAGE value="rate" />
     <MESSAGE value="chat" />
     <option name="LAST_COMMIT_MESSAGE" value="chat" />
   </component>
@@ -669,28 +677,28 @@
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
     <state x="172" y="127" width="1648" height="853" key="DiffContextDialog/72.27.1848.1053@72.27.1848.1053" timestamp="1600621483211" />
-    <state x="774" y="296" width="424" height="491" key="FileChooserDialogImpl" timestamp="1601481579442">
+    <state x="774" y="296" width="424" height="491" key="FileChooserDialogImpl" timestamp="1601820917007">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
     <state x="771" y="296" width="424" height="513" key="FileChooserDialogImpl/67.27.1853.1053@67.27.1853.1053" timestamp="1599048780115" />
-    <state x="774" y="296" width="424" height="491" key="FileChooserDialogImpl/72.27.1848.1053@72.27.1848.1053" timestamp="1601481579442" />
+    <state x="774" y="296" width="424" height="491" key="FileChooserDialogImpl/72.27.1848.1053@72.27.1848.1053" timestamp="1601820917007" />
     <state x="785" y="473" key="Github.CreateGistDialog" timestamp="1599044963788">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="785" y="473" key="Github.CreateGistDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1599044963788" />
-    <state x="592" y="288" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1601481955430">
+    <state x="592" y="288" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1601492941237">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
     <state x="588" y="288" width="800" height="528" key="Vcs.Push.Dialog.v2/67.27.1853.1053@67.27.1853.1053" timestamp="1599145441581" />
-    <state x="592" y="288" width="800" height="535" key="Vcs.Push.Dialog.v2/72.27.1848.1053@72.27.1848.1053" timestamp="1601481955430" />
+    <state x="592" y="288" width="800" height="535" key="Vcs.Push.Dialog.v2/72.27.1848.1053@72.27.1848.1053" timestamp="1601492941237" />
     <state x="690" y="270" width="602" height="573" key="VcsDiffUtil.ChangesDialog" timestamp="1600595370267">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
     <state x="690" y="270" width="602" height="573" key="VcsDiffUtil.ChangesDialog/72.27.1848.1053@72.27.1848.1053" timestamp="1600595370267" />
-    <state x="687" y="162" width="677" height="783" key="find.popup" timestamp="1601077678700">
+    <state x="687" y="162" width="677" height="783" key="find.popup" timestamp="1601509273079">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
-    <state x="687" y="162" width="677" height="783" key="find.popup/72.27.1848.1053@72.27.1848.1053" timestamp="1601077678700" />
+    <state x="687" y="162" width="677" height="783" key="find.popup/72.27.1848.1053@72.27.1848.1053" timestamp="1601509273079" />
     <state x="1430" y="279" width="197" height="580" key="ftp.server.browser" timestamp="1600777002977">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>

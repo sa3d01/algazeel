@@ -231,7 +231,6 @@
             }).then(() => {
                 location.reload(true);
             })
-            ///////////////
         });
     </script>
     <script type="text/javascript">

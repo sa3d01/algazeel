@@ -25,13 +25,15 @@ class SettingController extends MasterController
     public function index(){
         $setting=Setting::first();
         $data=[];
-        if (auth()->user()->user_type->name=='user'){
-            $data['about']=$setting->about['user'];
-            $data['licence']=$setting->licence['user'];
-        }else{
-            $data['about']=$setting->about['user'];
-            $data['licence']=$setting->licence['provider'];
-        }
+//        if (auth()->user()->user_type->name=='user'){
+//            $data['about']=$setting->about['user'];
+//            $data['licence']=$setting->licence['user'];
+//        }else{
+//            $data['about']=$setting->about['user'];
+//            $data['licence']=$setting->licence['provider'];
+//        }
+        $data['about']=$setting->about['user'];
+        $data['licence']=$setting->licence['user'];
         return $this->sendResponse($data);
     }
 
