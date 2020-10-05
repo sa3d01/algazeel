@@ -60,7 +60,7 @@ class UserController extends MasterController
         return $this->sendResponse($data);
     }
     public function search(Request $request){
-        $name=$request['name'];
+        $name = str_replace(' ', '', $request['name']);
         $users=User::where('name','like','%'.$name.'%')->get();
         if ($request['user_type_id'] && $request['user_type_id']!='')
             $users=User::where('name','like','%'.$name.'%')->where('user_type_id',$request['user_type_id'])->get();
@@ -188,7 +188,7 @@ class UserController extends MasterController
             $data= new UserResource($user);
             return $this->sendResponse($data)->withHeaders(['apiToken'=>$token,'tokenType'=>'bearer']);
         }else{
-            return $this->sendError('يوجد مشكلة بالبيانات');
+            return $this->sendError('كلمة المرور القديمة غير صحيحة');
         }
      }
      public function forget_password(Request $request){

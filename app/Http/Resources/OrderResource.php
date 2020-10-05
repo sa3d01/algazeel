@@ -17,7 +17,7 @@ class OrderResource extends JsonResource
         if (count($this->ratings)){
             $rate=(double)$this->ratings->avg('rate');
         }else{
-            $rate=0;
+            $rate='';
         }
         return [
             'id'=>(int)  $this->id,
