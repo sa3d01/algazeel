@@ -100,6 +100,7 @@
                                         <td><img width="50px" height="50px" src="{{$row->image}}"></td>
                                     @endif
                                     <td>
+                                        @if($type!='admin')
                                         <form class="delete" data-id="{{$row->id}}" method="POST" action="{{ route('admin.'.$type.'.destroy',[$row->id]) }}">
                                             @csrf
                                             {{ method_field('DELETE') }}
@@ -108,6 +109,7 @@
                                                 <i class="fa fa-trash text-danger"></i>
                                             </button>
                                         </form>
+                                        @endif
                                         <a href="{{route('admin.'.$type.'.show',$row->id)}}"><i class="os-icon os-icon-grid-10"></i></a>
                                     </td>
                                 </tr>
