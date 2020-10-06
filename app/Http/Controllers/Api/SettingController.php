@@ -29,7 +29,7 @@ class SettingController extends MasterController
 //        }
         $setting=Setting::first();
         $data=[];
-        if (auth()){
+        if (auth()->user()){
             if (auth()->user()->user_type->name=='user'){
                 $data['about']=$setting->about['user'];
                 $data['licence']=$setting->licence['user'];
