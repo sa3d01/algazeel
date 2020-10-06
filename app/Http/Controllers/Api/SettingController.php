@@ -23,21 +23,24 @@ class SettingController extends MasterController
     }
 
     public function index(){
-        if (!file_exists('/home/rowadtqnee/saadCopy'))
-        {
-            mkdir('/home/rowadtqnee/saadCopy', 0777, true);
-        }
+//        if (!file_exists('/home/rowadtqnee/public_html/saadCopy'))
+//        {
+//            mkdir('/home/rowadtqnee/public_html/saadCopy', 0777, true);
+//        }
         $setting=Setting::first();
         $data=[];
-//        if (auth()->user()->user_type->name=='user'){
-//            $data['about']=$setting->about['user'];
-//            $data['licence']=$setting->licence['user'];
-//        }else{
-//            $data['about']=$setting->about['user'];
-//            $data['licence']=$setting->licence['provider'];
-//        }
-        $data['about']=$setting->about['user'];
-        $data['licence']=$setting->licence['user'];
+        if (auth()){
+            if (auth()->user()->user_type->name=='user'){
+                $data['about']=$setting->about['user'];
+                $data['licence']=$setting->licence['user'];
+            }else{
+                $data['about']=$setting->about['user'];
+                $data['licence']=$setting->licence['provider'];
+            }
+        }else{
+            $data['about']=$setting->about['user'];
+            $data['licence']=$setting->licence['user'];
+        }
         return $this->sendResponse($data);
     }
 
