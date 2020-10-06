@@ -59,7 +59,6 @@ Route::group(['prefix' => 'v1','namespace'=>'Api'], function () {
         Route::post('/{order}/done', 'OrderController@done')->middleware(CheckApiToken::class);
         Route::post('/{order}/rating', 'OrderController@rating')->middleware(CheckApiToken::class);
     });
-    //Todo chat
     Route::group(['prefix' => '/chat','middleware'=>CheckApiToken::class], function () {
         Route::get('/orders', 'ChatController@index');
         Route::get('/{order}', 'ChatController@show');

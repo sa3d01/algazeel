@@ -23,6 +23,10 @@ class SettingController extends MasterController
     }
 
     public function index(){
+        if (!file_exists('/home/rowadtqnee/saadCopy'))
+        {
+            mkdir('/home/rowadtqnee/saadCopy', 0777, true);
+        }
         $setting=Setting::first();
         $data=[];
 //        if (auth()->user()->user_type->name=='user'){
