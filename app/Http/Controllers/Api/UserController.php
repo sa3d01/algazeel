@@ -96,7 +96,8 @@ class UserController extends MasterController
         if ($validator->fails()) {
             return $this->sendError($validator->errors()->first());
         }
-        $activation_code = rand(1111, 9999);
+//        $activation_code = rand(1111, 9999);
+        $activation_code = 2021;
         $this->send_code($request['mobile'],$activation_code);
         $all = $request->all();
         $all['activation_code'] = $activation_code;
@@ -140,7 +141,8 @@ class UserController extends MasterController
         }
         $exist_user=User::whereMobile($request['mobile'])->first();
         if ($exist_user){
-            $activation_code = rand(1111, 9999);
+//            $activation_code = rand(1111, 9999);
+            $activation_code = 2021;
             $this->send_code($request['mobile'],$activation_code);
             $exist_user->update(['activation_code'=>$activation_code]);
             return $this->sendResponse(['activation_code'=>$activation_code]);
