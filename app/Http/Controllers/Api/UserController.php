@@ -60,7 +60,8 @@ class UserController extends MasterController
         return $this->sendResponse($data);
     }
     public function search(Request $request){
-        $name = str_replace(' ', '', $request['name']);
+//        $name = str_replace(' ', '', $request['name']);
+        $name = $request['name'];
         $users=User::where('name','like','%'.$name.'%')->get();
         if ($request['user_type_id'] && $request['user_type_id']!='')
             $users=User::where('name','like','%'.$name.'%')->where('user_type_id',$request['user_type_id'])->get();
