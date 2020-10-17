@@ -53,16 +53,16 @@
                         <a href="{{route('admin.setting')}}"><i class="os-icon os-icon-ui-49"></i><span>إعدادات عامة</span></a>
                     </li>
                 @endcan
-                @can('edit-roles')
+{{--                @can('edit-roles')--}}
                     <li>
                         <a href="{{route('admin.role.index')}}"><i class="os-icon os-icon-ui-83"></i><span>الصﻻحيات والأدوار</span></a>
                     </li>
-                @endcan
-                @can('edit-admins')
+{{--                @endcan--}}
+{{--                @can('edit-admins')--}}
                     <li>
                         <a href="{{route('admin.admin.index')}}"><i class="os-icon os-icon-ui-93"></i><span>أعضاء الإدارة</span></a>
                     </li>
-                @endcan
+{{--                @endcan--}}
             </ul>
         </div>
     </div>
