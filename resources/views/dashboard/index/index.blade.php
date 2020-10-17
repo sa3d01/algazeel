@@ -18,11 +18,11 @@
                         {{$title}}
                     </h5>
                     @if($type=='role'|| $type=='admin')
-                        @can('add-'.$type.'s')
+{{--                        @can('add-'.$type.'s')--}}
                         <div class="form-buttons-w">
                             <a href="{{route('admin.'.$type.'.create')}}" class="btn btn-primary create-submit" ><label>+</label> إضافة</a>
                         </div>
-                        @endcan
+{{--                        @endcan--}}
                     @endif
                     <div  class="table-responsive">
                         <table id="datatable" width="100%" class="table table-striped table-lightfont">
