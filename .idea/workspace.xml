@@ -19,9 +19,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="29d3824d-e6ac-4a03-84c0-23fc323bf7cc" name="Default Changelist" comment="admin">
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/SettingController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/SettingController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
+    <list default="true" id="29d3824d-e6ac-4a03-84c0-23fc323bf7cc" name="Default Changelist" comment=".">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/database.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -267,56 +268,39 @@
       <workItem from="1601650026160" duration="1357000" />
       <workItem from="1601809206667" duration="1632000" />
       <workItem from="1601904241653" duration="2379000" />
-      <workItem from="1601979952017" duration="1279000" />
-    </task>
-    <task id="LOCAL-00016" summary="notifications">
-      <created>1600900880843</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1600900880843</updated>
-    </task>
-    <task id="LOCAL-00017" summary="contact">
-      <created>1600905981325</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1600905981325</updated>
-    </task>
-    <task id="LOCAL-00018" summary="contact">
-      <created>1600906953396</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1600906953396</updated>
-    </task>
-    <task id="LOCAL-00019" summary="settings">
-      <created>1600944566558</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1600944566558</updated>
-    </task>
-    <task id="LOCAL-00020" summary="wallet">
-      <created>1600954426682</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1600954426682</updated>
-    </task>
-    <task id="LOCAL-00021" summary="permissions">
-      <created>1600958841071</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1600958841071</updated>
-    </task>
-    <task id="LOCAL-00022" summary="permissions">
-      <created>1600960239715</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1600960239715</updated>
+      <workItem from="1601979952017" duration="2144000" />
+      <workItem from="1602100891442" duration="721000" />
+      <workItem from="1602113852375" duration="285000" />
+      <workItem from="1602117248447" duration="798000" />
+      <workItem from="1602170412814" duration="18000" />
+      <workItem from="1602263824814" duration="1089000" />
+      <workItem from="1602409827274" duration="2020000" />
+      <workItem from="1602516435267" duration="606000" />
+      <workItem from="1602520647415" duration="1750000" />
+      <workItem from="1602710284049" duration="602000" />
+      <workItem from="1602721883994" duration="1256000" />
+      <workItem from="1602862363317" duration="14000" />
+      <workItem from="1602866839182" duration="669000" />
+      <workItem from="1602941165185" duration="1140000" />
+      <workItem from="1602949098056" duration="4516000" />
+      <workItem from="1603212086298" duration="3125000" />
+      <workItem from="1603751607415" duration="664000" />
+      <workItem from="1603764013566" duration="7000" />
+      <workItem from="1603844844859" duration="3048000" />
+      <workItem from="1603852655106" duration="23000" />
+      <workItem from="1604195225986" duration="411000" />
+      <workItem from="1604950420727" duration="659000" />
+      <workItem from="1605151782241" duration="678000" />
+      <workItem from="1605152975768" duration="660000" />
+      <workItem from="1605228675504" duration="322000" />
+      <workItem from="1605234843078" duration="1975000" />
+      <workItem from="1605394126240" duration="197000" />
+      <workItem from="1605396341415" duration="5302000" />
+      <workItem from="1605822800578" duration="44000" />
+      <workItem from="1606271533522" duration="1830000" />
+      <workItem from="1606279956940" duration="1298000" />
+      <workItem from="1606451298778" duration="2291000" />
+      <workItem from="1607090512282" duration="377000" />
     </task>
     <task id="LOCAL-00023" summary="permissions">
       <created>1600960326711</created>
@@ -612,7 +596,56 @@
       <option name="project" value="LOCAL" />
       <updated>1601980234522</updated>
     </task>
-    <option name="localTasksCounter" value="65" />
+    <task id="LOCAL-00065" summary="admin">
+      <created>1601981439445</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1601981439445</updated>
+    </task>
+    <task id="LOCAL-00066" summary="admin">
+      <created>1601981619763</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1601981619763</updated>
+    </task>
+    <task id="LOCAL-00067" summary="settings">
+      <created>1601981679455</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1601981679455</updated>
+    </task>
+    <task id="LOCAL-00068" summary="search">
+      <created>1602411809764</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1602411809765</updated>
+    </task>
+    <task id="LOCAL-00069" summary=".">
+      <created>1602953484657</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1602953484657</updated>
+    </task>
+    <task id="LOCAL-00070" summary=".">
+      <created>1602953657850</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1602953657850</updated>
+    </task>
+    <task id="LOCAL-00071" summary=".">
+      <created>1602953880562</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1602953880562</updated>
+    </task>
+    <option name="localTasksCounter" value="72" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -641,7 +674,6 @@
     <MESSAGE value="show provider" />
     <MESSAGE value="notifications" />
     <MESSAGE value="contact" />
-    <MESSAGE value="settings" />
     <MESSAGE value="wallet" />
     <MESSAGE value="permissions" />
     <MESSAGE value="user list api" />
@@ -654,7 +686,10 @@
     <MESSAGE value="order" />
     <MESSAGE value="notification" />
     <MESSAGE value="admin" />
-    <option name="LAST_COMMIT_MESSAGE" value="admin" />
+    <MESSAGE value="settings" />
+    <MESSAGE value="search" />
+    <MESSAGE value="." />
+    <option name="LAST_COMMIT_MESSAGE" value="." />
   </component>
   <component name="WindowStateProjectService">
     <state x="591" y="215" width="800" height="684" key="#Deployment" timestamp="1600777004125">
@@ -691,11 +726,11 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="785" y="473" key="Github.CreateGistDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1599044963788" />
-    <state x="592" y="288" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1601980236694">
+    <state x="592" y="288" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1602953882374">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
     <state x="588" y="288" width="800" height="528" key="Vcs.Push.Dialog.v2/67.27.1853.1053@67.27.1853.1053" timestamp="1599145441581" />
-    <state x="592" y="288" width="800" height="535" key="Vcs.Push.Dialog.v2/72.27.1848.1053@72.27.1848.1053" timestamp="1601980236694" />
+    <state x="592" y="288" width="800" height="535" key="Vcs.Push.Dialog.v2/72.27.1848.1053@72.27.1848.1053" timestamp="1602953882374" />
     <state x="690" y="270" width="602" height="573" key="VcsDiffUtil.ChangesDialog" timestamp="1600595370267">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
