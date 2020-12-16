@@ -28,10 +28,10 @@
                                 <img alt="{{$row->user->name}}" src="{{$row->user->image}}">
                             </div>
                         </div>
-                        <div class="aei-content">
-                            <div class="aei-timestamp">
-                                {{$row->published_from()}}
-                            </div>
+                        <div class="aei-content" style="position: initial">
+{{--                            <div class="aei-timestamp">--}}
+{{--                                {{$row->published_from()}}--}}
+{{--                            </div>--}}
                             <h6 class="aei-title">
                                 {{$row->user->name}}
                             </h6>

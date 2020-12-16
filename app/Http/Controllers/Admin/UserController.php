@@ -8,6 +8,7 @@ use App\User;
 use Edujugon\PushNotification\PushNotification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Tymon\JWTAuth\JWTAuth;
 
 class UserController extends MasterController
 {
@@ -89,7 +90,6 @@ class UserController extends MasterController
                     'status'=>0,
                 ]
             );
-
         }else{
             $user->update(
                 [

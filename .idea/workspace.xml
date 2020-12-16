@@ -21,8 +21,12 @@
   <component name="ChangeListManager">
     <list default="true" id="29d3824d-e6ac-4a03-84c0-23fc323bf7cc" name="Default Changelist" comment=".">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/database.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/UserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/NotificationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/NotificationController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/SettingController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/SettingController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/UserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/dashboard/contact/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard/contact/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -300,14 +304,11 @@
       <workItem from="1606271533522" duration="1830000" />
       <workItem from="1606279956940" duration="1298000" />
       <workItem from="1606451298778" duration="2291000" />
-      <workItem from="1607090512282" duration="377000" />
-    </task>
-    <task id="LOCAL-00023" summary="permissions">
-      <created>1600960326711</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1600960326711</updated>
+      <workItem from="1607090512282" duration="5525000" />
+      <workItem from="1607468779108" duration="659000" />
+      <workItem from="1607555116942" duration="2869000" />
+      <workItem from="1607951544549" duration="1353000" />
+      <workItem from="1608030695410" duration="18232000" />
     </task>
     <task id="LOCAL-00024" summary="user list api">
       <created>1601082778025</created>
@@ -645,7 +646,14 @@
       <option name="project" value="LOCAL" />
       <updated>1602953880562</updated>
     </task>
-    <option name="localTasksCounter" value="72" />
+    <task id="LOCAL-00072" summary=".">
+      <created>1607090903350</created>
+      <option name="number" value="00072" />
+      <option name="presentableId" value="LOCAL-00072" />
+      <option name="project" value="LOCAL" />
+      <updated>1607090903350</updated>
+    </task>
+    <option name="localTasksCounter" value="73" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -690,78 +698,5 @@
     <MESSAGE value="search" />
     <MESSAGE value="." />
     <option name="LAST_COMMIT_MESSAGE" value="." />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="591" y="215" width="800" height="684" key="#Deployment" timestamp="1600777004125">
-      <screen x="72" y="27" width="1848" height="1053" />
-    </state>
-    <state x="591" y="215" width="800" height="684" key="#Deployment/72.27.1848.1053@72.27.1848.1053" timestamp="1600777004125" />
-    <state x="697" y="377" width="582" height="350" key="#Notifications" timestamp="1599048955279">
-      <screen x="67" y="27" width="1853" height="1053" />
-    </state>
-    <state x="697" y="377" width="582" height="350" key="#Notifications/67.27.1853.1053@67.27.1853.1053" timestamp="1599048955279" />
-    <state x="729" y="302" width="524" height="509" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1600902544674">
-      <screen x="72" y="27" width="1848" height="1053" />
-    </state>
-    <state x="729" y="302" width="524" height="509" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/72.27.1848.1053@72.27.1848.1053" timestamp="1600902544674" />
-    <state x="729" y="310" width="524" height="491" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1601413267864">
-      <screen x="72" y="27" width="1848" height="1053" />
-    </state>
-    <state x="726" y="310" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1599386219884" />
-    <state x="729" y="310" width="524" height="491" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/72.27.1848.1053@72.27.1848.1053" timestamp="1601413267864" />
-    <state x="532" y="100" width="912" height="904" key="CommitChangelistDialog2" timestamp="1599145436050">
-      <screen x="67" y="27" width="1853" height="1053" />
-    </state>
-    <state x="532" y="100" width="912" height="904" key="CommitChangelistDialog2/67.27.1853.1053@67.27.1853.1053" timestamp="1599145436050" />
-    <state x="172" y="127" width="1648" height="853" key="DiffContextDialog" timestamp="1601904371216">
-      <screen x="72" y="27" width="1848" height="1053" />
-    </state>
-    <state x="172" y="127" width="1648" height="853" key="DiffContextDialog/72.27.1848.1053@72.27.1848.1053" timestamp="1601904371216" />
-    <state x="774" y="296" width="424" height="491" key="FileChooserDialogImpl" timestamp="1601820917007">
-      <screen x="72" y="27" width="1848" height="1053" />
-    </state>
-    <state x="771" y="296" width="424" height="513" key="FileChooserDialogImpl/67.27.1853.1053@67.27.1853.1053" timestamp="1599048780115" />
-    <state x="774" y="296" width="424" height="491" key="FileChooserDialogImpl/72.27.1848.1053@72.27.1848.1053" timestamp="1601820917007" />
-    <state x="785" y="473" key="Github.CreateGistDialog" timestamp="1599044963788">
-      <screen x="67" y="27" width="1853" height="1053" />
-    </state>
-    <state x="785" y="473" key="Github.CreateGistDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1599044963788" />
-    <state x="592" y="288" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1602953882374">
-      <screen x="72" y="27" width="1848" height="1053" />
-    </state>
-    <state x="588" y="288" width="800" height="528" key="Vcs.Push.Dialog.v2/67.27.1853.1053@67.27.1853.1053" timestamp="1599145441581" />
-    <state x="592" y="288" width="800" height="535" key="Vcs.Push.Dialog.v2/72.27.1848.1053@72.27.1848.1053" timestamp="1602953882374" />
-    <state x="690" y="270" width="602" height="573" key="VcsDiffUtil.ChangesDialog" timestamp="1600595370267">
-      <screen x="72" y="27" width="1848" height="1053" />
-    </state>
-    <state x="690" y="270" width="602" height="573" key="VcsDiffUtil.ChangesDialog/72.27.1848.1053@72.27.1848.1053" timestamp="1600595370267" />
-    <state x="687" y="162" width="677" height="783" key="find.popup" timestamp="1601509273079">
-      <screen x="72" y="27" width="1848" height="1053" />
-    </state>
-    <state x="687" y="162" width="677" height="783" key="find.popup/72.27.1848.1053@72.27.1848.1053" timestamp="1601509273079" />
-    <state x="1430" y="279" width="197" height="580" key="ftp.server.browser" timestamp="1600777002977">
-      <screen x="72" y="27" width="1848" height="1053" />
-    </state>
-    <state x="1430" y="279" width="197" height="580" key="ftp.server.browser/72.27.1848.1053@72.27.1848.1053" timestamp="1600777002977" />
-    <state x="167" y="125" width="1653" height="855" maximized="true" key="git4idea.log.GitShowExternalLogAction" timestamp="1599048955674">
-      <screen x="67" y="27" width="1853" height="1053" />
-    </state>
-    <state x="167" y="125" width="1653" height="855" maximized="true" key="git4idea.log.GitShowExternalLogAction/67.27.1853.1053@67.27.1853.1053" timestamp="1599048955674" />
-    <state x="660" y="252" key="run.anything.popup" timestamp="1600606011418">
-      <screen x="72" y="27" width="1848" height="1053" />
-    </state>
-    <state x="660" y="252" key="run.anything.popup/72.27.1848.1053@72.27.1848.1053" timestamp="1600606011418" />
-    <state x="826" y="346" width="324" height="412" key="svn.repositoryBrowser" timestamp="1599044941793">
-      <screen x="67" y="27" width="1853" height="1053" />
-    </state>
-    <state x="826" y="346" width="324" height="412" key="svn.repositoryBrowser/67.27.1853.1053@67.27.1853.1053" timestamp="1599044941793" />
-    <state x="791" y="320" width="384" height="465" key="svn4idea.import.options" timestamp="1599044930198">
-      <screen x="67" y="27" width="1853" height="1053" />
-    </state>
-    <state x="791" y="320" width="384" height="465" key="svn4idea.import.options/67.27.1853.1053@67.27.1853.1053" timestamp="1599044930198" />
-    <state x="721" y="467" width="540" height="179" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1600298195304">
-      <screen x="72" y="27" width="1848" height="1053" />
-    </state>
-    <state x="721" y="467" width="540" height="179" key="vcs.readOnlyHandler.ReadOnlyStatusDialog/72.27.1848.1053@72.27.1848.1053" timestamp="1600298195304" />
   </component>
 </project>

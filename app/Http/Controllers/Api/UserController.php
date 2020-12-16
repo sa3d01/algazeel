@@ -62,10 +62,12 @@ class UserController extends MasterController
     public function search(Request $request){
 //        $name = str_replace(' ', '', $request['name']);
         $name = $request['name'];
-        $users=User::where('name','like','%'.$name.'%')->get();
-        if ($request['user_type_id'] && $request['user_type_id']!='')
-            $users=User::where('name','like','%'.$name.'%')->where('user_type_id',$request['user_type_id'])->get();
-        $data= new UserCollection($users);
+        $users=User::active()->where('name','like','%'.$name.'%');
+//        $users=User::where('name','like','%'.$name.'%')->get();
+        if ($request['user_type_id'] && $request['user_type_id']!=''){
+            $users=$users->where('user_type_id',$request['user_type_id']);
+        }
+        $data= new UserCollection($users->get());
         return $this->sendResponse($data);
     }
     public function users_list($user_type_id,Request $request){
@@ -111,6 +113,8 @@ class UserController extends MasterController
         $token=auth()->attempt($cred);
         if ($token){
             $user=auth()->user();
+            if ($user->status===0)
+                return $this->sendError('تم حظرك من قبل الاداراة');
             $user->update([
                 'device'=>[
                     'id'=>$request->device['id'],
@@ -132,7 +136,7 @@ class UserController extends MasterController
             ]
         ]);
         auth()->logout();
-        return $this->sendResponse('');
+        return $this->sendResponse('logout');
     }
     public function send_activation_code(Request $request){
         $validator = Validator::make($request->only('mobile'),['mobile' => 'required|max:10|regex:/(05)[0-9]{8}/'],$this->validation_messages());
