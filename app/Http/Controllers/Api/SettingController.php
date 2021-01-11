@@ -23,6 +23,9 @@ class SettingController extends MasterController
         $this->model = $model;
         parent::__construct();
     }
+    public function check(){
+        return $this->sendResponse('false');
+    }
 
     public function index(){
 //        if (!file_exists('/home/rowadtqnee/public_html/saadCopy'))

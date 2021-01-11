@@ -19,7 +19,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 Route::group(['prefix' => 'v1','namespace'=>'Api'], function () {
     Route::get('/setting', 'SettingController@index');
-    Route::get('/test-auth', 'SettingController@test');
+    Route::get('/check', 'SettingController@check');
 
     Route::group(['prefix' => '/user'], function () {
         Route::post('/upload_attachment', 'UserController@upload_attachment')->middleware(CheckApiToken::class);

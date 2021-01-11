@@ -21,12 +21,6 @@
   <component name="ChangeListManager">
     <list default="true" id="29d3824d-e6ac-4a03-84c0-23fc323bf7cc" name="Default Changelist" comment=".">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/NotificationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/NotificationController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/SettingController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/SettingController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/dashboard/contact/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard/contact/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -308,14 +302,14 @@
       <workItem from="1607468779108" duration="659000" />
       <workItem from="1607555116942" duration="2869000" />
       <workItem from="1607951544549" duration="1353000" />
-      <workItem from="1608030695410" duration="18232000" />
-    </task>
-    <task id="LOCAL-00024" summary="user list api">
-      <created>1601082778025</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1601082778025</updated>
+      <workItem from="1608030695410" duration="22099000" />
+      <workItem from="1608228866579" duration="437000" />
+      <workItem from="1608653430943" duration="969000" />
+      <workItem from="1609073888439" duration="2238000" />
+      <workItem from="1609088142072" duration="608000" />
+      <workItem from="1609431904799" duration="1295000" />
+      <workItem from="1609721129663" duration="190000" />
+      <workItem from="1610218051313" duration="680000" />
     </task>
     <task id="LOCAL-00025" summary="user list api">
       <created>1601083519418</created>
@@ -653,7 +647,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607090903350</updated>
     </task>
-    <option name="localTasksCounter" value="73" />
+    <task id="LOCAL-00073" summary=".">
+      <created>1608136384027</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1608136384028</updated>
+    </task>
+    <option name="localTasksCounter" value="74" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
